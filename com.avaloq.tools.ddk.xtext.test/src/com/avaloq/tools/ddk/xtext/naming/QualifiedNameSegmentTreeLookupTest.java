@@ -35,7 +35,7 @@ public class QualifiedNameSegmentTreeLookupTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testExact() {
+  void testExact() {
     QualifiedName name = name("foo");
     Collection<URI> values = Collections.singletonList(uri(name));
     lookup.putAll(name, values);
@@ -64,7 +64,7 @@ public class QualifiedNameSegmentTreeLookupTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testTopLevelPatternWithWildcard() {
+  void testTopLevelPatternWithWildcard() {
     URI value1 = put("foo");
     URI value2 = put("foo2");
     URI value3 = put("bar");
@@ -75,7 +75,7 @@ public class QualifiedNameSegmentTreeLookupTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testNestedPatternMatchesWithoutWildcard() {
+  void testNestedPatternMatchesWithoutWildcard() {
     URI value1 = put("foo");
     URI value2 = put("foo.bar");
     URI value3 = put("foo2");
@@ -86,7 +86,7 @@ public class QualifiedNameSegmentTreeLookupTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testNestedPatternMatchesWithWildcard() {
+  void testNestedPatternMatchesWithWildcard() {
     URI value1 = put("foo");
     URI value2 = put("foo.bar");
     URI value3 = put("foo.baz");
@@ -100,7 +100,7 @@ public class QualifiedNameSegmentTreeLookupTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testNestedPatternMatchesWithRecursiveWildcard() {
+  void testNestedPatternMatchesWithRecursiveWildcard() {
     URI value1 = put("foo");
     URI value2 = put("foo.bar");
     URI value3 = put("foo.bar.baz");
@@ -113,7 +113,7 @@ public class QualifiedNameSegmentTreeLookupTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testUnmatchedNestedPattern() {
+  void testUnmatchedNestedPattern() {
     URI value1 = put("foo");
     URI value2 = put("foo.bar");
     URI value3 = put("foo.bar.baz");
@@ -132,7 +132,7 @@ public class QualifiedNameSegmentTreeLookupTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testOutOfOrderInsertion() {
+  void testOutOfOrderInsertion() {
     QualifiedName name1 = name("foo.bar");
     Collection<URI> value1 = Collections.singletonList(uri(name1));
     lookup.putAll(name1, value1);

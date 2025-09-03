@@ -45,7 +45,7 @@ public class CheckValidatorTest extends AbstractCheckValidator {
    * @see {@link com.avaloq.tools.ddk.check.extensionpoint.test.validation.DummyValidator}
    */
   @org.junit.jupiter.api.Test
-  public void testAtLeastOneValidatorFound() {
+  void testAtLeastOneValidatorFound() {
     ICheckValidatorImpl dummyValidator = Iterables.getOnlyElement(getValidators(Maps.newHashMap(), null));
     assertEquals("Dummy validator found", "DummyValidator", dummyValidator.getClass().getSimpleName());
   }

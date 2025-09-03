@@ -107,7 +107,7 @@ public class ShortFragmentProviderTest extends AbstractTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testLongFragment2() {
+  void testLongFragment2() {
     int reps = 10;
     EObject root = EcoreUtil.create(testClass);
     EObject parent = root;

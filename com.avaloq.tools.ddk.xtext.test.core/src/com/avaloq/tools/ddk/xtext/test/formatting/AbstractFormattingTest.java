@@ -90,7 +90,7 @@ public abstract class AbstractFormattingTest extends AbstractXtextTest {
    * Test preservation of formatting using NodeModelFormatter.
    */
   @org.junit.jupiter.api.Test
-  public void preservedNodeModel() {
+  void preservedNodeModel() {
     assertPreservedNodeModel();
   }
 

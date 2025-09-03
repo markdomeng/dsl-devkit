@@ -48,7 +48,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @org.junit.jupiter.api.Test
-  public void linewrap() throws IOException {
+  void linewrap() throws IOException {
     String model = "test linewrap float val; int x; double y;";
     String expected = "test linewrap\nfloat val;\nint x;\ndouble y;";
     assertFormattedPTC(expected, model);
@@ -63,7 +63,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @org.junit.jupiter.api.Test
-  public void keepComments() throws IOException {
+  void keepComments() throws IOException {
     // String model = "test linewrap float val; int x; double y;";
     String model = "// begincomment \ntest linewrap// comment1\n" + "float val;//comment2\n" + "int x;" + "double y; //yoyoyo!\n// endcomment.";
     final String exp = "// begincomment \ntest linewrap// comment1\n" + "float val;//comment2\n" + "int x;\n" + "double y; //yoyoyo!\n// endcomment.";
@@ -78,7 +78,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @org.junit.jupiter.api.Test
-  public void column() throws IOException {
+  void column() throws IOException {
     String model = "test column item int x;";
     String expected = "test\n  column\n\titem          int x;";
     assertFormattedPTC(expected, model);
@@ -136,7 +136,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @org.junit.jupiter.api.Test
-  public void indentation() throws IOException {
+  void indentation() throws IOException {
     String model = "test indentation { float val; double y; indentation { int x; } }";
     String expected = "test indentation {\n	float val;\n	double y;\n	indentation {\n		int x;\n	}\n}";
     assertFormattedPTC(expected, model);
@@ -151,7 +151,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @org.junit.jupiter.api.Test
-  public void association() throws IOException {
+  void association() throws IOException {
     String model = "test indentation { var = [0,1,2,3,4]; }";
     String expected = "test indentation {\n	var=[ 0, 1, 2, 3, 4 ];\n}";
     assertFormattedPTC(expected, model);
@@ -197,7 +197,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @org.junit.jupiter.api.Test
-  public void between1() throws IOException {
+  void between1() throws IOException {
     String model = "test indentation { indentation { x x; }; }";
     String expected = "test indentation {\n	indentation {\n		x x;\n	};\n}";
     assertFormattedPTC(expected, model);
@@ -227,7 +227,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @org.junit.jupiter.api.Test
-  public void linewrapDatatypeRule() throws IOException {
+  void linewrapDatatypeRule() throws IOException {
     String model = "test linewrap fqn ab; fqn xx.yy.zz;";
     String expected = "test linewrap\nfqn\nab;\nfqn\nxx.yy.zz;";
     assertFormattedPTC(expected, model);
@@ -242,7 +242,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @org.junit.jupiter.api.Test
-  public void linewrapDatatypeRulePartial1() throws IOException {
+  void linewrapDatatypeRulePartial1() throws IOException {
     String model = "test linewrap fqn ab . xx .yy   .zz;";
     String expected = "test linewrap fqn ab.xx.yy.zz;";
     assertFormattedNM(expected, model, 22, 2);
@@ -255,7 +255,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @org.junit.jupiter.api.Test
-  public void linewrapDatatypeRulePartial2() throws IOException {
+  void linewrapDatatypeRulePartial2() throws IOException {
     String model = "test linewrap fqn ab . xx .yy   .zz;fqn xxx;";
     String expected = "test linewrap fqn\nab.xx.yy.zz;fqn xxx;";
     assertFormattedNM(expected, model, 15, 10);
@@ -268,7 +268,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @org.junit.jupiter.api.Test
-  public void linewrapDatatypeRulePartial3() throws IOException {
+  void linewrapDatatypeRulePartial3() throws IOException {
     String model = "test linewrap fqn ab . xx .yy   .zz;fqn xxx;";
     String expected = "test linewrap fqn ab.xx.yy.zz;\nfqn xxx;";
     assertFormattedNM(expected, model, 25, 12);
@@ -321,7 +321,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @org.junit.jupiter.api.Test
-  public void linewrapDatatypeRuleRef1() throws IOException {
+  void linewrapDatatypeRuleRef1() throws IOException {
     String model = "test linewrap fqn ab  .cd .ef; fqnref ab. cd. ef;";
     String expected = "test linewrap\nfqn\nab.cd.ef;\nfqnref\nab.cd.ef;";
     // assertFormattedPTC(expected, model);
@@ -351,7 +351,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @org.junit.jupiter.api.Test
-  public void linewrapDatatypeRuleComments() throws IOException {
+  void linewrapDatatypeRuleComments() throws IOException {
     String model = "test linewrap/* 1 */fqn/* 2 */ab.cd.ef/* 3 */;/* 4 */fqnref/* 5 */ab.cd.ef/* 6 */;/* 7 */";
     // The expected model string differs from Xtext's -
     // Xtext does not expect a line wrap after the keyword "linewrap"
@@ -418,7 +418,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @org.junit.jupiter.api.Test
-  public void linewrapMin() throws IOException {
+  void linewrapMin() throws IOException {
     String model = "test wrapminmax foo bar;";
     String expected = "test wrapminmax\n\nfoo bar;";
     assertFormattedPTC(expected, model);
@@ -448,7 +448,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @org.junit.jupiter.api.Test
-  public void linewrapKeep() throws IOException {
+  void linewrapKeep() throws IOException {
     String model = "test wrapminmax\n\n\n\nfoo bar;";
     assertFormattedPTC(model, model);
     assertFormattedNM(model, model, 0, model.length());
@@ -462,7 +462,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @org.junit.jupiter.api.Test
-  public void linewrapDefault() {
+  void linewrapDefault() {
     FormatterTestLanguageFactory f = FormatterTestLanguageFactory.eINSTANCE;
     TestLinewrapMinMax m = f.createTestLinewrapMinMax();
     Decl d = f.createDecl();
@@ -481,7 +481,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @org.junit.jupiter.api.Test
-  public void space() throws IOException {
+  void space() throws IOException {
     String model = "test linewrap space foo;";
     String expected = "test linewrap\nspace     foo;";
     assertFormattedPTC(expected, model);

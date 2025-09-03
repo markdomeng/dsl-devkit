@@ -103,7 +103,7 @@ public class FormatValidationTest extends AbstractValidationTest {
    * Tests that non-'rule' directives are invalid in a terminal rule context.
    */
   @org.junit.jupiter.api.Test
-  public void testNegativeACF1000() {
+  void testNegativeACF1000() {
     setFormattingRules(new String[0], "INT_EXP { \"e\" : no_space around;}");
     assertDiagnostic(parentFormat, FormatValidator.ILLEGAL_DIRECTIVE_CODE);
   }
@@ -112,7 +112,7 @@ public class FormatValidationTest extends AbstractValidationTest {
    * Tests that 'rule' directives are valid in a terminal rule context.
    */
   @org.junit.jupiter.api.Test
-  public void testPositiveACF1000() {
+  void testPositiveACF1000() {
     setFormattingRules(new String[0], "INT_EXP { rule : no_space around;}");
     assertNoDiagnostic(parentFormat, FormatValidator.ILLEGAL_DIRECTIVE_CODE);
   }
@@ -121,7 +121,7 @@ public class FormatValidationTest extends AbstractValidationTest {
    * Verify that IllegalOverride validation issues error for WildcardRules.
    */
   @org.junit.jupiter.api.Test
-  public void illegalWildcardRuleOverride() {
+  void illegalWildcardRuleOverride() {
     setFormattingRules(new String[] {OVERRIDE_WILDCARD_RULE});
     assertDiagnostic(extendingFormat, FormatValidator.OVERRIDE_ILLEGAL_CODE);
   }
@@ -139,7 +139,7 @@ public class FormatValidationTest extends AbstractValidationTest {
    * Verify that OverrideMissing validation issues error for WildcardRules.
    */
   @org.junit.jupiter.api.Test
-  public void missingWildcardRuleOverride() {
+  void missingWildcardRuleOverride() {
     setFormattingRules(new String[] {WILDCARD_RULE}, WILDCARD_RULE);
 
     assertDiagnostic(extendingFormat, FormatValidator.OVERRIDE_MISSING_CODE);
@@ -158,7 +158,7 @@ public class FormatValidationTest extends AbstractValidationTest {
    * Verify that OverrideMissing nor IllegalOverride validations issue no error.
    */
   @org.junit.jupiter.api.Test
-  public void wildcardRuleOverrideOK() {
+  void wildcardRuleOverrideOK() {
     setFormattingRules(new String[] {OVERRIDE_WILDCARD_RULE}, WILDCARD_RULE);
     assertNoDiagnostic(extendingFormat, FormatValidator.OVERRIDE_MISSING_CODE);
     assertNoDiagnostic(extendingFormat, FormatValidator.OVERRIDE_ILLEGAL_CODE);
@@ -168,7 +168,7 @@ public class FormatValidationTest extends AbstractValidationTest {
    * Verify that OverrideMissing nor IllegalOverride validations issue no error.
    */
   @org.junit.jupiter.api.Test
-  public void grammarRuleOverrideOK() {
+  void grammarRuleOverrideOK() {
     setFormattingRules(new String[] {OVERRIDE_INT_EXP_RULE}, INT_EXP_RULE);
     assertNoDiagnostic(extendingFormat, FormatValidator.OVERRIDE_MISSING_CODE);
     assertNoDiagnostic(extendingFormat, FormatValidator.OVERRIDE_ILLEGAL_CODE);
@@ -178,7 +178,7 @@ public class FormatValidationTest extends AbstractValidationTest {
    * Verify that ExtendedGrammarCompatible validation issues error when grammars of the Format models are incompatible.
    */
   @org.junit.jupiter.api.Test
-  public void extendedGrammarCompatible() {
+  void extendedGrammarCompatible() {
     try {
       getXtextTestUtil().getModel("MyDsl.xtext", "grammar com.avaloq.tools.ddk.xtext.format.validation.MyDsl\nimport \"http://www.eclipse.org/emf/2002/Ecore\" as ecore\nRule: 'rule';");
     } catch (IOException e) {
@@ -192,7 +192,7 @@ public class FormatValidationTest extends AbstractValidationTest {
    * Verify that ExtendedGrammarCompatible validation issues no error.
    */
   @org.junit.jupiter.api.Test
-  public void extendedGrammarCompatibleOK() {
+  void extendedGrammarCompatibleOK() {
     createModel(PARENT_MODEL_NAME, null);
     FormatConfiguration extendModel = createModel(EXTENDING_MODEL_NAME, PARENT_MODEL_NAME);
     assertNoDiagnostic(extendModel, FormatValidator.EXTENDED_GRAMMAR_INCOMPATIBLE_CODE);

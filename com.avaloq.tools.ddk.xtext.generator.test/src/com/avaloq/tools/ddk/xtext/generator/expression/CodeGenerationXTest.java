@@ -72,19 +72,19 @@ public class CodeGenerationXTest extends AbstractXtextTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testListLiterals() throws Exception {
+  void testListLiterals() throws Exception {
     assertEquals("java.util.Collections.<org.eclipse.emf.ecore.EObject> emptyList()", compile("{}")); // NOPMD
     assertEquals("java.util.Collections.singletonList(1)", compile("{1}")); // NOPMD
     assertEquals("com.google.common.collect.Lists.newArrayList(1, 2, 3)", compile("{1,2,3}")); // NOPMD
   }
 
   @org.junit.jupiter.api.Test
-  public void testIdentifiers() throws Exception {
+  void testIdentifiers() throws Exception {
     assertEquals("obj.getTrue()", compile("^true")); // NOPMD
   }
 
   @org.junit.jupiter.api.Test
-  public void testBracketing() throws Exception {
+  void testBracketing() throws Exception {
     // CHECKSTYLE:CONSTANTS-OFF
     assertEquals("(4 + 2) * 3", compile("(4 + 2) * 3")); // NOPMD
     assertEquals("(4 + 2) * 3 * 4", compile("(4 + 2) * 3 * 4")); // NOPMD
@@ -115,7 +115,7 @@ public class CodeGenerationXTest extends AbstractXtextTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testArithmetics() throws Exception {
+  void testArithmetics() throws Exception {
     // CHECKSTYLE:CONSTANTS-OFF
     assertEquals("4 + 2", compile("4 + 2")); // NOPMD
     assertEquals("4 - 2", compile("4 - 2")); // NOPMD
@@ -126,7 +126,7 @@ public class CodeGenerationXTest extends AbstractXtextTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testPrefixExpressions() throws Exception {
+  void testPrefixExpressions() throws Exception {
     // CHECKSTYLE:CONSTANTS-OFF
     assertEquals("-(4 * 2)", compile("-(4 * 2)")); // NOPMD
     assertEquals("-(-42)", compile("-(-42)")); // NOPMD
@@ -149,7 +149,7 @@ public class CodeGenerationXTest extends AbstractXtextTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testImplicitVariable() throws Exception {
+  void testImplicitVariable() throws Exception {
     assertEquals("obj", compile("this")); // NOPMD
   }
 
@@ -159,13 +159,13 @@ public class CodeGenerationXTest extends AbstractXtextTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testTypes() throws Exception {
+  void testTypes() throws Exception {
     assertEquals("org.eclipse.emf.ecore.EObject", compile("ecore::EObject")); // NOPMD
     assertEquals("String", compile("java::lang::String")); // NOPMD
   }
 
   @org.junit.jupiter.api.Test
-  public void testIsInstance() throws Exception {
+  void testIsInstance() throws Exception {
     assertEquals("obj instanceof org.eclipse.emf.ecore.EObject", compile("ecore::EObject.isInstance(this)")); // NOPMD
   }
 
@@ -178,7 +178,7 @@ public class CodeGenerationXTest extends AbstractXtextTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testTypeSelect() throws Exception {
+  void testTypeSelect() throws Exception {
     assertEquals(// NOPMD
         "com.google.common.collect.Iterables.filter(obj.getFoos(), org.eclipse.emf.ecore.EObject.class)", compile("this.foos.typeSelect(ecore::EObject)"));
     assertEquals(// NOPMD

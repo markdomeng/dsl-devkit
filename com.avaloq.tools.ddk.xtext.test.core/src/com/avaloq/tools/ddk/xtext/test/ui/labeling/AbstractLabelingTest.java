@@ -50,7 +50,7 @@ public abstract class AbstractLabelingTest extends AbstractXtextTest {
    * Tests that the expected elements and their labels are exactly identical to all elements of the default test resource.
    */
   @org.junit.jupiter.api.Test
-  public void testLabels() {
+  void testLabels() {
     if (getExpectedElementLabels() == null) {
       return; // TODO: remove this check once all tests have been refactored
     }

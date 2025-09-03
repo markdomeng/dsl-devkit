@@ -52,7 +52,7 @@ public class CheckCfgValidationTest extends TestCase {
    *           if a problem occurred parsing the test model
    */
   @org.junit.jupiter.api.Test
-  public void testDisabledCheckIsNotConfigured() throws Exception { // NOPMD
+  void testDisabledCheckIsNotConfigured() throws Exception { // NOPMD
     CheckConfiguration model = parser.parse(modelUtil.basicModelWithDisabledTest() + " (val = 0)");
     helper.assertWarning(model, CheckcfgPackage.Literals.CONFIGURED_CHECK, IssueCodes.DISABLED_CHECK_NOT_CONFIGURED);
   }

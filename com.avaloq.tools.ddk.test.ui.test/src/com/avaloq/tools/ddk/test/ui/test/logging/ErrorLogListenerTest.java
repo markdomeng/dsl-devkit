@@ -54,7 +54,7 @@ public class ErrorLogListenerTest {
    */
   @SuppressWarnings("unlikely-arg-type")
   @org.junit.jupiter.api.Test
-  public void testIgnoringExceptionLocations() throws InterruptedException {
+  void testIgnoringExceptionLocations() throws InterruptedException {
     assertFalse("NullPointerException must not have been logged.", errorLogListener.isExceptionLogged(NullPointerException.class));
     errorLogListener.ignoreException(NullPointerException.class, "com.avaloq.tools.ddk.test.core.util.ErrorLogListenerTest");
 

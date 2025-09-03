@@ -32,7 +32,7 @@ public class BugDsl27 extends AbstractCheckGenerationTestCase {
    * Tests that our test source compiles fine.
    */
   @org.junit.jupiter.api.Test
-  public void testGeneratedCodeHasNoErrors() {
+  void testGeneratedCodeHasNoErrors() {
     try (InputStream sourceStream = BugDsl27.class.getResourceAsStream("bugdsl27/BugDsl27")) {
       generateAndCompile(sourceStream);
     } catch (IOException exception) {

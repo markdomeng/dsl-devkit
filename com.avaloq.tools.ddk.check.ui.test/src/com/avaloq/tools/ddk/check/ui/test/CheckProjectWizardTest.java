@@ -67,7 +67,7 @@ public class CheckProjectWizardTest {
    * Test if the buttons 'next', 'back' and 'finish' are correctly enabled/disabled.
    */
   @org.junit.jupiter.api.Test
-  public void testProjectNameInvalid() {
+  void testProjectNameInvalid() {
     CheckWizardTestUtil.projectName(wizard, "", CheckWizardTestUtil.NEXT_DISABLED);
     CheckWizardTestUtil.projectName(wizard, ".project.name", CheckWizardTestUtil.NEXT_DISABLED);
     CheckWizardTestUtil.projectName(wizard, "Project.name", CheckWizardTestUtil.NEXT_DISABLED);

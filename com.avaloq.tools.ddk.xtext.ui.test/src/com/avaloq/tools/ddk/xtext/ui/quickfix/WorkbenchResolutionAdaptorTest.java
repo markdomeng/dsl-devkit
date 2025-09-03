@@ -43,7 +43,7 @@ public class WorkbenchResolutionAdaptorTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testGetLabel() {
+  void testGetLabel() {
     IssueResolution mockIssueResolution = mock(IssueResolution.class);
     IMarker mockMarker = mock(IMarker.class);
 
@@ -55,7 +55,7 @@ public class WorkbenchResolutionAdaptorTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testGetDescription() {
+  void testGetDescription() {
     IssueResolution mockIssueResolution = mock(IssueResolution.class);
     IMarker mockMarker = mock(IMarker.class);
 
@@ -67,7 +67,7 @@ public class WorkbenchResolutionAdaptorTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testGetImage() {
+  void testGetImage() {
     IssueResolution mockIssueResolution = mock(IssueResolution.class);
     IMarker mockMarker = mock(IMarker.class);
 
@@ -79,7 +79,7 @@ public class WorkbenchResolutionAdaptorTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void findOtherMarkers() {
+  void findOtherMarkers() {
     IssueResolution mockIssueResolution = mock(IssueResolution.class);
     IMarker mockResolutionMarker = mock(IMarker.class);
     when(mockResolutionMarker.getAttribute(Issue.CODE_KEY, null)).thenReturn(CODE1);

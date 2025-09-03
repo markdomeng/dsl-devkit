@@ -79,7 +79,7 @@ public class CheckMarkerHelpExtensionTest {
    *           the exception
    */
   @org.junit.jupiter.api.Test
-  public void testCreateExtension() throws Exception {
+  void testCreateExtension() throws Exception {
     IPluginExtension extension = createMarkerHelpExtension(parser.parse(CATALOG_WITH_FIRST_CHECK_LIVE));
 
     // Test if the extension has been created.
@@ -99,7 +99,7 @@ public class CheckMarkerHelpExtensionTest {
    *           the exception
    */
   @org.junit.jupiter.api.Test
-  public void testAddElement() throws Exception {
+  void testAddElement() throws Exception {
     final CheckCatalog catalogWithOneCheck = parser.parse(CATALOG_WITH_FIRST_CHECK_LIVE);
     IPluginExtension extension = createMarkerHelpExtension(catalogWithOneCheck);
 
@@ -124,7 +124,7 @@ public class CheckMarkerHelpExtensionTest {
    *           the exception
    */
   @org.junit.jupiter.api.Test
-  public void testRemoveElement() throws Exception {
+  void testRemoveElement() throws Exception {
     final CheckCatalog catalogWithTwoChecks = parser.parse(CATALOG_WITH_TWO_CHECKS);
     IPluginExtension extension = createMarkerHelpExtension(catalogWithTwoChecks);
 
@@ -144,7 +144,7 @@ public class CheckMarkerHelpExtensionTest {
    *           the exception
    */
   @org.junit.jupiter.api.Test
-  public void testMarkerTypeUpdate() throws Exception {
+  void testMarkerTypeUpdate() throws Exception {
     IPluginExtension extension = createMarkerHelpExtension(parser.parse(CATALOG_WITH_FIRST_CHECK_LIVE));
 
     assertEquals("Before update: Markertype is fast.", MARKERTYPE_FAST, ((IPluginElement) extension.getChildren()[0]).getAttribute(CheckMarkerHelpExtensionHelper.MARKERTYPE_ATTRIBUTE_TAG).getValue());
@@ -165,7 +165,7 @@ public class CheckMarkerHelpExtensionTest {
    *           the exception
    */
   @org.junit.jupiter.api.Test
-  public void testCheckHasTwoIssueCodes() throws Exception {
+  void testCheckHasTwoIssueCodes() throws Exception {
     IPluginExtension extension = createMarkerHelpExtension(parser.parse(CATALOG_WITH_FIRST_CHECK_LIVE));
 
     CheckCatalog twoIssueCodes = parser.parse(CATALOG_CHECK_HAS_TWO_ISSUECODES);

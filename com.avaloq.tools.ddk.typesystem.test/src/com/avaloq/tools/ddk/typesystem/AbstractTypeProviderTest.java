@@ -126,7 +126,7 @@ public class AbstractTypeProviderTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testTypeProviderCyclicOverride() {
+  void testTypeProviderCyclicOverride() {
     ITypeProvider provider = new CyclicOverrideTypeProvider();
     assertEquals("cyclic override type for expression1 not type1", type1, provider.getType(expression1));
     assertEquals("cyclic override type for expression2 not type1", type1, provider.getType(expression2));
@@ -137,7 +137,7 @@ public class AbstractTypeProviderTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testTypeProviderCyclicOverrideMixed() {
+  void testTypeProviderCyclicOverrideMixed() {
     ITypeProvider provider = new CyclicOverrideMixedTypeProvider();
     assertEquals("cyclic mixed type for expression1 not type1", type1, provider.getType(expression1));
     assertEquals("cyclic mixed type for expression2 not type1", type1, provider.getType(expression2));

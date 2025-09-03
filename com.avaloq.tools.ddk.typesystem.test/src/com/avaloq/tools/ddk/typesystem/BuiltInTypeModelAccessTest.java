@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Test;
 public class BuiltInTypeModelAccessTest {
 
   @org.junit.jupiter.api.Test
-  public void testLoadModel() {
+  void testLoadModel() {
     BuiltInTypeModelAccess typeModelInstance = BuiltInTypeModelAccess.getInstance();
     BuiltInTypeModel model = typeModelInstance.getModel();
     assertNotNull("Model was created", model);
@@ -50,7 +50,7 @@ public class BuiltInTypeModelAccessTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testHasInternalTypes() {
+  void testHasInternalTypes() {
     assertPresence(BuiltInTypeModelAccess.ANY_TYPE_NAME);
     assertPresence(BuiltInTypeModelAccess.ERROR_TYPE_NAME);
     assertPresence(BuiltInTypeModelAccess.UNDETERMINED_TYPE_NAME);
@@ -65,7 +65,7 @@ public class BuiltInTypeModelAccessTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testUniqueInternalTypes() {
+  void testUniqueInternalTypes() {
     assertUnique(BuiltInTypeModelAccess.ANY_TYPE_NAME);
     assertUnique(BuiltInTypeModelAccess.ERROR_TYPE_NAME);
     assertUnique(BuiltInTypeModelAccess.UNDETERMINED_TYPE_NAME);

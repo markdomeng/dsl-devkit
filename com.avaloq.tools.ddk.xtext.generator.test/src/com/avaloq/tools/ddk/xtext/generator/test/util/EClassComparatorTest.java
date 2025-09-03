@@ -38,7 +38,7 @@ public class EClassComparatorTest {
   private final Function<EClass, EClass> mapping = Functions.<EClass> identity();
 
   @org.junit.jupiter.api.Test
-  public void testSorting() {
+  void testSorting() {
     List<EClass> sorted = EClassComparator.sortedGroups(Lists.newArrayList(ECLASS, EDATA_TYPE, EPACKAGE, ECLASSIFIER), mapping);
     assertEquals(Lists.newArrayList(ECLASS, EDATA_TYPE, EPACKAGE, ECLASSIFIER), sorted);
 

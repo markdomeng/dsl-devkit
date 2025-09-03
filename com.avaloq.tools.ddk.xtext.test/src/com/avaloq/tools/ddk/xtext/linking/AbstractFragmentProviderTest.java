@@ -64,7 +64,7 @@ public class AbstractFragmentProviderTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testUnescapeEscape() {
+  void testUnescapeEscape() {
     for (String text : SPECIAL_ESCAPE_CASES) {
       StringBuilder builder = new StringBuilder();
       fragmentProvider.appendEscaped(text, builder);

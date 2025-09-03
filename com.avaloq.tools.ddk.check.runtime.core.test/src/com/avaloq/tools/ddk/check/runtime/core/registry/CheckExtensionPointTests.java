@@ -107,7 +107,7 @@ public class CheckExtensionPointTests extends TestCase {
    * point registry.
    */
   @org.junit.jupiter.api.Test
-  public void testInvalidClientNotRegistered() {
+  void testInvalidClientNotRegistered() {
     assertNull("Non-existing client not registered to the check extension point", findCheckExtensionPoint(findExtensionPoints()).getExtension("a.b.c"));
   }
 
@@ -115,7 +115,7 @@ public class CheckExtensionPointTests extends TestCase {
    * Tests that the check extension point has an attribute {@value #TARGET_CLASS_ATTRIBUTE}.
    */
   @org.junit.jupiter.api.Test
-  public void testTargetClassAttributeFound() {
+  void testTargetClassAttributeFound() {
     IExtensionPoint point = findCheckExtensionPoint(findExtensionPoints());
     assertNotNull("Found a configuration element with attribute \"targetClass\"", findConfigurationElement(point.getConfigurationElements(), TARGET_CLASS_ATTRIBUTE));
   }
@@ -124,7 +124,7 @@ public class CheckExtensionPointTests extends TestCase {
    * Tests that the check extension point has an attribute {@value #LANGUAGE_ATTRIBUTE}.
    */
   @org.junit.jupiter.api.Test
-  public void testLanguageAttributeFound() {
+  void testLanguageAttributeFound() {
     IExtensionPoint point = findCheckExtensionPoint(findExtensionPoints());
     assertNotNull("Found a configuration element with attribute \"language\"", findConfigurationElement(point.getConfigurationElements(), LANGUAGE_ATTRIBUTE));
   }

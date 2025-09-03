@@ -102,13 +102,13 @@ public class FormatScopingTest extends AbstractScopingTest {
    * Tests that all grammars' rules are scoped.
    */
   @org.junit.jupiter.api.Test
-  public void allGrammarsScoped() {
+  void allGrammarsScoped() {
     Set<URI> expectedURIs = Sets.newHashSet(EcoreUtil.getURI(grammarC.getRules().get(0)), EcoreUtil.getURI(grammarB.getRules().get(0)), EcoreUtil.getURI(grammarA.getRules().get(0)), EcoreUtil.getURI(grammarA.getRules().get(1)));
     assertScope(formatC, FormatPackage.Literals.GRAMMAR_RULE__TARGET_RULE, expectedURIs);
   }
 
   @org.junit.jupiter.api.Test
-  public void keywordScoped() {
+  void keywordScoped() {
     AbstractRule parserRuleA = grammarA.getRules().get(0);
     Set<URI> keywordURIs = Sets.newHashSet(Iterables.transform(GrammarUtil.containedKeywords(parserRuleA), TO_URI));
     assertFalse("No keywords found", keywordURIs.isEmpty());
@@ -153,7 +153,7 @@ public class FormatScopingTest extends AbstractScopingTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void groupScoped() {
+  void groupScoped() {
     ParserRule parserRuleA = (ParserRule) grammarA.getRules().get(0);
 
     CompoundElement group1 = findSemanticElementByString("(", CompoundElement.class, parserRuleA); // ('-' b=STRING | ('-'c=ID ('-'d=INT | '-'e=STRING)))?

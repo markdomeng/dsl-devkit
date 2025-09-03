@@ -67,7 +67,7 @@ public class FormatBuilderParticipantTest extends AbstractXtextTest {
    * Tests whether a {@link Delta} resource has a correct extension to be used by org.eclipse.xtext.builder.BuilderParticipant.
    */
   @org.junit.jupiter.api.Test
-  public void hasCorrectExtensionTest() {
+  void hasCorrectExtensionTest() {
     IResourceServiceProvider resourceServiceProvider = mock(IResourceServiceProvider.class);
     when(resourceServiceProvider.canHandle(argThat(new IsUri()))).thenReturn(true, false);
     assertTrue("Check if the delta resource has correct extension", participant.hasCorrectExtension(delta, resourceServiceProvider));

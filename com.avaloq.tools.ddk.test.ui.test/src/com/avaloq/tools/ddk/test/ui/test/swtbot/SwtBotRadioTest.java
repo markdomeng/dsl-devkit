@@ -58,7 +58,7 @@ public class SwtBotRadioTest {
    * Test if the method {@link com.avaloq.tools.ddk.test.ui.swtbot.SwtBotRadio#click()} works correctly.
    */
   @org.junit.jupiter.api.Test
-  public void testSwtRadioButtonClick() {
+  void testSwtRadioButtonClick() {
     SwtWorkbenchBot bot = new SwtWorkbenchBot();
     bot.resetWorkbench();
     testRadioButtonClick(bot);

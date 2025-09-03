@@ -26,12 +26,12 @@ public class ExportValidationTest extends AbstractValidationTest {
   }
 
   @org.junit.jupiter.api.Test
-  public final void testCheckExtensions() {
+  final void testCheckExtensions() {
     // TODO cannot test as unable to load resource in test environment assertDiagnosticMessage("Extension 'XYZ' not found");
   }
 
   @org.junit.jupiter.api.Test
-  public final void testCheckInterfaceAndExportUniqueness() {
+  final void testCheckInterfaceAndExportUniqueness() {
     assertDiagnosticMessage("declaration duplicate found: ecore::EClass");
   }
 
@@ -41,7 +41,7 @@ public class ExportValidationTest extends AbstractValidationTest {
   }
 
   @org.junit.jupiter.api.Test
-  public final void testCheckUserDataNameAsFeature() {
+  final void testCheckUserDataNameAsFeature() {
     assertDiagnosticMessage("instanceClassName is already defined as field");
     // TODO assertDiagnosticMessage("xxx has the same name as an existing feature");
   }

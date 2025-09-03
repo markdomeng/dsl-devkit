@@ -51,7 +51,7 @@ public class AbstractSelectorFragmentProviderTest extends AbstractXtextTests {
   }
 
   @org.junit.jupiter.api.Test
-  public void testTopLevelObject() throws Exception {
+  void testTopLevelObject() throws Exception {
     Grammar grammar = (Grammar) getModel("grammar foo.Foo\n" + "generate foo 'http://www.foo.com/foo'\n" + "Foo: 'foo';");
     assertFragmentMatchesAndResolves(grammar.eResource(), "/0", grammar);
   }
@@ -63,13 +63,13 @@ public class AbstractSelectorFragmentProviderTest extends AbstractXtextTests {
   }
 
   @org.junit.jupiter.api.Test
-  public void testSingleValuedContainment() throws Exception {
+  void testSingleValuedContainment() throws Exception {
     Grammar grammar = (Grammar) getModel("grammar foo.Foo\n" + "generate foo 'http://www.foo.com/foo'\n" + "Foo: 'foo'+;");
     assertFragmentMatchesAndResolves(grammar.eResource(), "/0/5(0='Foo')#0/2(3='foo')", grammar.getRules().get(0).getAlternatives());
   }
 
   @org.junit.jupiter.api.Test
-  public void testNullSelectorValue() throws Exception {
+  void testNullSelectorValue() throws Exception {
     Grammar grammar = (Grammar) getModel("grammar foo.Foo\n" + "generate foo 'http://www.foo.com/foo'\n" + "Foo: 'selectCardinality';");
     assertFragmentMatchesAndResolves(grammar.eResource(), "/0/5(0='Foo')#0/2(0=null)", grammar.getRules().get(0).getAlternatives());
 

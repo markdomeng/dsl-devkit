@@ -37,7 +37,7 @@ import org.junit.jupiter.api.Test;
 public class ResourceDescriptionDeltaTest {
 
   @org.junit.jupiter.api.Test
-  public void testGetAddedAndDeletedObjects() {
+  void testGetAddedAndDeletedObjects() {
     ResourceDescriptionDelta delta = new ResourceDescriptionDelta(createDescription("a"), createDescription("a"), null);
     assertDeltaEquals(0, 0, 0, delta);
 
@@ -76,7 +76,7 @@ public class ResourceDescriptionDeltaTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testDeltaForDeletedResource() {
+  void testDeltaForDeletedResource() {
     ResourceDescriptionDelta delta = new ResourceDescriptionDelta(createDescription("a"), null, null);
     assertDeltaEquals(0, 0, 1, delta);
   }

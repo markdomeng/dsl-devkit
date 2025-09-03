@@ -56,12 +56,12 @@ public class SimpleEnumTemplateVariableResolverTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testResolveValuesWithOneParam() throws TemplateException {
+  void testResolveValuesWithOneParam() throws TemplateException {
     testResolveValues("Value"); //$NON-NLS-1$
   }
 
   @org.junit.jupiter.api.Test
-  public void testResolveValuesWithMultipleParams() throws TemplateException {
+  void testResolveValuesWithMultipleParams() throws TemplateException {
     testResolveValues("Value 1", "Value 2", "Value 3"); //$NON-NLS-1$//$NON-NLS-2$//$NON-NLS-3$
   }
 

@@ -26,7 +26,7 @@ public class ExportValidationOkTest extends AbstractValidationTest {
   }
 
   @org.junit.jupiter.api.Test
-  public final void testCheckAll() {
+  final void testCheckAll() {
     assertNoDiagnostics();
   }
 

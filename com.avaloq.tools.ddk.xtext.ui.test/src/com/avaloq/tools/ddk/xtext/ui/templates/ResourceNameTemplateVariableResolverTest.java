@@ -88,12 +88,12 @@ public class ResourceNameTemplateVariableResolverTest {
   }
 
   @org.junit.jupiter.api.Test
-  public void testResolveValuesWithExtraParams() throws TemplateException {
+  void testResolveValuesWithExtraParams() throws TemplateException {
     testResolveValues(new Object[] {FILE[0], "other", "random", "values"}, FILENAME, FILENAME); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
   }
 
   @org.junit.jupiter.api.Test
-  public void testResolveValuesWithUnknownParam() throws TemplateException {
+  void testResolveValuesWithUnknownParam() throws TemplateException {
     testResolveValues(new Object[] {"This is not the parameter you are looking for"}, FILENAME); //$NON-NLS-1$
   }
 

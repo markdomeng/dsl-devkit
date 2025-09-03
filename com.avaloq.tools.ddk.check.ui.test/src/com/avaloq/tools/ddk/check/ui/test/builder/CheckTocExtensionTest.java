@@ -74,7 +74,7 @@ public class CheckTocExtensionTest extends TestCase {
    *           the core exception
    */
   @org.junit.jupiter.api.Test
-  public void testCreateExtension() throws CoreException {
+  void testCreateExtension() throws CoreException {
     IPluginExtension extension = tocUtil.addExtensionToPluginBase(pluginModel, catalog, ExtensionType.CONTEXTS, null);
     assertEquals("Toc extension has been created", CheckTocExtensionHelper.TOC_EXTENSION_POINT_ID, extension.getPoint());
     assertEquals("Toc extension name is correct", tocUtil.getExtensionPointName(catalog), extension.getName());
@@ -89,7 +89,7 @@ public class CheckTocExtensionTest extends TestCase {
    *           the core exception
    */
   @org.junit.jupiter.api.Test
-  public void testIsExtensionUpdateRequiredTrue() throws CoreException {
+  void testIsExtensionUpdateRequiredTrue() throws CoreException {
     IPluginExtension extension = createErroneousTocExtension();
 
     Iterable<IPluginElement> elements = Iterables.filter(Lists.newArrayList(extension.getChildren()), IPluginElement.class);
