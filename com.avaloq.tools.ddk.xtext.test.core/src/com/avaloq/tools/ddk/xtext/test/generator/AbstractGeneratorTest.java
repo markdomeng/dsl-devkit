@@ -43,7 +43,7 @@ import org.eclipse.xtext.ui.XtextProjectHelper;
 import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil;
 import org.eclipse.xtext.ui.testing.util.JavaProjectSetupUtil;
 import org.eclipse.xtext.ui.util.PluginProjectFactory;
-import org.junit.AfterClass;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.Assert;
 
 import com.google.common.base.Functions;
@@ -91,7 +91,7 @@ public abstract class AbstractGeneratorTest {
   /**
    * Clean up after all tests have terminated.
    */
-  @AfterClass
+  @AfterAll
   public static void cleanUp() {
     try {
       IResourcesSetupUtil.cleanWorkspace();

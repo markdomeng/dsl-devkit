@@ -19,7 +19,7 @@ import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.SaveOptions;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.xtext.test.AbstractXtextTest;
 
@@ -89,7 +89,7 @@ public abstract class AbstractFormattingTest extends AbstractXtextTest {
   /**
    * Test preservation of formatting using NodeModelFormatter.
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void preservedNodeModel() {
     assertPreservedNodeModel();
   }

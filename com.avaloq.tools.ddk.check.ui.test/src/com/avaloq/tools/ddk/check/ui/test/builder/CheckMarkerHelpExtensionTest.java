@@ -28,7 +28,7 @@ import org.eclipse.pde.internal.core.plugin.WorkspacePluginModel;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.XtextRunner;
 import org.eclipse.xtext.testing.util.ParseHelper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.check.check.CheckCatalog;
@@ -78,7 +78,7 @@ public class CheckMarkerHelpExtensionTest {
    * @throws Exception
    *           the exception
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void testCreateExtension() throws Exception {
     IPluginExtension extension = createMarkerHelpExtension(parser.parse(CATALOG_WITH_FIRST_CHECK_LIVE));
 
@@ -98,7 +98,7 @@ public class CheckMarkerHelpExtensionTest {
    * @throws Exception
    *           the exception
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void testAddElement() throws Exception {
     final CheckCatalog catalogWithOneCheck = parser.parse(CATALOG_WITH_FIRST_CHECK_LIVE);
     IPluginExtension extension = createMarkerHelpExtension(catalogWithOneCheck);
@@ -123,7 +123,7 @@ public class CheckMarkerHelpExtensionTest {
    * @throws Exception
    *           the exception
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void testRemoveElement() throws Exception {
     final CheckCatalog catalogWithTwoChecks = parser.parse(CATALOG_WITH_TWO_CHECKS);
     IPluginExtension extension = createMarkerHelpExtension(catalogWithTwoChecks);
@@ -143,7 +143,7 @@ public class CheckMarkerHelpExtensionTest {
    * @throws Exception
    *           the exception
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void testMarkerTypeUpdate() throws Exception {
     IPluginExtension extension = createMarkerHelpExtension(parser.parse(CATALOG_WITH_FIRST_CHECK_LIVE));
 
@@ -164,7 +164,7 @@ public class CheckMarkerHelpExtensionTest {
    * @throws Exception
    *           the exception
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void testCheckHasTwoIssueCodes() throws Exception {
     IPluginExtension extension = createMarkerHelpExtension(parser.parse(CATALOG_WITH_FIRST_CHECK_LIVE));
 

@@ -17,7 +17,7 @@ import java.io.IOException;
 import org.eclipse.xtend.expression.ExecutionContextImpl;
 import org.eclipse.xtend.type.impl.java.JavaBeansMetaModel;
 import org.eclipse.xtend.typesystem.emf.EmfRegistryMetaModel;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.xtext.expression.expression.Expression;
 import com.avaloq.tools.ddk.xtext.expression.generator.CompilationContext;
@@ -71,19 +71,19 @@ public class CodeGenerationXTest extends AbstractXtextTest {
     // CHECKSTYLE:CONSTANTS-ON
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testListLiterals() throws Exception {
     assertEquals("java.util.Collections.<org.eclipse.emf.ecore.EObject> emptyList()", compile("{}")); // NOPMD
     assertEquals("java.util.Collections.singletonList(1)", compile("{1}")); // NOPMD
     assertEquals("com.google.common.collect.Lists.newArrayList(1, 2, 3)", compile("{1,2,3}")); // NOPMD
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testIdentifiers() throws Exception {
     assertEquals("obj.getTrue()", compile("^true")); // NOPMD
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testBracketing() throws Exception {
     // CHECKSTYLE:CONSTANTS-OFF
     assertEquals("(4 + 2) * 3", compile("(4 + 2) * 3")); // NOPMD
@@ -114,7 +114,7 @@ public class CodeGenerationXTest extends AbstractXtextTest {
     // CHECKSTYLE:CONSTANTS-ON
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testArithmetics() throws Exception {
     // CHECKSTYLE:CONSTANTS-OFF
     assertEquals("4 + 2", compile("4 + 2")); // NOPMD
@@ -125,7 +125,7 @@ public class CodeGenerationXTest extends AbstractXtextTest {
     // CHECKSTYLE:CONSTANTS-ON
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testPrefixExpressions() throws Exception {
     // CHECKSTYLE:CONSTANTS-OFF
     assertEquals("-(4 * 2)", compile("-(4 * 2)")); // NOPMD
@@ -148,7 +148,7 @@ public class CodeGenerationXTest extends AbstractXtextTest {
     // CHECKSTYLE:CONSTANTS-ON
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testImplicitVariable() throws Exception {
     assertEquals("obj", compile("this")); // NOPMD
   }
@@ -158,13 +158,13 @@ public class CodeGenerationXTest extends AbstractXtextTest {
     assertEquals("((org.eclipse.emf.ecore.EObject) obj)", compile("(ecore::EObject) this")); // NOPMD
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testTypes() throws Exception {
     assertEquals("org.eclipse.emf.ecore.EObject", compile("ecore::EObject")); // NOPMD
     assertEquals("String", compile("java::lang::String")); // NOPMD
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testIsInstance() throws Exception {
     assertEquals("obj instanceof org.eclipse.emf.ecore.EObject", compile("ecore::EObject.isInstance(this)")); // NOPMD
   }
@@ -177,7 +177,7 @@ public class CodeGenerationXTest extends AbstractXtextTest {
     // CHECKSTYLE:CONSTANTS-ON
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testTypeSelect() throws Exception {
     assertEquals(// NOPMD
         "com.google.common.collect.Iterables.filter(obj.getFoos(), org.eclipse.emf.ecore.EObject.class)", compile("this.foos.typeSelect(ecore::EObject)"));

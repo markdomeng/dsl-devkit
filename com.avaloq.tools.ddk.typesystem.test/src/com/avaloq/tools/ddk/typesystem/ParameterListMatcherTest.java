@@ -20,7 +20,6 @@ import java.util.Locale;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.junit.Test;
 
 import com.avaloq.tools.ddk.typesystem.IParameterMatchChecker.IMatchResult;
 import com.avaloq.tools.ddk.typesystem.ParameterListMatcher.ParameterListMatchResult;
@@ -33,6 +32,7 @@ import com.avaloq.tools.ddk.typesystem.typemodel.INamedActualParameter;
 import com.avaloq.tools.ddk.typesystem.typemodel.INamedFormalParameter;
 import com.avaloq.tools.ddk.typesystem.typemodel.IType;
 import com.avaloq.tools.ddk.typesystem.typemodel.impl.NamedTypeImpl;
+import org.junit.jupiter.api.Test;
 
 
 // You can't have too many tests
@@ -227,7 +227,7 @@ public class ParameterListMatcherTest {
     checkParameterMatch(IParameterMatchChecker.MatchStatus.MATCH, actuals.get(0), formals.get(0), matches.get(0));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testOneNamedAgainstOne() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
@@ -239,7 +239,7 @@ public class ParameterListMatcherTest {
     checkParameterMatch(IParameterMatchChecker.MatchStatus.MATCH, actuals.get(0), formals.get(0), matches.get(0));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testOneNamedAgainstOneCaseSensitive() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1.toUpperCase(Locale.getDefault()), intType));
@@ -260,7 +260,7 @@ public class ParameterListMatcherTest {
     checkParameterMatch(IParameterMatchChecker.MatchStatus.NO_MATCH_FOR_NAMED_ACTUAL, actuals.get(0), null, matches.get(0));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testOneUnnamedAgainstNone() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     List<ActualParameter> actuals = new ArrayList<ActualParameter>();
@@ -310,7 +310,7 @@ public class ParameterListMatcherTest {
     assertSame(INCORRECT_UNMATCHED_MANDATORY_FORMAL, mandatoryParam2, matchResult.getUnmatchedMandatoryFormalParameters().get(1));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testNoneAgainstTwoMixed() {
     // one mandatory and one not mandatory
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
@@ -562,7 +562,7 @@ public class ParameterListMatcherTest {
     checkParameterMatch(IParameterMatchChecker.MatchStatus.MATCH, actuals.get(0), formals.get(0), matches.get(0));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testInvalidActualNull() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
@@ -627,7 +627,7 @@ public class ParameterListMatcherTest {
     checkParameterMatch(IParameterMatchChecker.MatchStatus.INVALID_ACTUAL, actuals.get(1), null, matches.get(1));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testInvalidFormalNull() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
@@ -681,7 +681,7 @@ public class ParameterListMatcherTest {
     checkParameterMatch(IParameterMatchChecker.MatchStatus.INVALID_ACTUAL, actuals.get(2), null, matches.get(2));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testDuplicateFormalName() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
@@ -716,7 +716,7 @@ public class ParameterListMatcherTest {
     checkParameterMatch(IParameterMatchChecker.MatchStatus.DUPLICATE_NAMED_ACTUAL, actuals.get(2), formals.get(1), matches.get(2));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testPositionalAfterNamed1() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
@@ -734,7 +734,7 @@ public class ParameterListMatcherTest {
     checkParameterMatch(IParameterMatchChecker.MatchStatus.POSITIONAL_AFTER_NAMED, actuals.get(2), null, matches.get(2));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testPositionalAfterNamed2() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
@@ -758,7 +758,7 @@ public class ParameterListMatcherTest {
 
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testNamedMatchesPositional() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
@@ -788,7 +788,7 @@ public class ParameterListMatcherTest {
     check2Successful(formals, actuals);
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testNamedFormalAfterUnnamed2() {
     // these are allowed, match named by name.
     List<FormalParameter> formals = new ArrayList<FormalParameter>();
@@ -800,7 +800,7 @@ public class ParameterListMatcherTest {
     check2Successful(formals, actuals);
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testNamedFormalAfterUnnamed3() {
     // these are allowed, match named by name, unnamed and named optional
     List<FormalParameter> formals = new ArrayList<FormalParameter>();
@@ -907,7 +907,7 @@ public class ParameterListMatcherTest {
     checkParameterMatch(IParameterMatchChecker.MatchStatus.MATCH, actuals.get(2), formals.get(2), matches.get(2));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testForceMatchByPosition2() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
@@ -925,7 +925,7 @@ public class ParameterListMatcherTest {
     checkParameterMatch(IParameterMatchChecker.MatchStatus.MATCH, actuals.get(2), formals.get(2), matches.get(2));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testForceMatchByPosition3() {
     List<FormalParameter> formals = new ArrayList<FormalParameter>();
     formals.add(new FormalParameter(intType));

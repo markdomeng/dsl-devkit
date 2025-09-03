@@ -20,7 +20,7 @@ import org.eclipse.internal.xtend.xtend.parser.ParseFacade;
 import org.eclipse.xtend.expression.ExecutionContextImpl;
 import org.eclipse.xtend.type.impl.java.JavaBeansMetaModel;
 import org.eclipse.xtend.typesystem.Type;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.xtext.expression.generator.CompilationContext;
 

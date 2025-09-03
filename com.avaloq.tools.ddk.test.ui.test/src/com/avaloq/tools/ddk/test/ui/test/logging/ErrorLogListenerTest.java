@@ -16,9 +16,9 @@ import static org.junit.Assert.assertTrue;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.jobs.Job;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.test.core.util.ErrorLogListener;
 
@@ -32,7 +32,7 @@ public class ErrorLogListenerTest {
   /**
    * Sets up the {@link ErrorLogListener} under test.
    */
-  @Before
+  @BeforeEach
   public void setUp() {
     errorLogListener = new ErrorLogListener();
     errorLogListener.register();
@@ -41,7 +41,7 @@ public class ErrorLogListenerTest {
   /**
    * Tears down the {@link ErrorLogListener} under test.
    */
-  @After
+  @AfterEach
   public void tearDown() {
     errorLogListener.unregister();
   }
@@ -53,7 +53,7 @@ public class ErrorLogListenerTest {
    *           the exception that is thrown if the test job was interrupted
    */
   @SuppressWarnings("unlikely-arg-type")
-  @Test
+  @org.junit.jupiter.api.Test
   public void testIgnoringExceptionLocations() throws InterruptedException {
     assertFalse("NullPointerException must not have been logged.", errorLogListener.isExceptionLogged(NullPointerException.class));
     errorLogListener.ignoreException(NullPointerException.class, "com.avaloq.tools.ddk.test.core.util.ErrorLogListenerTest");

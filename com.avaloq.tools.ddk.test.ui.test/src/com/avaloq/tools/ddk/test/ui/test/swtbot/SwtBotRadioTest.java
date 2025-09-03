@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.test.core.Issue;
 import com.avaloq.tools.ddk.test.core.IssueAwareRule;
@@ -57,7 +57,7 @@ public class SwtBotRadioTest {
   /**
    * Test if the method {@link com.avaloq.tools.ddk.test.ui.swtbot.SwtBotRadio#click()} works correctly.
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void testSwtRadioButtonClick() {
     SwtWorkbenchBot bot = new SwtWorkbenchBot();
     bot.resetWorkbench();

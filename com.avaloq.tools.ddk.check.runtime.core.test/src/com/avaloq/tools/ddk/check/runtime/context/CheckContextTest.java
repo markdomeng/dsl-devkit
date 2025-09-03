@@ -12,7 +12,7 @@ package com.avaloq.tools.ddk.check.runtime.context;
 
 import org.eclipse.emf.ecore.EObject;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import junit.framework.TestCase;
 

@@ -26,7 +26,7 @@ import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.XtextRunner;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.check.CheckInjectorProvider;

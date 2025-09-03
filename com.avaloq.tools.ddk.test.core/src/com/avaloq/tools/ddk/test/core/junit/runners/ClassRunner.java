@@ -20,8 +20,8 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.junit.internal.AssumptionViolatedException;
 import org.junit.internal.runners.model.EachTestNotifier;
 import org.junit.internal.runners.statements.RunAfters;
@@ -140,7 +140,7 @@ public class ClassRunner extends BlockJUnit4ClassRunner {
         expectedMethods = ImmutableList.copyOf(Iterables.filter(testMethods, new Predicate<FrameworkMethod>() {
           @Override
           public boolean apply(final FrameworkMethod input) {
-            return input.getAnnotation(Ignore.class) == null;
+            return input.getAnnotation(Disabled.class) == null;
           }
         }));
         currentMethodIndex = 0;
@@ -184,7 +184,7 @@ public class ClassRunner extends BlockJUnit4ClassRunner {
   @Override
   protected void runChild(final FrameworkMethod method, final RunNotifier notifier) {
     ensureInitialized();
-    final boolean ignored = method.getAnnotation(Ignore.class) != null;
+    final boolean ignored = method.getAnnotation(Disabled.class) != null;
     if (!ignored) {
       Assert.assertEquals("Method " + method.getName() + " not equal", expectedMethods.get(currentMethodIndex++), method); //$NON-NLS-1$//$NON-NLS-2$
     }

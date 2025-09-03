@@ -23,8 +23,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.typesystem.typemodel.IExpression;
 import com.avaloq.tools.ddk.typesystem.typemodel.INamedElement;
@@ -70,7 +70,7 @@ public class AbstractTypeProviderTest {
     return clazz;
   }
 
-  @Before
+  @BeforeEach
   public void init() {
     EcoreFactory modelFactory = EcoreFactory.eINSTANCE;
     testModelPackage = modelFactory.createEPackage();
@@ -125,7 +125,7 @@ public class AbstractTypeProviderTest {
     assertNull("cyclic type for namedElement2 not null", provider.getTypeForNamedElement(namedElement2));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testTypeProviderCyclicOverride() {
     ITypeProvider provider = new CyclicOverrideTypeProvider();
     assertEquals("cyclic override type for expression1 not type1", type1, provider.getType(expression1));
@@ -136,7 +136,7 @@ public class AbstractTypeProviderTest {
     assertEquals("cyclic override type for namedElement2 not type3", type3, provider.getTypeForNamedElement(namedElement2));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testTypeProviderCyclicOverrideMixed() {
     ITypeProvider provider = new CyclicOverrideMixedTypeProvider();
     assertEquals("cyclic mixed type for expression1 not type1", type1, provider.getType(expression1));

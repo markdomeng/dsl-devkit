@@ -18,14 +18,15 @@ import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.resource.IFragmentProvider;
-import org.junit.After;
+import org.junit.jupiter.api.*;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.test.core.BugTest;
 import com.avaloq.tools.ddk.xtext.test.AbstractTest;
 import com.avaloq.tools.ddk.xtext.test.AbstractTestUtil;
+import org.junit.jupiter.api.BeforeEach;
 
 
 /**
@@ -58,7 +59,7 @@ public class ShortFragmentProviderTest extends AbstractTest {
   private EReference testReference;
   private EReference testReference2;
 
-  @Before
+  @BeforeEach
   public void initialize() {
     EcoreFactory ecoreFactory = EcoreFactory.eINSTANCE;
 
@@ -80,7 +81,7 @@ public class ShortFragmentProviderTest extends AbstractTest {
     EPackage.Registry.INSTANCE.put(testPackage.getNsURI(), testPackage);
   }
 
-  @After
+  @AfterEach
   public void cleanup() {
     EPackage.Registry.INSTANCE.remove(testPackage.getNsURI());
   }
@@ -105,7 +106,7 @@ public class ShortFragmentProviderTest extends AbstractTest {
     Assert.assertEquals(FRAGMENT_MUST_BE_EQUAL, parent, fragmentProvider.getEObject(resource, fragment, fragmentFallback));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testLongFragment2() {
     int reps = 10;
     EObject root = EcoreUtil.create(testClass);

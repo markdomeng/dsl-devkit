@@ -23,13 +23,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.xtext.XtextPackage;
-import org.junit.Test;
 
 import com.avaloq.tools.ddk.xtext.expression.generator.EClassComparator;
 import com.google.common.base.Function;
 import com.google.common.base.Functions;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Lists;
+import org.junit.jupiter.api.Test;
 
 
 @SuppressWarnings("PMD.JUnitAssertionsShouldIncludeMessage")
@@ -37,7 +37,7 @@ public class EClassComparatorTest {
 
   private final Function<EClass, EClass> mapping = Functions.<EClass> identity();
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testSorting() {
     List<EClass> sorted = EClassComparator.sortedGroups(Lists.newArrayList(ECLASS, EDATA_TYPE, EPACKAGE, ECLASSIFIER), mapping);
     assertEquals(Lists.newArrayList(ECLASS, EDATA_TYPE, EPACKAGE, ECLASSIFIER), sorted);

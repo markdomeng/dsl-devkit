@@ -12,7 +12,7 @@ package com.avaloq.tools.ddk.xtext.linking;
 
 import org.eclipse.emf.ecore.EObject;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 
 /**
@@ -63,7 +63,7 @@ public class AbstractFragmentProviderTest {
     Assert.assertEquals("Fragment not properly unscaped", "foo//bar##\\", fragmentProvider.unescape("foo\\/\\/bar##\\\\"));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testUnescapeEscape() {
     for (String text : SPECIAL_ESCAPE_CASES) {
       StringBuilder builder = new StringBuilder();

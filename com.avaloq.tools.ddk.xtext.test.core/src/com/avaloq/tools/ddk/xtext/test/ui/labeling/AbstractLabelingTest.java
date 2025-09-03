@@ -26,9 +26,9 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.xtext.util.Pair;
 import org.eclipse.xtext.util.Tuples;
 import org.junit.Assert;
-import org.junit.Test;
 
 import com.avaloq.tools.ddk.xtext.test.AbstractXtextTest;
+import org.junit.jupiter.api.Test;
 
 
 /**
@@ -49,7 +49,7 @@ public abstract class AbstractLabelingTest extends AbstractXtextTest {
   /**
    * Tests that the expected elements and their labels are exactly identical to all elements of the default test resource.
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void testLabels() {
     if (getExpectedElementLabels() == null) {
       return; // TODO: remove this check once all tests have been refactored

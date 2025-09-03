@@ -16,9 +16,10 @@ import static org.junit.Assert.assertNotSame;
 
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.xtext.testing.InjectWith;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.check.ui.test.internal.CheckWizardUiTestInjectorProvider;
@@ -47,7 +48,7 @@ public class CheckProjectWizardTest {
   /**
    * Start again the Check project wizard before every test.
    */
-  @Before
+  @BeforeEach
   public void setUp() {
     wizard = new SwtWizardBot();
     wizard.openNewWizard(CHECK_PROJECT_WIZARD_NAME);
@@ -65,7 +66,7 @@ public class CheckProjectWizardTest {
   /**
    * Test if the buttons 'next', 'back' and 'finish' are correctly enabled/disabled.
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void testProjectNameInvalid() {
     CheckWizardTestUtil.projectName(wizard, "", CheckWizardTestUtil.NEXT_DISABLED);
     CheckWizardTestUtil.projectName(wizard, ".project.name", CheckWizardTestUtil.NEXT_DISABLED);
@@ -120,7 +121,7 @@ public class CheckProjectWizardTest {
   /**
    * Close the wizard after every test.
    */
-  @After
+  @AfterEach
   public void tearDown() {
     wizard.closeWizard();
   }

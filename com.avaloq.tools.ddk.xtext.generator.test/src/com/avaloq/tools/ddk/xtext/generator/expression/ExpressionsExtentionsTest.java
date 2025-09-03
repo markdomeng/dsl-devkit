@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.xtext.expression.expression.Expression;
 import com.avaloq.tools.ddk.xtext.expression.generator.ExpressionExtensions;

@@ -14,7 +14,7 @@ import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.XtextRunner;
 import org.eclipse.xtext.testing.util.ParseHelper;
 import org.eclipse.xtext.testing.validation.ValidationTestHelper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.checkcfg.CheckCfgUiInjectorProvider;
@@ -51,7 +51,7 @@ public class CheckCfgValidationTest extends TestCase {
    * @throws Exception
    *           if a problem occurred parsing the test model
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void testDisabledCheckIsNotConfigured() throws Exception { // NOPMD
     CheckConfiguration model = parser.parse(modelUtil.basicModelWithDisabledTest() + " (val = 0)");
     helper.assertWarning(model, CheckcfgPackage.Literals.CONFIGURED_CHECK, IssueCodes.DISABLED_CHECK_NOT_CONFIGURED);

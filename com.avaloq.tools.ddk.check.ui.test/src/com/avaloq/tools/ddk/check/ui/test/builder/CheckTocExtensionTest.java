@@ -23,8 +23,8 @@ import org.eclipse.pde.internal.core.plugin.WorkspacePluginModel;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.XtextRunner;
 import org.eclipse.xtext.testing.util.ParseHelper;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.check.check.CheckCatalog;
@@ -58,7 +58,7 @@ public class CheckTocExtensionTest extends TestCase {
   private CheckCatalog catalog;
   private IPluginModelBase pluginModel;
 
-  @Before
+  @BeforeEach
   @Override
   public void setUp() throws Exception {
     catalog = parser.parse(CATALOG_WITH_FIRST_CHECK_LIVE);
@@ -73,7 +73,7 @@ public class CheckTocExtensionTest extends TestCase {
    * @throws CoreException
    *           the core exception
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void testCreateExtension() throws CoreException {
     IPluginExtension extension = tocUtil.addExtensionToPluginBase(pluginModel, catalog, ExtensionType.CONTEXTS, null);
     assertEquals("Toc extension has been created", CheckTocExtensionHelper.TOC_EXTENSION_POINT_ID, extension.getPoint());
@@ -88,7 +88,7 @@ public class CheckTocExtensionTest extends TestCase {
    * @throws CoreException
    *           the core exception
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void testIsExtensionUpdateRequiredTrue() throws CoreException {
     IPluginExtension extension = createErroneousTocExtension();
 

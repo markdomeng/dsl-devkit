@@ -21,7 +21,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.xtext.resource.IResourceDescription.Delta;
 import org.eclipse.xtext.resource.IResourceServiceProvider;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatcher;
 
 import com.avaloq.tools.ddk.xtext.test.AbstractXtextTest;
@@ -66,7 +66,7 @@ public class FormatBuilderParticipantTest extends AbstractXtextTest {
   /**
    * Tests whether a {@link Delta} resource has a correct extension to be used by org.eclipse.xtext.builder.BuilderParticipant.
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void hasCorrectExtensionTest() {
     IResourceServiceProvider resourceServiceProvider = mock(IResourceServiceProvider.class);
     when(resourceServiceProvider.canHandle(argThat(new IsUri()))).thenReturn(true, false);

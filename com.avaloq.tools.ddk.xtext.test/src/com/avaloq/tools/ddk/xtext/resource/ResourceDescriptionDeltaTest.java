@@ -26,17 +26,17 @@ import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.resource.IReferenceDescription;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.resource.impl.AbstractResourceDescription;
-import org.junit.Test;
 
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
+import org.junit.jupiter.api.Test;
 
 
 @SuppressWarnings("PMD.JUnitAssertionsShouldIncludeMessage")
 public class ResourceDescriptionDeltaTest {
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testGetAddedAndDeletedObjects() {
     ResourceDescriptionDelta delta = new ResourceDescriptionDelta(createDescription("a"), createDescription("a"), null);
     assertDeltaEquals(0, 0, 0, delta);
@@ -75,7 +75,7 @@ public class ResourceDescriptionDeltaTest {
     assertDeltaEquals(1, 0, 0, delta);
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testDeltaForDeletedResource() {
     ResourceDescriptionDelta delta = new ResourceDescriptionDelta(createDescription("a"), null, null);
     assertDeltaEquals(0, 0, 1, delta);

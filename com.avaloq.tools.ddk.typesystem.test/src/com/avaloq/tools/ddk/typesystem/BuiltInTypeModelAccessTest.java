@@ -17,11 +17,11 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 
 import org.eclipse.emf.common.util.EList;
-import org.junit.Test;
 
 import com.avaloq.tools.ddk.typesystem.builtintypemodel.BuiltInTypeModel;
 import com.avaloq.tools.ddk.typesystem.builtintypemodel.InternalType;
 import com.avaloq.tools.ddk.typesystem.typemodel.INamedType;
+import org.junit.jupiter.api.Test;
 
 
 /**
@@ -30,7 +30,7 @@ import com.avaloq.tools.ddk.typesystem.typemodel.INamedType;
 @SuppressWarnings("nls")
 public class BuiltInTypeModelAccessTest {
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testLoadModel() {
     BuiltInTypeModelAccess typeModelInstance = BuiltInTypeModelAccess.getInstance();
     BuiltInTypeModel model = typeModelInstance.getModel();
@@ -49,7 +49,7 @@ public class BuiltInTypeModelAccessTest {
     assertEquals("Actual type name matches", name, t.getName());
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testHasInternalTypes() {
     assertPresence(BuiltInTypeModelAccess.ANY_TYPE_NAME);
     assertPresence(BuiltInTypeModelAccess.ERROR_TYPE_NAME);
@@ -64,7 +64,7 @@ public class BuiltInTypeModelAccessTest {
     assertNull("Non-existant name returns null", BuiltInTypeModelAccess.getInstance().getInternalType("xyz!!"));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testUniqueInternalTypes() {
     assertUnique(BuiltInTypeModelAccess.ANY_TYPE_NAME);
     assertUnique(BuiltInTypeModelAccess.ERROR_TYPE_NAME);

@@ -18,9 +18,9 @@ import java.util.Collections;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.xtext.naming.QualifiedName;
-import org.junit.Test;
 
 import com.google.common.collect.ImmutableSet;
+import org.junit.jupiter.api.Test;
 
 
 @SuppressWarnings({"nls", "unused", "PMD.JUnitAssertionsShouldIncludeMessage"})
@@ -34,7 +34,7 @@ public class QualifiedNameSegmentTreeLookupTest {
     assertNull(lookup.get(QualifiedName.EMPTY));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testExact() {
     QualifiedName name = name("foo");
     Collection<URI> values = Collections.singletonList(uri(name));
@@ -63,7 +63,7 @@ public class QualifiedNameSegmentTreeLookupTest {
     assertContentEquals(ImmutableSet.of(value3), lookup.get(pattern("foo2"), false));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testTopLevelPatternWithWildcard() {
     URI value1 = put("foo");
     URI value2 = put("foo2");
@@ -74,7 +74,7 @@ public class QualifiedNameSegmentTreeLookupTest {
     assertContentEquals(ImmutableSet.of(value3), lookup.get(pattern("b*"), true));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testNestedPatternMatchesWithoutWildcard() {
     URI value1 = put("foo");
     URI value2 = put("foo.bar");
@@ -85,7 +85,7 @@ public class QualifiedNameSegmentTreeLookupTest {
     assertContentEquals(ImmutableSet.of(value3), lookup.get(pattern("foo2"), true));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testNestedPatternMatchesWithWildcard() {
     URI value1 = put("foo");
     URI value2 = put("foo.bar");
@@ -99,7 +99,7 @@ public class QualifiedNameSegmentTreeLookupTest {
     assertContentEquals(ImmutableSet.of(value2), lookup.get(pattern("foo.bar*"), true));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testNestedPatternMatchesWithRecursiveWildcard() {
     URI value1 = put("foo");
     URI value2 = put("foo.bar");
@@ -112,7 +112,7 @@ public class QualifiedNameSegmentTreeLookupTest {
     assertContentEquals(ImmutableSet.of(value2, value3, value4), lookup.get(pattern("foo.b**"), true));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testUnmatchedNestedPattern() {
     URI value1 = put("foo");
     URI value2 = put("foo.bar");
@@ -131,7 +131,7 @@ public class QualifiedNameSegmentTreeLookupTest {
     assertContentEquals(ImmutableSet.of(), lookup.get(pattern("foo.bar.bazz*"), true));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testOutOfOrderInsertion() {
     QualifiedName name1 = name("foo.bar");
     Collection<URI> value1 = Collections.singletonList(uri(name1));

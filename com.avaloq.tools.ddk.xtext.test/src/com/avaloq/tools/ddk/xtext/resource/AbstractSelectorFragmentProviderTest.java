@@ -24,8 +24,8 @@ import org.eclipse.xtext.XtextRuntimeModule;
 import org.eclipse.xtext.testing.AbstractXtextTests;
 import org.eclipse.xtext.resource.IFragmentProvider;
 import org.eclipse.xtext.util.Modules2;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import com.google.inject.AbstractModule;
 
@@ -38,7 +38,7 @@ import com.google.inject.AbstractModule;
 public class AbstractSelectorFragmentProviderTest extends AbstractXtextTests {
   // CHECKSTYLE:ON
 
-  @Before
+  @BeforeEach
   @Override
   public void setUp() throws Exception {
     super.setUp();
@@ -50,7 +50,7 @@ public class AbstractSelectorFragmentProviderTest extends AbstractXtextTests {
     }));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testTopLevelObject() throws Exception {
     Grammar grammar = (Grammar) getModel("grammar foo.Foo\n" + "generate foo 'http://www.foo.com/foo'\n" + "Foo: 'foo';");
     assertFragmentMatchesAndResolves(grammar.eResource(), "/0", grammar);
@@ -62,13 +62,13 @@ public class AbstractSelectorFragmentProviderTest extends AbstractXtextTests {
     assertFragmentMatchesAndResolves(grammar.eResource(), "/0/5(0='Foo')#0", grammar.getRules().get(0));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testSingleValuedContainment() throws Exception {
     Grammar grammar = (Grammar) getModel("grammar foo.Foo\n" + "generate foo 'http://www.foo.com/foo'\n" + "Foo: 'foo'+;");
     assertFragmentMatchesAndResolves(grammar.eResource(), "/0/5(0='Foo')#0/2(3='foo')", grammar.getRules().get(0).getAlternatives());
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testNullSelectorValue() throws Exception {
     Grammar grammar = (Grammar) getModel("grammar foo.Foo\n" + "generate foo 'http://www.foo.com/foo'\n" + "Foo: 'selectCardinality';");
     assertFragmentMatchesAndResolves(grammar.eResource(), "/0/5(0='Foo')#0/2(0=null)", grammar.getRules().get(0).getAlternatives());

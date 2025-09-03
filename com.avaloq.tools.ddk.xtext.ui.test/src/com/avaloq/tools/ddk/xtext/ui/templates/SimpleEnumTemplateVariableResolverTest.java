@@ -20,7 +20,7 @@ import org.eclipse.jface.text.templates.TemplateException;
 import org.eclipse.jface.text.templates.TemplateVariable;
 import org.eclipse.xtext.XtextRuntimeModule;
 import org.eclipse.xtext.ui.editor.templates.XtextTemplateContext;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.test.core.AfterAll;
@@ -50,17 +50,17 @@ public class SimpleEnumTemplateVariableResolverTest {
     resolver = null;
   }
 
-  @Test(expected = NullPointerException.class)
+  @org.junit.jupiter.api.Test(expected = NullPointerException.class)
   public void testResolveValuesWithNullVariable() {
     resolver.resolveValues(null, mockContext);
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testResolveValuesWithOneParam() throws TemplateException {
     testResolveValues("Value"); //$NON-NLS-1$
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testResolveValuesWithMultipleParams() throws TemplateException {
     testResolveValues("Value 1", "Value 2", "Value 3"); //$NON-NLS-1$//$NON-NLS-2$//$NON-NLS-3$
   }

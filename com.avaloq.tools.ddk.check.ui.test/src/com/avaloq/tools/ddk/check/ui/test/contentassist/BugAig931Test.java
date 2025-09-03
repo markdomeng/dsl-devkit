@@ -21,7 +21,7 @@ import org.eclipse.osgi.util.NLS;
 import org.eclipse.ui.progress.UIJob;
 import org.eclipse.xtext.common.types.access.jdt.IJavaProjectProvider;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Iterables;

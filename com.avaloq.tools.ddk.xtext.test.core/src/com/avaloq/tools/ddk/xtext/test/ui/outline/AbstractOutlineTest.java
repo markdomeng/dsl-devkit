@@ -28,7 +28,7 @@ import org.eclipse.xtext.ui.editor.outline.impl.EObjectNode;
 import org.eclipse.xtext.ui.editor.outline.impl.EStructuralFeatureNode;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.xtext.test.ui.AbstractXtextEditorTest;
 import com.google.common.base.Predicate;

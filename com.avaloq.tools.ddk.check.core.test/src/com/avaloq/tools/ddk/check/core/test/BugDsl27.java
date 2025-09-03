@@ -15,7 +15,7 @@ import java.io.InputStream;
 
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.XtextRunner;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.check.CheckInjectorProvider;
@@ -31,7 +31,7 @@ public class BugDsl27 extends AbstractCheckGenerationTestCase {
   /**
    * Tests that our test source compiles fine.
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void testGeneratedCodeHasNoErrors() {
     try (InputStream sourceStream = BugDsl27.class.getResourceAsStream("bugdsl27/BugDsl27")) {
       generateAndCompile(sourceStream);

@@ -26,10 +26,10 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
 
@@ -154,7 +154,7 @@ public abstract class AbstractTest {
    * If it is run the first time, it calls the beforeClass method first. Do not call this method manually!
    * All exceptions are wrapped and handed over to the JUnit framework.
    */
-  @Before
+  @BeforeEach
   public final void before() {
     beforeEachTest();
   }
@@ -164,7 +164,7 @@ public abstract class AbstractTest {
    * If no more tests are to be run, it calls the afterClass method. Do not call this method manually!
    * All exceptions are wrapped and handed over to the JUnit framework.
    */
-  @After
+  @AfterEach
   public final void after() {
     afterEachTest();
   }
@@ -363,7 +363,7 @@ public abstract class AbstractTest {
   private void enforceAnnotationPolicies() {
     for (Method method : this.getClass().getMethods()) {
       // use this policy to not allow BeforeClass or AfterClass annotations.
-      if (method.isAnnotationPresent(BeforeClass.class) || method.isAnnotationPresent(AfterClass.class)) {
+      if (method.isAnnotationPresent(BeforeAll.class) || method.isAnnotationPresent(AfterAll.class)) {
         throw new IllegalJUnitAnnotation();
       }
       // use this policy to not allow Before or After annotations in subclasses.

@@ -17,7 +17,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Comparator;
 
 import org.eclipse.xtext.naming.QualifiedName;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.test.core.BugTest;
@@ -39,7 +39,7 @@ public class QualifiedNamePatternTest {
     assertNoMatch(pattern, "foo", "bar");
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testQualifiedPrefixNamePattern() {
     QualifiedNamePattern pattern = QualifiedNamePattern.create("foo", "*");
     assertEquals(QualifiedName.create("foo", ""), pattern.lowerInclusive());
@@ -53,7 +53,7 @@ public class QualifiedNamePatternTest {
     assertEquals(QualifiedName.create("foo", "bas"), pattern.upperExclusive());
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testRecursiveWildcardPattern() {
     QualifiedNamePattern pattern = QualifiedNamePattern.create("foo", "**");
     assertEquals(QualifiedName.create("foo", ""), pattern.lowerInclusive());
@@ -63,7 +63,7 @@ public class QualifiedNamePatternTest {
     assertNoMatch(pattern, "foo2", "bar");
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testRecursiveWildcardPatternWithPrefix() {
     QualifiedNamePattern pattern = QualifiedNamePattern.create("foo", "b**");
     assertEquals(QualifiedName.create("foo", "b"), pattern.lowerInclusive());
@@ -78,24 +78,24 @@ public class QualifiedNamePatternTest {
     QualifiedNamePattern.create("foo", "bar**baz");
   }
 
-  @Test(expected = IllegalArgumentException.class)
+  @org.junit.jupiter.api.Test(expected = IllegalArgumentException.class)
   public void testRecursiveWildcardPatternError2() {
     QualifiedNamePattern.create("foo", "**", "bar");
   }
 
-  @Test(expected = IllegalArgumentException.class)
+  @org.junit.jupiter.api.Test(expected = IllegalArgumentException.class)
   public void testRecursiveWildcardPatternError3() {
     QualifiedNamePattern.create("foo*bar");
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testAllPattern() {
     QualifiedNamePattern pattern = QualifiedNamePattern.create("*");
     assertEquals(QualifiedName.create(""), pattern.lowerInclusive());
     assertEquals(QualifiedName.create("!"), pattern.upperExclusive());
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void testPatternWithoutWildcard() {
     QualifiedNamePattern pattern = QualifiedNamePattern.create("foo");
     assertEquals(QualifiedName.create("foo"), pattern.lowerInclusive());

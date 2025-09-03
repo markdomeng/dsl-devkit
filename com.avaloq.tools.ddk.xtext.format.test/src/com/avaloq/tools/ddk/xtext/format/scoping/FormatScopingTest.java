@@ -27,7 +27,7 @@ import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.ILeafNode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.xtext.format.format.FormatConfiguration;
 import com.avaloq.tools.ddk.xtext.format.format.FormatPackage;
@@ -101,13 +101,13 @@ public class FormatScopingTest extends AbstractScopingTest {
    * Bug AIG-718.
    * Tests that all grammars' rules are scoped.
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void allGrammarsScoped() {
     Set<URI> expectedURIs = Sets.newHashSet(EcoreUtil.getURI(grammarC.getRules().get(0)), EcoreUtil.getURI(grammarB.getRules().get(0)), EcoreUtil.getURI(grammarA.getRules().get(0)), EcoreUtil.getURI(grammarA.getRules().get(1)));
     assertScope(formatC, FormatPackage.Literals.GRAMMAR_RULE__TARGET_RULE, expectedURIs);
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void keywordScoped() {
     AbstractRule parserRuleA = grammarA.getRules().get(0);
     Set<URI> keywordURIs = Sets.newHashSet(Iterables.transform(GrammarUtil.containedKeywords(parserRuleA), TO_URI));
@@ -152,7 +152,7 @@ public class FormatScopingTest extends AbstractScopingTest {
     assertScope(formatC.getRules().get(0), FormatPackage.Literals.GRAMMAR_ELEMENT_REFERENCE__SELF, TO_URI.apply(parserRuleA));
   }
 
-  @Test
+  @org.junit.jupiter.api.Test
   public void groupScoped() {
     ParserRule parserRuleA = (ParserRule) grammarA.getRules().get(0);
 

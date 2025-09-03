@@ -33,9 +33,9 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.ui.util.PluginProjectFactory;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.check.ui.test.internal.CheckWizardUiTestInjectorProvider;
@@ -116,7 +116,7 @@ public class CheckCatalogWizardTest {
    * Initializes this test class pre-loading grammar access instances, which might involve bundle activation and class loading.
    * </p>
    */
-  @Before
+  @BeforeEach
   public void setUp() {
     wizard = new SwtWizardBot();
     project = createProject();
@@ -258,7 +258,7 @@ public class CheckCatalogWizardTest {
    * @throws CoreException
    *           if project doesn't exist.
    */
-  @After
+  @AfterEach
   public void tearDown() throws CoreException {
     wizard.closeWizard();
     project.delete(true, new NullProgressMonitor());

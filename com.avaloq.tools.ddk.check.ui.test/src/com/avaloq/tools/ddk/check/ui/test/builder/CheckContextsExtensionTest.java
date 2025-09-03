@@ -21,8 +21,8 @@ import org.eclipse.pde.internal.core.plugin.WorkspacePluginModel;
 import org.eclipse.xtext.testing.XtextRunner;
 import org.eclipse.xtext.testing.util.ParseHelper;
 import org.eclipse.xtext.testing.InjectWith;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.check.check.CheckCatalog;
@@ -57,7 +57,7 @@ public class CheckContextsExtensionTest extends TestCase {
   private IWorkspace workspace;
 
   @Override
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     catalog = parser.parse(CATALOG_WITH_FIRST_CHECK_LIVE);
     IFile pluginxml = workspace.getRoot().getFile(new Path("/test/plugin.xml"));

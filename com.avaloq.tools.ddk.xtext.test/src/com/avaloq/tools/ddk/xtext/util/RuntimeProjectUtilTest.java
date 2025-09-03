@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.xtext.ui.resource.IStorage2UriMapper;
 import org.eclipse.xtext.ui.resource.Storage2UriMapperImpl;
 import org.eclipse.xtext.util.Pair;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.xtext.test.AbstractUtilTest;
 import com.avaloq.tools.ddk.xtext.test.AbstractXtextTestUtil;

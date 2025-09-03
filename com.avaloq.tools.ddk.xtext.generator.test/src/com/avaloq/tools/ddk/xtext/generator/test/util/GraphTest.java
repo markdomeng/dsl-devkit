@@ -16,7 +16,7 @@ import static org.junit.Assert.fail;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.xtext.expression.generator.Graph;
 import com.google.common.collect.HashMultimap;

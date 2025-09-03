@@ -16,7 +16,7 @@ import java.util.NoSuchElementException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.Platform;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
@@ -106,7 +106,7 @@ public class CheckExtensionPointTests extends TestCase {
    * Tests that a non-existing client is not registered with the extension
    * point registry.
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void testInvalidClientNotRegistered() {
     assertNull("Non-existing client not registered to the check extension point", findCheckExtensionPoint(findExtensionPoints()).getExtension("a.b.c"));
   }
@@ -114,7 +114,7 @@ public class CheckExtensionPointTests extends TestCase {
   /**
    * Tests that the check extension point has an attribute {@value #TARGET_CLASS_ATTRIBUTE}.
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void testTargetClassAttributeFound() {
     IExtensionPoint point = findCheckExtensionPoint(findExtensionPoints());
     assertNotNull("Found a configuration element with attribute \"targetClass\"", findConfigurationElement(point.getConfigurationElements(), TARGET_CLASS_ATTRIBUTE));
@@ -123,7 +123,7 @@ public class CheckExtensionPointTests extends TestCase {
   /**
    * Tests that the check extension point has an attribute {@value #LANGUAGE_ATTRIBUTE}.
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void testLanguageAttributeFound() {
     IExtensionPoint point = findCheckExtensionPoint(findExtensionPoints());
     assertNotNull("Found a configuration element with attribute \"language\"", findConfigurationElement(point.getConfigurationElements(), LANGUAGE_ATTRIBUTE));

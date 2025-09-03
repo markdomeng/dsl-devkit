@@ -17,7 +17,7 @@ import java.io.IOException;
 
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.scoping.IScope;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.xtext.export.export.ExportModel;
 import com.avaloq.tools.ddk.xtext.export.export.ExportPackage;

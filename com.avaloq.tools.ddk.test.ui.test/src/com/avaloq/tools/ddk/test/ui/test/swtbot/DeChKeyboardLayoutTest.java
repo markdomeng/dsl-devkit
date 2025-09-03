@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEclipseEditor;
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.test.ui.swtbot.SwtWorkbenchBot;
 

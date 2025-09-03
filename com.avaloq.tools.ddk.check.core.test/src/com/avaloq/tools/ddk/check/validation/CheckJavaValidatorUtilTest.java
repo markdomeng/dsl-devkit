@@ -13,7 +13,7 @@ package com.avaloq.tools.ddk.check.validation;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.XtextRunner;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.check.CheckUiInjectorProvider;

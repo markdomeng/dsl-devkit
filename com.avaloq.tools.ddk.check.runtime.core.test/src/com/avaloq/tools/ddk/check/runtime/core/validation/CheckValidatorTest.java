@@ -12,7 +12,7 @@ package com.avaloq.tools.ddk.check.runtime.core.validation;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.check.runtime.issue.ICheckValidatorImpl;
 import com.avaloq.tools.ddk.check.runtime.validation.AbstractCheckValidator;
@@ -44,7 +44,7 @@ public class CheckValidatorTest extends AbstractCheckValidator {
    * 
    * @see {@link com.avaloq.tools.ddk.check.extensionpoint.test.validation.DummyValidator}
    */
-  @Test
+  @org.junit.jupiter.api.Test
   public void testAtLeastOneValidatorFound() {
     ICheckValidatorImpl dummyValidator = Iterables.getOnlyElement(getValidators(Maps.newHashMap(), null));
     assertEquals("Dummy validator found", "DummyValidator", dummyValidator.getClass().getSimpleName());
