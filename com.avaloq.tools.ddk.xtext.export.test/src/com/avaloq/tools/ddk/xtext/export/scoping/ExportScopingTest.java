@@ -42,7 +42,7 @@ public class ExportScopingTest extends AbstractScopingTest {
   }
 
   @Test
-  public void testImportPackageScope() throws IOException {
+  void testImportPackageScope() throws IOException {
     ExportModel model = (ExportModel) getTestSource().getModel();
     IScope scope = scopeProvider.scope_Import_package(model.getImports().get(0), ExportPackage.Literals.IMPORT__PACKAGE);
     assertNotNull("Could not locate Import.", scope.getSingleElement(QualifiedName.create("http://www.avaloq.com/tools/ddk/xtext/export/Export")));
@@ -50,7 +50,7 @@ public class ExportScopingTest extends AbstractScopingTest {
   }
 
   @Test
-  public void testEclassScope() throws IOException {
+  void testEclassScope() throws IOException {
     ExportModel model = (ExportModel) getTestSource().getModel();
     IScope scope = scopeProvider.scope_EClass(model, null);
     assertNotNull("Could not locate EClass.", scope.getSingleElement(QualifiedName.create("InterfaceExpression")));
@@ -58,7 +58,7 @@ public class ExportScopingTest extends AbstractScopingTest {
   }
 
   @Test
-  public void testEStructuralFeatureScope() throws IOException {
+  void testEStructuralFeatureScope() throws IOException {
     ExportModel model = (ExportModel) getTestSource().getModel();
     IScope scope = scopeProvider.scope_EStructuralFeature(model.getInterfaces().get(0), null);
     // CHECKSTYLE:OFF (DuplicateString)
@@ -68,7 +68,7 @@ public class ExportScopingTest extends AbstractScopingTest {
   }
 
   @Test
-  public void testEAttributeScope() throws IOException {
+  void testEAttributeScope() throws IOException {
     ExportModel model = (ExportModel) getTestSource().getModel();
     IScope scope = scopeProvider.scope_EAttribute(model.getInterfaces().get(0), null);
     // CHECKSTYLE:OFF (DuplicateString)
@@ -78,7 +78,7 @@ public class ExportScopingTest extends AbstractScopingTest {
   }
 
   @Test
-  public void testInterfaceNavigationRefScope() throws IOException {
+  void testInterfaceNavigationRefScope() throws IOException {
     ExportModel model = (ExportModel) getTestSource().getModel();
     IScope scope = scopeProvider.scope_InterfaceNavigation_ref(model.getInterfaces().get(0), null);
     // CHECKSTYLE:OFF (DuplicateString)

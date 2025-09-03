@@ -57,7 +57,7 @@ public class AbstractSelectorFragmentProviderTest extends AbstractXtextTests {
   }
 
   @Test
-  public void testMultiValuedContainment() throws Exception {
+  void testMultiValuedContainment() throws Exception {
     Grammar grammar = (Grammar) getModel("grammar foo.Foo\n" + "generate foo 'http://www.foo.com/foo'\n" + "Foo: 'foo';");
     assertFragmentMatchesAndResolves(grammar.eResource(), "/0/5(0='Foo')#0", grammar.getRules().get(0));
   }
@@ -78,7 +78,7 @@ public class AbstractSelectorFragmentProviderTest extends AbstractXtextTests {
   }
 
   @Test
-  public void testEscapedSelectorValue() throws Exception {
+  void testEscapedSelectorValue() throws Exception {
     Grammar grammar = (Grammar) getModel("grammar foo.Foo\n" + "generate foo 'http://www.foo.com/foo'\n" + "Foo: 'foo.bar#';");
     assertFragmentMatchesAndResolves(grammar.eResource(), "/0/5(0='Foo')#0/2(3='foo.bar#')", grammar.getRules().get(0).getAlternatives());
   }

@@ -31,7 +31,7 @@ public class BugAig1084 {
    * stack-overflow.
    */
   @Test
-  public void recursiveLookUp() {
+  void recursiveLookUp() {
     Resource resource = org.mockito.Mockito.mock(Resource.class);
     EList<Adapter> emptyEList = new BasicEList<Adapter>();
     org.mockito.Mockito.when(resource.eAdapters()).thenReturn(emptyEList);

@@ -52,14 +52,14 @@ public class AbstractFragmentProviderTest {
   private final TestAbstractFragmentProvider fragmentProvider = new TestAbstractFragmentProvider();
 
   @Test
-  public void testEscape() {
+  void testEscape() {
     StringBuilder builder = new StringBuilder();
     fragmentProvider.appendEscaped("foo/bar#\\", builder);
     Assert.assertEquals("Fragment not properly scaped", builder.toString(), "foo\\/bar#\\\\");
   }
 
   @Test
-  public void testUnescape() {
+  void testUnescape() {
     Assert.assertEquals("Fragment not properly unscaped", "foo//bar##\\", fragmentProvider.unescape("foo\\/\\/bar##\\\\"));
   }
 

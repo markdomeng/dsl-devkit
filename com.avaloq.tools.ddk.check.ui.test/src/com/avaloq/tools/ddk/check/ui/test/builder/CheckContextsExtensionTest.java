@@ -71,7 +71,7 @@ public class CheckContextsExtensionTest extends TestCase {
    *           core exception
    */
   @Test
-  public void testCreateExtension() throws CoreException {
+  void testCreateExtension() throws CoreException {
     IPluginExtension extension = contextsUtil.addExtensionToPluginBase(pluginModel, catalog, ExtensionType.CONTEXTS, null);
     // Test if the extension has been created.
     assertEquals("Contexts extension has been created.", CheckContextsExtensionHelper.CONTEXTS_EXTENSION_POINT_ID, extension.getPoint());
@@ -87,7 +87,7 @@ public class CheckContextsExtensionTest extends TestCase {
    *           the core exception
    */
   @Test
-  public void testIsExtensionUpdateRequiredTrue() throws CoreException {
+  void testIsExtensionUpdateRequiredTrue() throws CoreException {
     IPluginExtension extension = createErroneousExtension();
     Iterable<IPluginElement> elements = Iterables.filter(Lists.newArrayList(extension.getChildren()), IPluginElement.class);
     assertTrue("Extension update is required", contextsUtil.isExtensionUpdateRequired(catalog, extension, elements));
@@ -100,7 +100,7 @@ public class CheckContextsExtensionTest extends TestCase {
    *           the core exception
    */
   @Test
-  public void testIsExtensionUpdateRequiredFalse() throws CoreException {
+  void testIsExtensionUpdateRequiredFalse() throws CoreException {
     IPluginExtension extension = contextsUtil.addExtensionToPluginBase(pluginModel, catalog, ExtensionType.CONTEXTS, null);
     Iterable<IPluginElement> elements = Iterables.filter(Lists.newArrayList(extension.getChildren()), IPluginElement.class);
     assertFalse("No extension update is required ", contextsUtil.isExtensionUpdateRequired(catalog, extension, elements));

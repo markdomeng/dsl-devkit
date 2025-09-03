@@ -29,7 +29,7 @@ public class DeChKeyboardLayoutTest {
    * Tests com.avaloq.test.swtbot.DE_CH.
    */
   @Test
-  public void testDeChKeyboardLayout() {
+  void testDeChKeyboardLayout() {
     SWTBotPreferences.KEYBOARD_LAYOUT = "com.avaloq.test.swtbot.DE_CH";
     SWTBotPreferences.KEYBOARD_STRATEGY = "org.eclipse.swtbot.swt.finder.keyboard.MockKeyboardStrategy";
     SwtWorkbenchBot bot = new SwtWorkbenchBot();

@@ -36,7 +36,7 @@ public class ExportValidationTest extends AbstractValidationTest {
   }
 
   @Test
-  public final void testCheckExportFieldUniqueness() {
+  final void testCheckExportFieldUniqueness() {
     assertDiagnosticMessage("duplicate found: instanceClassName");
   }
 
@@ -47,7 +47,7 @@ public class ExportValidationTest extends AbstractValidationTest {
   }
 
   @Test
-  public final void testCheckOverlap() {
+  final void testCheckOverlap() {
     // TODO assertDiagnosticMessage("");
   }
 

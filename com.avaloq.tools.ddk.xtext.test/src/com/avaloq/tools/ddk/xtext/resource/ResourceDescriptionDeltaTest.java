@@ -58,7 +58,7 @@ public class ResourceDescriptionDeltaTest {
   }
 
   @Test
-  public void testGetChangedObjects() {
+  void testGetChangedObjects() {
     ResourceDescriptionDelta delta = new ResourceDescriptionDelta(createDescription("a:a"), createDescription("a:a1"), null);
     assertDeltaEquals(0, 1, 0, delta);
 
@@ -70,7 +70,7 @@ public class ResourceDescriptionDeltaTest {
   }
 
   @Test
-  public void testDeltaForNewResource() {
+  void testDeltaForNewResource() {
     ResourceDescriptionDelta delta = new ResourceDescriptionDelta(null, createDescription("a"), null);
     assertDeltaEquals(1, 0, 0, delta);
   }
@@ -82,7 +82,7 @@ public class ResourceDescriptionDeltaTest {
   }
 
   @Test
-  public void testOldReconstruction() {
+  void testOldReconstruction() {
     IResourceDescription oldRes = createDescription("a");
 
     ResourceDescriptionDelta delta = new ResourceDescriptionDelta(oldRes, createDescription("a"), null);

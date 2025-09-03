@@ -55,7 +55,7 @@ public class XtextBuildTriggerTest extends AbstractXtextTests {
   }
 
   @Test
-  public void testTriggerRespectsAutoBuilding() {
+  void testTriggerRespectsAutoBuilding() {
     XtextBuildTrigger buildTrigger = get(XtextBuildTrigger.class);
 
     // auto-build disabled

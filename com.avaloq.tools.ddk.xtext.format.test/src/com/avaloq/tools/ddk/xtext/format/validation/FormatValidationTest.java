@@ -130,7 +130,7 @@ public class FormatValidationTest extends AbstractValidationTest {
    * Verify that IllegalOverride validation issues error for GrammarRules.
    */
   @Test
-  public void illegalGrammarRuleOverride() {
+  void illegalGrammarRuleOverride() {
     setFormattingRules(new String[] {OVERRIDE_INT_EXP_RULE});
     assertDiagnostic(extendingFormat, FormatValidator.OVERRIDE_ILLEGAL_CODE);
   }
@@ -149,7 +149,7 @@ public class FormatValidationTest extends AbstractValidationTest {
    * Verify that OverrideMissing validation issues error for GrammarRules.
    */
   @Test
-  public void missingGrammarRuleOverride() {
+  void missingGrammarRuleOverride() {
     setFormattingRules(new String[] {INT_EXP_RULE}, INT_EXP_RULE);
     assertDiagnostic(extendingFormat, FormatValidator.OVERRIDE_MISSING_CODE);
   }
@@ -203,7 +203,7 @@ public class FormatValidationTest extends AbstractValidationTest {
    * formatting rule must be defined in the extending configuration if it is defined in the parent.
    */
   @Test
-  public void requiredRulesImplemented() {
+  void requiredRulesImplemented() {
     setFormattingRules(new String[0], "Rule {}");
     assertDiagnostic(extendingFormat, FormatValidator.GRAMMAR_RULE_MISSING_CODE);
   }

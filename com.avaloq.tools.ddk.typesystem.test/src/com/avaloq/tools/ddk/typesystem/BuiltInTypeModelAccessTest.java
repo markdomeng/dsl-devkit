@@ -58,7 +58,7 @@ public class BuiltInTypeModelAccessTest {
   }
 
   @Test
-  public void testInvalidInternalTypeNames() {
+  void testInvalidInternalTypeNames() {
     assertNull("Null name returns null", BuiltInTypeModelAccess.getInstance().getInternalType(null));
     assertNull("Empty name returns null", BuiltInTypeModelAccess.getInstance().getInternalType(""));
     assertNull("Non-existant name returns null", BuiltInTypeModelAccess.getInstance().getInternalType("xyz!!"));

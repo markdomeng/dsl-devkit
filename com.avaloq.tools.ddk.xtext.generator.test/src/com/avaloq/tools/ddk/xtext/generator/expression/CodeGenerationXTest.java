@@ -60,7 +60,7 @@ public class CodeGenerationXTest extends AbstractXtextTest {
   }
 
   @Test
-  public void testliterals() throws Exception {
+  void testliterals() throws Exception {
     // CHECKSTYLE:CONSTANTS-OFF
     assertEquals("42", compile("42")); // NOPMD
     assertEquals("4.2", compile("4.2")); // NOPMD
@@ -96,7 +96,7 @@ public class CodeGenerationXTest extends AbstractXtextTest {
   }
 
   @Test
-  public void testBooleanLogic() throws Exception {
+  void testBooleanLogic() throws Exception {
     // CHECKSTYLE:CONSTANTS-OFF
     assertEquals("true", compile("true")); // NOPMD
     assertEquals("false", compile("false")); // NOPMD
@@ -140,7 +140,7 @@ public class CodeGenerationXTest extends AbstractXtextTest {
   }
 
   @Test
-  public void testInfixExpressions() throws Exception {
+  void testInfixExpressions() throws Exception {
     // CHECKSTYLE:CONSTANTS-OFF
     assertEquals("(true ? 1 : 2) + 3", compile("(true ? 1 : 2) + 3")); // NOPMD
     assertEquals("!(true ? true : false)", compile("!(true ? true : false)")); // NOPMD
@@ -154,7 +154,7 @@ public class CodeGenerationXTest extends AbstractXtextTest {
   }
 
   @Test
-  public void testCasting() throws Exception {
+  void testCasting() throws Exception {
     assertEquals("((org.eclipse.emf.ecore.EObject) obj)", compile("(ecore::EObject) this")); // NOPMD
   }
 
@@ -170,7 +170,7 @@ public class CodeGenerationXTest extends AbstractXtextTest {
   }
 
   @Test
-  public void testEContainerNavigation() throws Exception {
+  void testEContainerNavigation() throws Exception {
     // CHECKSTYLE:CONSTANTS-OFF
     assertEquals("obj.eContainer()", compile("this.eContainer")); // NOPMD
     assertEquals("obj.eContainer()", compile("this.eContainer()")); // NOPMD
@@ -186,13 +186,13 @@ public class CodeGenerationXTest extends AbstractXtextTest {
   }
 
   @Test
-  public void testCollectionExpression() throws Exception {
+  void testCollectionExpression() throws Exception {
     assertEquals(// NOPMD
         "com.google.common.collect.Iterables.filter(java.util.Collections.singletonList(obj), new com.google.common.base.Predicate<Object>() { public boolean apply(Object e) {return true;} })", compile("{this}.select(e|true)"));
   }
 
   @Test
-  public void testMultipleNavigations() throws Exception {
+  void testMultipleNavigations() throws Exception {
     assertEquals(// NOPMD
         "/* NOT COMPILABLE: Complex expressions like \"this.eContainer.eContainer\" cannot be translated to Java. Consider rewriting the expression or using a JAVA extension. */", compile("this.eContainer.eContainer"));
     assertEquals(// NOPMD

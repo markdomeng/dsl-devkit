@@ -33,7 +33,7 @@ public class CheckContextTest extends TestCase {
    * Tests that the {@link DummyCheckContext} properly marks issue codes as enabled and disabled.
    */
   @Test
-  public void testIssuesEnabledDisabled() {
+  void testIssuesEnabledDisabled() {
     ICheckContext checkContext = new DummyCheckContext();
     Assert.assertTrue("Check an issue code in annotations but enabled is still enabled", checkContext.isCheckValid(DUMMY_CONTEXT, ENABLED_ISSUE_CODE));
     Assert.assertTrue("Check an issue code not in any annotations is still enabled", checkContext.isCheckValid(DUMMY_CONTEXT, NOT_MENTIONED_ISSUE_CODE));

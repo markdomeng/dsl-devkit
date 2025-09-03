@@ -64,7 +64,7 @@ public class CheckJavaValidatorUtilTest extends TestCase {
    * Tests checkProjectName. The given values are valid.
    */
   @Test
-  public void projectNameIsValid() {
+  void projectNameIsValid() {
     assertTrue(QUALIFIED_NAME, util.checkProjectName("project.name").isOK());
     assertTrue(NON_QUALIFIED_NAME, util.checkProjectName("projectname").isOK());
   }
@@ -73,7 +73,7 @@ public class CheckJavaValidatorUtilTest extends TestCase {
    * Tests checkProjectName. The given values are invalid.
    */
   @Test
-  public void projectNameIsInvalid() {
+  void projectNameIsInvalid() {
     assertTrue(NAME_IS_EMPTY, util.checkProjectName(EMPTY_STRING).matches(IStatus.ERROR));
     assertTrue(STARTS_WITH_UPPERCASE_LETTER, util.checkProjectName("Project.name").matches(IStatus.ERROR));
     assertTrue(STARTS_WITH_ILLEGAL_CHARACTER_DOT, util.checkProjectName(".projectname").matches(IStatus.ERROR));
@@ -88,7 +88,7 @@ public class CheckJavaValidatorUtilTest extends TestCase {
    */
 
   @Test
-  public void packageNameIsValid() {
+  void packageNameIsValid() {
     assertTrue(QUALIFIED_NAME, util.checkPackageName("package.name").isOK());
     assertTrue(NON_QUALIFIED_NAME, util.checkPackageName("packagename").isOK());
   }
@@ -98,7 +98,7 @@ public class CheckJavaValidatorUtilTest extends TestCase {
    */
 
   @Test
-  public void packageNameIsInvalid() {
+  void packageNameIsInvalid() {
     assertTrue(NAME_IS_EMPTY, util.checkPackageName(EMPTY_STRING).matches(IStatus.ERROR));
     assertTrue(STARTS_WITH_UPPERCASE_LETTER, util.checkPackageName("Package.name").matches(IStatus.ERROR));
     assertTrue(STARTS_WITH_ILLEGAL_CHARACTER_DOT, util.checkPackageName(".packagename").matches(IStatus.ERROR));
@@ -112,7 +112,7 @@ public class CheckJavaValidatorUtilTest extends TestCase {
    * Tests checkCatalogName. The given values are valid.
    */
   @Test
-  public void catalogNameIsValid() {
+  void catalogNameIsValid() {
     assertTrue(STARTS_WITH_UPPERCASE_LETTER, util.checkCatalogName("Catalogname").isOK());
     assertTrue(STARTS_WITH_AND_CONTAINS_UPPERCASE_LETTERS, util.checkCatalogName("CatalogName").isOK());
   }
@@ -121,7 +121,7 @@ public class CheckJavaValidatorUtilTest extends TestCase {
    * Tests checkCatalogName. The given values are invalid.
    */
   @Test
-  public void catalogNameIsInvalid() {
+  void catalogNameIsInvalid() {
     assertTrue(NAME_IS_EMPTY, util.checkCatalogName(EMPTY_STRING).matches(IStatus.ERROR));
     assertTrue(QUALIFIED_NAME, util.checkCatalogName("Catalog.Name").matches(IStatus.ERROR));
     assertTrue(CONTAINS_ILLEGAL_CHARACTER, util.checkCatalogName(",Catalogname").matches(IStatus.ERROR));
@@ -132,7 +132,7 @@ public class CheckJavaValidatorUtilTest extends TestCase {
    * Tests checkCatalogName. The given values are discouraged.
    */
   @Test
-  public void catalogNameIsDiscouraged() {
+  void catalogNameIsDiscouraged() {
     assertTrue(STARTS_WITH_LOWER_CASE, util.checkCatalogName("catalogname").matches(IStatus.WARNING));
     assertTrue(STARTS_WITH_AND_CONTAINS_UPPERCASE_LETTERS, util.checkCatalogName("catalogName").matches(IStatus.WARNING));
   }
@@ -141,7 +141,7 @@ public class CheckJavaValidatorUtilTest extends TestCase {
    * Tests checkCheckName. The given values are valid.
    */
   @Test
-  public void checkNameIsValid() {
+  void checkNameIsValid() {
     assertTrue(STARTS_WITH_UPPERCASE_LETTER, util.checkCheckName("Checkname").isOK());
     assertTrue(STARTS_WITH_AND_CONTAINS_UPPERCASE_LETTERS, util.checkCheckName("CheckName").isOK());
   }
@@ -150,7 +150,7 @@ public class CheckJavaValidatorUtilTest extends TestCase {
    * Tests checkCheckName. The given values are invalid.
    */
   @Test
-  public void checkNameIsInvalid() {
+  void checkNameIsInvalid() {
     assertTrue(NAME_IS_EMPTY, util.checkCheckName(EMPTY_STRING).matches(IStatus.ERROR));
     assertTrue(QUALIFIED_NAME, util.checkCheckName("Check.name").matches(IStatus.ERROR));
     assertTrue(CONTAINS_ILLEGAL_CHARACTER, util.checkCheckName(",checkname").matches(IStatus.ERROR));
@@ -161,7 +161,7 @@ public class CheckJavaValidatorUtilTest extends TestCase {
    * Tests checkCheckName. The given values are discouraged.
    */
   @Test
-  public void checkNameIsDiscouraged() {
+  void checkNameIsDiscouraged() {
     assertTrue(STARTS_WITH_LOWER_CASE, util.checkCheckName("checkname").matches(IStatus.WARNING));
     assertTrue(STARTS_WITH_AND_CONTAINS_UPPERCASE_LETTERS, util.checkCheckName("checkName").matches(IStatus.WARNING));
 
@@ -171,7 +171,7 @@ public class CheckJavaValidatorUtilTest extends TestCase {
    * Tests checkCategoryName. The given values are valid.
    */
   @Test
-  public void categoryNameIsValid() {
+  void categoryNameIsValid() {
     assertTrue(STARTS_WITH_UPPERCASE_LETTER, util.checkCategoryName("Categoryname").isOK());
     assertTrue(STARTS_WITH_AND_CONTAINS_UPPERCASE_LETTERS, util.checkCategoryName("CategoryName").isOK());
   }
@@ -180,7 +180,7 @@ public class CheckJavaValidatorUtilTest extends TestCase {
    * Tests checkCategoryName. The given values are invalid.
    */
   @Test
-  public void categoryNameIsInvalid() {
+  void categoryNameIsInvalid() {
     assertTrue(NAME_IS_EMPTY, util.checkCategoryName(EMPTY_STRING).matches(IStatus.ERROR));
     assertTrue(QUALIFIED_NAME, util.checkCategoryName("Category.name").matches(IStatus.ERROR));
     assertTrue(CONTAINS_ILLEGAL_CHARACTER, util.checkCategoryName("%categoryname").matches(IStatus.ERROR));
@@ -191,7 +191,7 @@ public class CheckJavaValidatorUtilTest extends TestCase {
    * Tests checkCategoryName. The given values are discouraged.
    */
   @Test
-  public void categoryNameIsDiscouraged() {
+  void categoryNameIsDiscouraged() {
     assertTrue(STARTS_WITH_LOWER_CASE, util.checkCategoryName("categoryname").matches(IStatus.WARNING));
     assertTrue(STARTS_WITH_AND_CONTAINS_UPPERCASE_LETTERS, util.checkCategoryName("categoryName").matches(IStatus.WARNING));
   }

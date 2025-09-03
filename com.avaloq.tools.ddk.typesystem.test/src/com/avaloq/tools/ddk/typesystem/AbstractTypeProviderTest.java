@@ -109,13 +109,13 @@ public class AbstractTypeProviderTest {
   }
 
   @Test
-  public void testTypeProviderPlain() {
+  void testTypeProviderPlain() {
     ITypeProvider provider = new PlainTypeProvider();
     testPlainProvider(provider);
   }
 
   @Test
-  public void testTypeProviderCyclicDefault() {
+  void testTypeProviderCyclicDefault() {
     ITypeProvider provider = new CyclicDefaultTypeProvider();
     assertNull("cylic type for expression1 not null", provider.getType(expression1));
     assertNull("cylic type for expression2 not null", provider.getType(expression2));
@@ -148,13 +148,13 @@ public class AbstractTypeProviderTest {
   }
 
   @Test
-  public void testDelegatingTypeProvider() {
+  void testDelegatingTypeProvider() {
     delegateProvider = new PlainTypeProvider();
     testPlainProvider(new DelegatingTypeProvider());
   }
 
   @Test
-  public void testDoNothingTypeProvider() {
+  void testDoNothingTypeProvider() {
     // we are mainly testing that the AbstractTypeProvider does not crash when the subclass does nothing
     ITypeProvider provider = new DoNothingTypeProvider();
     assertNull("did something for type of expression1", provider.getType(expression1));

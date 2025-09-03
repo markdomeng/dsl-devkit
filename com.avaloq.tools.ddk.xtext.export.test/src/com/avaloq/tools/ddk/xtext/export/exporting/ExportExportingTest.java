@@ -28,7 +28,7 @@ public class ExportExportingTest extends AbstractXtextTest { // AbstractExportin
   }
 
   @Test
-  public final void testExport() {
+  final void testExport() {
     // TODO - what should we test?
   }
 

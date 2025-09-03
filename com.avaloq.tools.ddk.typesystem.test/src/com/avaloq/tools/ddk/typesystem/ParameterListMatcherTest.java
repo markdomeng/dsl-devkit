@@ -210,13 +210,13 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testNoneAgainstNone() {
+  void testNoneAgainstNone() {
     ParameterListMatchResult matchResult = parameterListMatcher.match(new ArrayList<ActualParameter>(), new ArrayList<NamedFormalParameter>(), parameterMatcher, CASE_INSENSITIVE);
     checkParameterListResult(ParameterListMatchStatus.MATCH_SUCCESSFUL, 0, 0, matchResult);
   }
 
   @Test
-  public void testOneUnnamedAgainstOne() {
+  void testOneUnnamedAgainstOne() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     List<ActualParameter> actuals = new ArrayList<ActualParameter>();
@@ -272,7 +272,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testOneNamedAgainstNone() {
+  void testOneNamedAgainstNone() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     List<NamedActualParameter> actuals = new ArrayList<NamedActualParameter>();
     actuals.add(new NamedActualParameter(NAME_1, intType));
@@ -283,7 +283,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testNoneAgainstOne() {
+  void testNoneAgainstOne() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     NamedFormalParameter mandatoryParam = new NamedFormalParameter(NAME_1, intType);
     formals.add(mandatoryParam);
@@ -295,7 +295,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testNoneAgainstTwoMandatory() {
+  void testNoneAgainstTwoMandatory() {
     // one mandatory and one not mandatory
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     NamedFormalParameter mandatoryParam1 = new NamedFormalParameter(NAME_1, intType);
@@ -325,7 +325,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testThreeUnnamedWithOneTypeError() {
+  void testThreeUnnamedWithOneTypeError() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     formals.add(new NamedFormalParameter(NAME_2, intType));
@@ -343,7 +343,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testThreeNamedWithOneTypeError() {
+  void testThreeNamedWithOneTypeError() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     formals.add(new NamedFormalParameter(NAME_2, intType));
@@ -361,7 +361,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testThreeMixedAgainstThreeMandatory() {
+  void testThreeMixedAgainstThreeMandatory() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     formals.add(new NamedFormalParameter(NAME_2, intType));
@@ -379,7 +379,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testTwoMixedAgainstThreeMandatory() {
+  void testTwoMixedAgainstThreeMandatory() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     formals.add(new NamedFormalParameter(NAME_2, intType));
@@ -395,7 +395,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testTwoMixedAgainstThreeWithOptional() {
+  void testTwoMixedAgainstThreeWithOptional() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     formals.add(new NamedFormalParameter(NAME_2, intType, IS_OPTIONAL, !IS_MULTI));
@@ -411,7 +411,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testTwoUnnamedAgainstThreeWithOptional() {
+  void testTwoUnnamedAgainstThreeWithOptional() {
     List<FormalParameter> formals = new ArrayList<FormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     formals.add(new NamedFormalParameter(NAME_2, intType));
@@ -423,7 +423,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testUnnamedTooManyActuals() {
+  void testUnnamedTooManyActuals() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     formals.add(new NamedFormalParameter(NAME_2, intType));
@@ -442,7 +442,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testFourUnnamedAgainstTwoWithMulti() {
+  void testFourUnnamedAgainstTwoWithMulti() {
     List<FormalParameter> formals = new ArrayList<FormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     formals.add(new NamedFormalParameter(NAME_2, intType, IS_MANDATORY, IS_MULTI));
@@ -455,7 +455,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testFourNamedAgainstTwoWithMulti() {
+  void testFourNamedAgainstTwoWithMulti() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     formals.add(new NamedFormalParameter(NAME_2, intType, IS_MANDATORY, IS_MULTI));
@@ -474,7 +474,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testTwoUnNamedAgainstTwoPositional() {
+  void testTwoUnNamedAgainstTwoPositional() {
     List<FormalParameter> formals = new ArrayList<FormalParameter>();
     formals.add(new FormalParameter(intType));
     formals.add(new FormalParameter(textType));
@@ -493,7 +493,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testFourUnNamedAgainstTwoPositionalwithMulti() {
+  void testFourUnNamedAgainstTwoPositionalwithMulti() {
     List<FormalParameter> formals = new ArrayList<FormalParameter>();
     formals.add(new FormalParameter(intType));
     formals.add(new FormalParameter(textType, IS_MANDATORY, IS_MULTI));
@@ -516,7 +516,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testFourUnNamedAgainstTwoPositionalwithMultiAndTypeError() {
+  void testFourUnNamedAgainstTwoPositionalwithMultiAndTypeError() {
     List<FormalParameter> formals = new ArrayList<FormalParameter>();
     formals.add(new FormalParameter(intType));
     formals.add(new FormalParameter(textType, IS_MANDATORY, IS_MULTI));
@@ -535,7 +535,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testNamedAgainstPositional() {
+  void testNamedAgainstPositional() {
     List<FormalParameter> formals = new ArrayList<FormalParameter>();
     formals.add(new FormalParameter(intType));
     formals.add(new FormalParameter(textType));
@@ -550,7 +550,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testMissingMandatoryAgainstPositional() {
+  void testMissingMandatoryAgainstPositional() {
     List<FormalParameter> formals = new ArrayList<FormalParameter>();
     formals.add(new FormalParameter(intType));
     formals.add(new FormalParameter(textType));
@@ -581,7 +581,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testInvalidActualNullWithMulti() {
+  void testInvalidActualNullWithMulti() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     formals.add(new NamedFormalParameter(NAME_2, textType, IS_MANDATORY, IS_MULTI));
@@ -598,7 +598,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testInvalidNamedActualNullName() {
+  void testInvalidNamedActualNullName() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     formals.add(new NamedFormalParameter(NAME_2, textType, IS_OPTIONAL, !IS_MULTI));
@@ -609,7 +609,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testInvalidNamedActualBlankName() {
+  void testInvalidNamedActualBlankName() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     formals.add(new NamedFormalParameter(NAME_2, textType, IS_OPTIONAL, !IS_MULTI));
@@ -646,7 +646,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testInvalidFormalNullName() {
+  void testInvalidFormalNullName() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     formals.add(new NamedFormalParameter(null, intType));
@@ -664,7 +664,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testInvalidActualNullNameInvalidFormalNullName() {
+  void testInvalidActualNullNameInvalidFormalNullName() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     formals.add(new NamedFormalParameter(null, intType));
@@ -699,7 +699,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testDuplicateNamedActual() {
+  void testDuplicateNamedActual() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     formals.add(new NamedFormalParameter(NAME_2, intType));
@@ -777,7 +777,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testNamedFormalAfterUnnamed1() {
+  void testNamedFormalAfterUnnamed1() {
     // these are allowed, match named by position.
     List<FormalParameter> formals = new ArrayList<FormalParameter>();
     formals.add(new FormalParameter(intType));
@@ -824,7 +824,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testUnnamedFormalAfterNamed1() {
+  void testUnnamedFormalAfterNamed1() {
     // unnamed is matched by position
     List<FormalParameter> formals = new ArrayList<FormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
@@ -846,7 +846,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testUnnamedFormalAfterNamed2() {
+  void testUnnamedFormalAfterNamed2() {
     // unnamed is optional, at end and not matched because fewer formal parameters
     List<FormalParameter> formals = new ArrayList<FormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
@@ -858,7 +858,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testUnnamedFormalAfterNamed3() {
+  void testUnnamedFormalAfterNamed3() {
     // unnamed is mandatory, at end and not matched because fewer formal parameters
     List<FormalParameter> formals = new ArrayList<FormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
@@ -870,7 +870,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testUnnamedFormalAfterNamed4() {
+  void testUnnamedFormalAfterNamed4() {
     // two unnamed formals after named
     List<FormalParameter> formals = new ArrayList<FormalParameter>();
     formals.add(new NamedFormalParameter(NAME_2, intType));
@@ -890,7 +890,7 @@ public class ParameterListMatcherTest {
   }
 
   @Test
-  public void testForceMatchByPosition1() {
+  void testForceMatchByPosition1() {
     List<NamedFormalParameter> formals = new ArrayList<NamedFormalParameter>();
     formals.add(new NamedFormalParameter(NAME_1, intType));
     formals.add(new NamedFormalParameter(NAME_2, intType));

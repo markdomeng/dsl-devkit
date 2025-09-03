@@ -53,7 +53,7 @@ public class EClassComparatorTest {
   }
 
   @Test
-  public void testSortingWithEObject() {
+  void testSortingWithEObject() {
     List<EClass> sorted = EClassComparator.sortedGroups(Lists.newArrayList(EOBJECT, ECLASS), mapping);
     assertEquals(Lists.newArrayList(ECLASS, EOBJECT), sorted);
 
@@ -62,7 +62,7 @@ public class EClassComparatorTest {
   }
 
   @Test
-  public void testSortingByEPackage() {
+  void testSortingByEPackage() {
     ListMultimap<EPackage, EClass> sorted = EClassComparator.sortedEPackageGroups(Lists.newArrayList(EOBJECT, ECLASS), mapping);
     assertEquals(2, sorted.size());
     assertEquals(1, sorted.keySet().size());

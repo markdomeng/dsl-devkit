@@ -128,7 +128,7 @@ public class WorkbenchResolutionAdaptorRunTest {
   }
 
   @Test
-  public void testRun() throws CoreException {
+  void testRun() throws CoreException {
     WorkbenchResolutionAdapter adapter = wmrg.new WorkbenchResolutionAdapter(mockIssueResolution, mockMarker);
     when(mockMarkerHelpRegistry.getResolutions(mockMarker)).thenReturn(mockMarkerResolutions);
 
@@ -142,7 +142,7 @@ public class WorkbenchResolutionAdaptorRunTest {
   }
 
   @Test
-  public void testSingleRun() throws CoreException {
+  void testSingleRun() throws CoreException {
     WorkbenchResolutionAdapter adapter = wmrg.new WorkbenchResolutionAdapter(mockIssueResolution, mockMarker);
     when(mockMarkerHelpRegistry.getResolutions(mockMarker)).thenReturn(mockMarkerResolutions);
 

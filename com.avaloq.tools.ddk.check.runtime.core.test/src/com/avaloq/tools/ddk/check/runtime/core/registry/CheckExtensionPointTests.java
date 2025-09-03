@@ -85,7 +85,7 @@ public class CheckExtensionPointTests extends TestCase {
    * @see Platform#getExtensionRegistry()
    */
   @Test
-  public void testExtensionPointIsRegistered() {
+  void testExtensionPointIsRegistered() {
     try {
       findCheckExtensionPoint(findExtensionPoints());
     } catch (NoSuchElementException e) {
@@ -98,7 +98,7 @@ public class CheckExtensionPointTests extends TestCase {
    * point.
    */
   @Test
-  public void testDummyClientRegistered() {
+  void testDummyClientRegistered() {
     assertNotNull("Test plugin successfully registered to the check extension point", findCheckExtensionPoint(findExtensionPoints()).getExtension(DUMMY_EXTENSION_ID));
   }
 

@@ -30,7 +30,7 @@ import com.avaloq.tools.ddk.xtext.test.junit.runners.XtextClassRunner;
 public class QualifiedNamePatternTest {
 
   @Test
-  public void testSimpleQualifiedNamePattern() {
+  void testSimpleQualifiedNamePattern() {
     QualifiedNamePattern pattern = QualifiedNamePattern.create("foo*");
     assertEquals(QualifiedName.create("foo"), pattern.lowerInclusive());
     assertEquals(QualifiedName.create("fop"), pattern.upperExclusive());
@@ -103,7 +103,7 @@ public class QualifiedNamePatternTest {
   }
 
   @Test
-  public void testRegexpPatterns() {
+  void testRegexpPatterns() {
     QualifiedNamePattern pattern = QualifiedNamePattern.createFromGlobs("*");
     assertEquals(QualifiedName.create(""), pattern.lowerInclusive());
     assertEquals(QualifiedName.create("!"), pattern.upperExclusive());

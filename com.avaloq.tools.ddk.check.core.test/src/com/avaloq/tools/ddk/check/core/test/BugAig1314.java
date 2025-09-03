@@ -122,7 +122,7 @@ public class BugAig1314 {
    * Tests that querying the same scope twice doesn't make the resource set grow.
    */
   @Test
-  public void testSameScopeUseTwice() throws MalformedURLException, URISyntaxException {
+  void testSameScopeUseTwice() throws MalformedURLException, URISyntaxException {
     XtextResourceSet rs = new XtextResourceSet();
     URL url = createURL();
     ModelLocation modelLocation = createModelLocation(url);
@@ -141,7 +141,7 @@ public class BugAig1314 {
    * Tests that querying two different scopes doesn't make the resource set grow. That one was the real cause of bug AIG-1314.
    */
   @Test
-  public void testDifferentScopeUseTwice() throws MalformedURLException, URISyntaxException {
+  void testDifferentScopeUseTwice() throws MalformedURLException, URISyntaxException {
     XtextResourceSet rs = new XtextResourceSet();
     URL url = createURL();
     ModelLocation modelLocation = createModelLocation(url);

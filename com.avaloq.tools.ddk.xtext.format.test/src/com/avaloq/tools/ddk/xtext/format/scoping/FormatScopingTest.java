@@ -124,7 +124,7 @@ public class FormatScopingTest extends AbstractScopingTest {
    * Verify assignemnts (=a, =b ...) are scoped.
    */
   @Test
-  public void assignmentScoped() {
+  void assignmentScoped() {
     AbstractRule parserRuleA = grammarA.getRules().get(0);
     Set<URI> assignmentURIs = Sets.newHashSet(Iterables.transform(GrammarUtil.containedAssignments(parserRuleA), TO_URI));
     assertFalse("No assignments found", assignmentURIs.isEmpty());
@@ -136,7 +136,7 @@ public class FormatScopingTest extends AbstractScopingTest {
    * Verify Rule { @Rule : ...}.
    */
   @Test
-  public void ruleCallScoped() {
+  void ruleCallScoped() {
     AbstractRule parserRuleAA = grammarA.getRules().get(1);
     Set<URI> ruleCallURIs = Sets.newHashSet(Iterables.transform(GrammarUtil.containedRuleCalls(parserRuleAA), TO_URI));
     assertScope(formatA.getRules().get(1), FormatPackage.Literals.GRAMMAR_ELEMENT_REFERENCE__RULE_CALL, ruleCallURIs);
@@ -147,7 +147,7 @@ public class FormatScopingTest extends AbstractScopingTest {
    * Verify Rule { rule : ...}.
    */
   @Test
-  public void ruleSelfScoped() {
+  void ruleSelfScoped() {
     AbstractRule parserRuleA = grammarA.getRules().get(0);
     assertScope(formatC.getRules().get(0), FormatPackage.Literals.GRAMMAR_ELEMENT_REFERENCE__SELF, TO_URI.apply(parserRuleA));
   }

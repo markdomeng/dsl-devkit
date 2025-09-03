@@ -127,7 +127,7 @@ public class CheckRuleLabelProviderTest {
    * Test the default binding.
    */
   @Test
-  public void testBinding() {
+  void testBinding() {
     // ASSERT
     assertSame("Binding of label provider incorrect.", CheckRuleLabelProvider.class, checkRuleLabelProvider.getClass());
   }
@@ -180,7 +180,7 @@ public class CheckRuleLabelProviderTest {
    * Test trying to get a check label when there are no validators.
    */
   @Test
-  public void testWithNoValidators() {
+  void testWithNoValidators() {
     // ARRANGE
     when(mockCheckValidatorRegistry.getValidators()).thenReturn(Collections.emptyList());
 

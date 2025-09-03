@@ -121,7 +121,7 @@ public class CheckTocExtensionTest extends TestCase {
    *           the core exception
    */
   @Test
-  public void testUpdateTocExtension() throws CoreException {
+  void testUpdateTocExtension() throws CoreException {
     IPluginExtension extension = createErroneousTocExtension();
     assertNotSame("File location is not as expected", CheckTocExtensionHelper.TOC_FILE_NAME, ((IPluginElement) extension.getChildren()[0]).getAttribute("file").getValue());
     tocUtil.updateExtension(catalog, extension);
@@ -135,7 +135,7 @@ public class CheckTocExtensionTest extends TestCase {
    *           the core exception
    */
   @Test
-  public void testIsExtensionUpdateRequiredFalse() throws CoreException {
+  void testIsExtensionUpdateRequiredFalse() throws CoreException {
     IPluginExtension extension = tocUtil.addExtensionToPluginBase(pluginModel, catalog, ExtensionType.CONTEXTS, null);
     Iterable<IPluginElement> elements = Iterables.filter(Lists.newArrayList(extension.getChildren()), IPluginElement.class);
     assertFalse("No toc extension update is required", tocUtil.isExtensionUpdateRequired(catalog, extension, elements));

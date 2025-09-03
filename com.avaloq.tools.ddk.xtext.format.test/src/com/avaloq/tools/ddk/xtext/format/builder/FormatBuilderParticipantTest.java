@@ -78,7 +78,7 @@ public class FormatBuilderParticipantTest extends AbstractXtextTest {
    * Tests whether a {@link Delta} resource comes form the right (SRC) directory to be used by org.eclipse.xtext.builder.BuilderParticipant.
    */
   @Test
-  public void isSourceOriginatedTest() {
+  void isSourceOriginatedTest() {
     when(uriCorrect.segments()).thenReturn(CORRECT_URI_SEGMENTS);
     assertTrue("Check if the delta resource has correct URI and comes from SRC directory", participant.isSourceOriginated(delta));
     when(uriCorrect.segments()).thenReturn(BIN_URI_SEGMENTS);

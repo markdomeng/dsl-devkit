@@ -93,7 +93,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @Test
-  public void columnMinimumPadding() throws IOException {
+  void columnMinimumPadding() throws IOException {
     String model = "      test column     name item int x;";
     String expected = "test\n  column name\n\n\titem          int x;";
     assertFormattedPTC(expected, model);
@@ -107,7 +107,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @Test
-  public void offset() throws IOException {
+  void offset() throws IOException {
     String model = "test offset value v pair p1 p2";
     String expected = "test\noffset\n\tvalue    v\n\t\tpair  p1  p2";
     assertFormattedPTC(expected, model);
@@ -121,7 +121,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @Test
-  public void rightPadding() throws IOException {
+  void rightPadding() throws IOException {
     String model = "test padding long_name n2;";
     String expected = "test\npadding long_name n2   ;";
     assertFormattedPTC(expected, model);
@@ -166,7 +166,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @Test
-  public void indentationAndComments() throws IOException {
+  void indentationAndComments() throws IOException {
     String model = "test /* xxx */ indentation { float val; // some float\n double /* oo */ y; indentation { // some block\n int x; // xxx\n } } // final comment";
     String expected = "test /* xxx */ indentation {\n	float val; // some float\n	double /* oo */ y;\n	indentation { // some block\n		int x; // xxx\n	}\n} // final comment";
     assertFormattedPTC(expected, model);
@@ -182,7 +182,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @Test
-  public void indentationAndLineWrap() throws IOException {
+  void indentationAndLineWrap() throws IOException {
     String model = "test indentation { void func(x:int,y:int,s:javalangString, foo:javasqlDate, blupp:mylongtype,  msads:adshdjkhsakdasdkslajdlsask, x:x, a:b, c:d ); }";
     String expected = "test indentation {\n	void func(x:int,y:int,\n\t\ts:javalangString,\n\t\tfoo:javasqlDate,\n\t\tblupp:mylongtype,\n\t\tmsads:adshdjkhsakdasdkslajdlsask,\n\t\tx:x,a:b,c:d);\n}";
     assertFormattedPTC(expected, model);
@@ -212,7 +212,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @Test
-  public void between2() throws IOException {
+  void between2() throws IOException {
     String model = "test indentation { indentation { x x; } }";
     String expected = "test indentation {\n	indentation {\n		x x;\n	}\n}";
     assertFormattedPTC(expected, model);
@@ -281,7 +281,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @Test
-  public void formatSegment1() throws IOException {
+  void formatSegment1() throws IOException {
     String model = "test\nindentation {\n    indentation  {  x  x  ;  }  }";
     String expected = "test\nindentation {\n    indentation {\n    	x x;\n    }  }";
     assertFormattedNM(expected, model, 30, 18);
@@ -294,7 +294,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @Test
-  public void formatSegment2() throws IOException {
+  void formatSegment2() throws IOException {
     String model = "test       indentation {\n    indentation  {  x  x  ;  }  }";
     // String expected =
     // "test\nindentation {\n indentation {\n x x;\n } }";
@@ -308,7 +308,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @Test
-  public void formatSegment3() throws IOException {
+  void formatSegment3() throws IOException {
     String model = "     test       indentation {\n    indentation  {  x  x  ;  }  }";
     String expected = "test indentation {\n	indentation {\n		x x;\n	}\n}";
     assertFormattedNM(expected, model, 0, model.length());
@@ -335,7 +335,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @Test
-  public void linewrapDatatypeRuleRef2() throws IOException {
+  void linewrapDatatypeRuleRef2() throws IOException {
     String model = "test linewrap fqn ab.cd.ef; fqnref ab.cd.ef;";
     String expected = "test linewrap\nfqn\nab.cd.ef;\nfqnref\nab.cd.ef;";
     assertFormattedPTC(expected, model);
@@ -370,7 +370,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @Test
-  public void enumeration() throws IOException {
+  void enumeration() throws IOException {
     String model = "test linewrap enum lit1,lit2,lit3,lit1;";
     String expected = "test linewrap\nenum lit1 ,\nlit2,\nlit3,\nlit1;";
     assertFormattedPTC(expected, model);
@@ -386,7 +386,7 @@ public class FormatterTest extends AbstractFormatterTest {
    */
   // see https://bugs.eclipse.org/bugs/show_bug.cgi?id=312559
   @Test
-  public void suppressedWhitespace() throws IOException {
+  void suppressedWhitespace() throws IOException {
     String model = "test linewrap `f%<b>%a` post;";
     String expected = "test linewrap\n`f%< b >%a` post;";
     assertFormattedPTC(expected, model);
@@ -433,7 +433,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @Test
-  public void linewrapMax() throws IOException {
+  void linewrapMax() throws IOException {
     String model = "test wrapminmax\n\n\n\n\n\n\n\n\n\n\n\n\nfoo bar;";
     String expected = "test wrapminmax\n\n\n\n\nfoo bar;";
     assertFormattedPTC(expected, model);
@@ -496,7 +496,7 @@ public class FormatterTest extends AbstractFormatterTest {
    * @throws IOException
    */
   @Test
-  public void datatypeRules() throws IOException {
+  void datatypeRules() throws IOException {
     String model = "test linewrap datatypes abc kw1 bcd def kw3;";
     String expected = "test linewrap\ndatatypes abc\nkw1\nbcd\ndef\nkw3;";
     assertFormattedPTC(expected, model);

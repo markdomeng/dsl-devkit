@@ -30,7 +30,7 @@ public class QualifiedNameSegmentTreeLookupTest {
   private final QualifiedNameSegmentTreeLookup<URI> lookup = new QualifiedNameSegmentTreeLookup<URI>(URI.class, true);
 
   @Test
-  public void testEmpty() {
+  void testEmpty() {
     assertNull(lookup.get(QualifiedName.EMPTY));
   }
 
@@ -53,7 +53,7 @@ public class QualifiedNameSegmentTreeLookupTest {
   }
 
   @Test
-  public void testTopLevelPatternWithoutWildcard() {
+  void testTopLevelPatternWithoutWildcard() {
     URI value1 = put("foo");
     URI value2 = put("bar");
     URI value3 = put("foo2");

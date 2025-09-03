@@ -29,7 +29,7 @@ public class GraphTest {
   // CHECKSTYLE:CONSTANTS-OFF
 
   @Test
-  public void testTopologicalSorting() {
+  void testTopologicalSorting() {
     Multimap<String, String> graph = HashMultimap.create();
     graph.put("7", "11");
     graph.put("7", "8");
@@ -47,7 +47,7 @@ public class GraphTest {
   }
 
   @Test
-  public void testDependencyCycle() {
+  void testDependencyCycle() {
     Multimap<String, String> graph = ImmutableMultimap.of("1", "2", "2", "3", "3", "1");
 
     try {

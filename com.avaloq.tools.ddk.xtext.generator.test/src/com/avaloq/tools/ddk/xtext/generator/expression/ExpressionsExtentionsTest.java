@@ -38,7 +38,7 @@ public class ExpressionsExtentionsTest extends AbstractXtextTest {
   }
 
   @Test
-  public final void serialize() throws IOException {
+  final void serialize() throws IOException {
     Expression e = (Expression) getXtextTestUtil().getModel("test.expression." + getXtextTestUtil().getFileExtension(), "let x = 1 : 0");
     assertEquals("Simple serialization works", "let x = 1 : 0", ExpressionExtensions.serialize(e));
   }
