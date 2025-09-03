@@ -8,7 +8,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-21
 Require-Bundle: org.eclipse.xtext.ui,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtext.testing,
- org.junit,
+ org.junit.jupiter.api,
  org.mockito,
  com.avaloq.tools.ddk.xtext.ui,
  com.avaloq.tools.ddk.test.core,

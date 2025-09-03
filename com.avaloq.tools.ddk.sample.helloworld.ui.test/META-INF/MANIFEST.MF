@@ -8,7 +8,7 @@ Bundle-SymbolicName: com.avaloq.tools.ddk.sample.helloworld.ui.test;singleton:=t
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.avaloq.tools.ddk.sample.helloworld,
  com.avaloq.tools.ddk.sample.helloworld.ui,
- org.junit,
+ org.junit.jupiter.api,
  org.eclipse.xtext.ui.testing,
  org.eclipse.xtext.testing,
  org.eclipse.xtext.xbase.testing,

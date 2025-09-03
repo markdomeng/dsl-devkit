@@ -6,7 +6,7 @@ Bundle-Version: 16.1.0.qualifier
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: Avaloq Group AG
 Bundle-RequiredExecutionEnvironment: JavaSE-21
-Require-Bundle: org.junit,
+Require-Bundle: org.junit.jupiter.api,
  org.eclipse.swtbot.eclipse.finder,
  org.eclipse.swt,
  com.avaloq.tools.ddk.test.core,

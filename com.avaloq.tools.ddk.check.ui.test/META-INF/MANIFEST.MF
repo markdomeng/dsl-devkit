@@ -5,7 +5,7 @@ Bundle-SymbolicName: com.avaloq.tools.ddk.check.ui.test
 Bundle-Version: 16.1.0.qualifier
 Bundle-Vendor: Avaloq Group AG
 Bundle-RequiredExecutionEnvironment: JavaSE-21
-Require-Bundle: org.junit,
+Require-Bundle: org.junit.jupiter.api,
  com.avaloq.tools.ddk.check.ui,
  com.avaloq.tools.ddk.xtext.test.core,
  com.avaloq.tools.ddk.test.core,

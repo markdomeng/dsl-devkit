@@ -13,7 +13,7 @@ Require-Bundle: com.avaloq.tools.ddk.test.core,
  org.eclipse.xtend,
  org.eclipse.xtend.typesystem.emf,
  org.eclipse.xtext,
- org.junit,
+ org.junit.jupiter.api,
  org.mockito,
  com.avaloq.tools.ddk.xtext.ui,
  org.eclipse.xtext.xtext.generator

@@ -10,7 +10,7 @@ Fragment-Host: com.avaloq.tools.ddk.xtext.format.ui
 Require-Bundle: com.avaloq.tools.ddk.xtext.format,
  com.google.inject,
  com.avaloq.tools.ddk.xtext.test.core,
- org.junit,
+ org.junit.jupiter.api,
  org.mockito,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtext.xbase.testing,

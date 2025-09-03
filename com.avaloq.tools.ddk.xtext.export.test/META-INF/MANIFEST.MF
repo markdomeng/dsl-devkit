@@ -10,7 +10,7 @@ Fragment-Host: com.avaloq.tools.ddk.xtext.export.ui
 Require-Bundle: com.avaloq.tools.ddk.xtext.export,
  com.google.inject,
  com.avaloq.tools.ddk.xtext.test.core,
- org.junit,
+ org.junit.jupiter.api,
  com.avaloq.tools.ddk.xtext
 Export-Package: com.avaloq.tools.ddk.xtext.test.export
 Automatic-Module-Name: com.avaloq.tools.ddk.xtext.export.test
