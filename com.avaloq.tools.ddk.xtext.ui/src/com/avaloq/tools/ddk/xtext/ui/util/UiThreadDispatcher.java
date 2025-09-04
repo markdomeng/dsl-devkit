@@ -62,7 +62,7 @@ public final class UiThreadDispatcher {
         result.add(runnable.run());
       }
     });
-    Assertions.isTrue(!result.isEmpty(), "Result is empty."); //$NON-NLS-1$
+    Assert.isTrue(!result.isEmpty(), "Result is empty."); //$NON-NLS-1$
     return result.get(0);
   }
 

@@ -245,7 +245,7 @@ public class ValidPreferenceStore {
     // the end)
     for (final IScopeContext scope : scopes) {
       if (scope.equals(DEFAULT_CONTEXT)) {
-        Assertions.isTrue(false, "Do not add the default to the search contexts"); //$NON-NLS-1$
+        Assert.isTrue(false, "Do not add the default to the search contexts"); //$NON-NLS-1$
       }
     }
   }

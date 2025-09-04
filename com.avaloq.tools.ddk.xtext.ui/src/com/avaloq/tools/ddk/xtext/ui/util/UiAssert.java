@@ -24,14 +24,14 @@ public final class UiAssert {
    * thread.
    */
   public static void isNotUiThread() {
-    Assertions.isTrue(Display.getCurrent() == null, "Current statement is invoked on the UI thread."); //$NON-NLS-1$
+    Assert.isTrue(Display.getCurrent() == null, "Current statement is invoked on the UI thread."); //$NON-NLS-1$
   }
 
   /**
    * Ensures that the current statement is executed within the UI thread.
    */
   public static void isUiThread() {
-    Assertions.isTrue(Display.getCurrent() != null, "Current statement is not invoked on the UI thread."); //$NON-NLS-1$
+    Assert.isTrue(Display.getCurrent() != null, "Current statement is not invoked on the UI thread."); //$NON-NLS-1$
   }
 
   /**
