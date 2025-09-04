@@ -22,7 +22,7 @@ import org.eclipse.xtext.diagnostics.Diagnostic
 import org.junit.Assert
 import org.junit.Test
 
-import static org.junit.Assert.fail
+import static org.junit.jupiter.api.Assertions.fail
 
 /**
  * Test quickfixes for Check files.

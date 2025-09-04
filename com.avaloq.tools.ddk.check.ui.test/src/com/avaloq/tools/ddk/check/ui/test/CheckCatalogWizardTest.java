@@ -11,8 +11,8 @@
 package com.avaloq.tools.ddk.check.ui.test;
 
 import static com.avaloq.tools.ddk.test.ui.swtbot.util.SwtBotWizardUtil.selectProjectFolder;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;

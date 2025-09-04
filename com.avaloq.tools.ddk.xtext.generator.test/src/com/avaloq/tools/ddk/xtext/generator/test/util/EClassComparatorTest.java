@@ -15,7 +15,7 @@ import static org.eclipse.emf.ecore.EcorePackage.Literals.ECLASSIFIER;
 import static org.eclipse.emf.ecore.EcorePackage.Literals.EDATA_TYPE;
 import static org.eclipse.emf.ecore.EcorePackage.Literals.EOBJECT;
 import static org.eclipse.emf.ecore.EcorePackage.Literals.EPACKAGE;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 

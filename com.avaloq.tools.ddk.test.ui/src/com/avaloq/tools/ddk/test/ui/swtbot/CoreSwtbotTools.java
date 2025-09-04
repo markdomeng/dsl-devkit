@@ -11,7 +11,7 @@
 package com.avaloq.tools.ddk.test.ui.swtbot;
 
 import static org.eclipse.swtbot.swt.finder.waits.Conditions.widgetIsEnabled;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.AWTException;
 import java.awt.Robot;

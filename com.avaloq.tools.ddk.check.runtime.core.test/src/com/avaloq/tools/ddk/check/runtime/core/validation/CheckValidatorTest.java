@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.check.runtime.core.validation;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 

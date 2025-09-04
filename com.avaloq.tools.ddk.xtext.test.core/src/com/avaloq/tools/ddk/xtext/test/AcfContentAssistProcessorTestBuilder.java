@@ -11,7 +11,7 @@
 package com.avaloq.tools.ddk.xtext.test;
 
 // CHECKSTYLE:OFF
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.text.MessageFormat;
 
