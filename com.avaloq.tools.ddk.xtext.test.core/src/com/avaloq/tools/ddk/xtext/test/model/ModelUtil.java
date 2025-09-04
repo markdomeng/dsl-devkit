@@ -14,7 +14,7 @@ import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;

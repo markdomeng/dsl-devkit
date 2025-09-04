@@ -20,7 +20,7 @@ import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.ui.progress.UIJob;
 import org.eclipse.xtext.common.types.access.jdt.IJavaProjectProvider;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import com.google.common.base.Function;

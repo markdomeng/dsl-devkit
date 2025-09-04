@@ -44,7 +44,7 @@ import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil;
 import org.eclipse.xtext.ui.testing.util.JavaProjectSetupUtil;
 import org.eclipse.xtext.ui.util.PluginProjectFactory;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import com.google.common.base.Functions;
 import com.google.common.base.Predicate;

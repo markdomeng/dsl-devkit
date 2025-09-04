@@ -25,7 +25,7 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.RegistryFactory;
 import org.eclipse.emf.common.util.WrappedException;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.mockito.stubbing.Answer;
 
 import com.google.common.collect.LinkedHashMultimap;

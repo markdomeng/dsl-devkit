@@ -28,7 +28,7 @@ import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
 import org.eclipse.xtext.ui.editor.hyperlinking.XtextHyperlink;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import com.avaloq.tools.ddk.xtext.test.ui.AbstractXtextEditorTest;
 import com.google.common.base.Predicate;

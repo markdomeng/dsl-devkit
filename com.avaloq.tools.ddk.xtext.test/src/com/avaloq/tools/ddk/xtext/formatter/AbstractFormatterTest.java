@@ -19,7 +19,7 @@ import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.SaveOptions;
 import org.eclipse.xtext.serializer.ISerializer;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import com.avaloq.tools.ddk.xtext.test.AbstractXtextTest;
 

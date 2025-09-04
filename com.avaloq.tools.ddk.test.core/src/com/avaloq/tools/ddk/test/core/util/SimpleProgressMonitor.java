@@ -11,7 +11,7 @@
 package com.avaloq.tools.ddk.test.core.util;
 
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 
 /**

@@ -23,7 +23,7 @@ import org.eclipse.jface.text.Position;
 import org.eclipse.xtext.ui.editor.folding.DefaultFoldedPosition;
 import org.eclipse.xtext.ui.editor.folding.FoldedPosition;
 import org.eclipse.xtext.ui.editor.folding.IFoldingRegionProvider;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import com.avaloq.tools.ddk.test.core.BugTest;
 import com.avaloq.tools.ddk.xtext.test.ui.AbstractXtextEditorTest;

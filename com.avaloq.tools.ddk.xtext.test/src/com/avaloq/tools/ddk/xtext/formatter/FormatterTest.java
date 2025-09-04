@@ -13,7 +13,7 @@ package com.avaloq.tools.ddk.xtext.formatter;
 import java.io.IOException;
 
 import org.eclipse.xtext.resource.SaveOptions;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

@@ -30,7 +30,7 @@ import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.xbase.lib.Procedures;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Lists;

@@ -33,7 +33,7 @@ import org.eclipse.xtext.ui.testing.util.ResourceLoadHelper;
 import org.eclipse.xtext.util.Pair;
 import org.eclipse.xtext.util.StringInputStream;
 import org.eclipse.xtext.util.Tuples;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import com.avaloq.tools.ddk.xtext.ui.util.Function;
 import com.avaloq.tools.ddk.xtext.ui.util.UiThreadDispatcher;

@@ -8,7 +8,7 @@ import com.google.inject.Inject
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
 import org.eclipse.xtext.testing.util.ParseHelper
-import org.junit.Assert
+import org.junit.jupiter.api.Assertions
 import org.junit.Test
 import org.junit.runner.RunWith
 

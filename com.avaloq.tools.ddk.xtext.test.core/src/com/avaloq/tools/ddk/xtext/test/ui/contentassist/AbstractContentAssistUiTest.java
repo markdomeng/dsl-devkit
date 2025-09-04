@@ -25,7 +25,7 @@ import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.ui.editor.XtextSourceViewerConfiguration;
 import org.eclipse.xtext.ui.editor.contentassist.CompletionProposalComputer;
 import org.eclipse.xtext.ui.editor.contentassist.CompletionProposalComputer.State;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import com.avaloq.tools.ddk.xtext.common.ui.contentassist.TemplatesFirstCompletionProposalComparator;
 import com.avaloq.tools.ddk.xtext.resource.Messages;

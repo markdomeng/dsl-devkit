@@ -23,7 +23,7 @@ import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionProvider;
 import org.eclipse.xtext.validation.Issue;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.text.IsEqualCompressingWhiteSpace;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import com.avaloq.tools.ddk.check.runtime.quickfix.ICoreModificationContext;
 import com.avaloq.tools.ddk.check.runtime.ui.quickfix.CoreIssueModificationContext;

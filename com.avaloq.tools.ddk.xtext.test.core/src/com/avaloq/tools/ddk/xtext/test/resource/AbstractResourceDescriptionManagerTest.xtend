@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.URI
 import java.util.Collection
 import org.eclipse.xtext.resource.IResourceDescription.Delta
 import com.google.common.collect.HashMultiset
-import org.junit.Assert
+import org.junit.jupiter.api.Assertions
 import com.google.common.collect.Sets
 import com.avaloq.tools.ddk.xtext.test.TestSource
 
