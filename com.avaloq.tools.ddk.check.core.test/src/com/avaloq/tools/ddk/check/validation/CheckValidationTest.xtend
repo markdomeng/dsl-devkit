@@ -21,7 +21,7 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.eclipse.xtext.testing.validation.ValidationTestHelper
 import org.eclipse.xtext.xbase.XbasePackage$Literals
 import org.junit.Ignore
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import org.junit.runner.RunWith
 import com.avaloq.tools.ddk.check.validation.IssueCodes
 import com.avaloq.tools.ddk.check.check.CheckPackage

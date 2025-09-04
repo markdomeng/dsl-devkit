@@ -22,7 +22,7 @@ import org.eclipse.jface.text.templates.Template
 import org.eclipse.xtext.XtextRuntimeModule
 import org.eclipse.xtext.ui.editor.templates.XtextTemplateContext
 import org.eclipse.xtext.ui.editor.templates.XtextTemplateContextType
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import org.junit.runner.RunWith
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals

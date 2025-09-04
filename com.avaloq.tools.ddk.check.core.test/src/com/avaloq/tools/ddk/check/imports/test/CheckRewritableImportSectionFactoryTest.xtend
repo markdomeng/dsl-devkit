@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.testing.XtextRunner
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import org.junit.runner.RunWith
 
 import static org.mockito.Mockito.mock

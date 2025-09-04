@@ -20,7 +20,7 @@ import com.avaloq.tools.ddk.test.ui.swtbot.util.ProblemsViewTestUtil
 import org.eclipse.swtbot.swt.finder.widgets.TimeoutException
 import org.eclipse.xtext.diagnostics.Diagnostic
 import org.junit.jupiter.api.Assertions
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 import static org.junit.jupiter.api.Assertions.fail
 

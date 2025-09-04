@@ -15,7 +15,7 @@ import com.avaloq.tools.ddk.check.runtime.label.ICheckRuleLabelProvider
 import com.avaloq.tools.ddk.check.validation.LibraryChecksIssueCodes
 import com.google.inject.AbstractModule
 import com.google.inject.Guice
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 import static org.junit.jupiter.api.Assertions.assertEquals
 import static org.junit.jupiter.api.Assertions.assertNotNull

@@ -26,7 +26,7 @@ import org.eclipse.xtext.RuleCall
 import org.eclipse.xtext.TypeRef
 import org.eclipse.xtext.XtextPackage
 import org.eclipse.xtext.testing.XtextRunner
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import org.junit.runner.RunWith
 
 import static org.mockito.Mockito.mock
