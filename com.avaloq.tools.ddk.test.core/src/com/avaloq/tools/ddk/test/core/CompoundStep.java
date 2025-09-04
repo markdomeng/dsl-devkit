@@ -13,9 +13,9 @@ package com.avaloq.tools.ddk.test.core;
 import java.util.List;
 import java.util.ListIterator;
 
-import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-import org.eclipse.core.runtime.Assert;
+import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.Assertions;
 
 import com.google.common.collect.Lists;
 

@@ -14,11 +14,11 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.core.runtime.jobs.JobChangeAdapter;
+import org.junit.jupiter.api.Assertions;
 
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;

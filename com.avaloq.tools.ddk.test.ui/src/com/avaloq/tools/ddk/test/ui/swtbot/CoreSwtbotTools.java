@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.AssertionFailedException;
 import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.osgi.util.NLS;
@@ -48,6 +47,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.WorkbenchException;
+import org.junit.jupiter.api.Assertions;
 
 import com.avaloq.tools.ddk.test.core.util.Reflect;
 import com.avaloq.tools.ddk.test.ui.swtbot.condition.WaitForTable;

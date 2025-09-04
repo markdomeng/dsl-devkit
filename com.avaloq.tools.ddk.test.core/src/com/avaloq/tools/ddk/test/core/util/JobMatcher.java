@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.core.runtime.jobs.JobChangeAdapter;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableList;

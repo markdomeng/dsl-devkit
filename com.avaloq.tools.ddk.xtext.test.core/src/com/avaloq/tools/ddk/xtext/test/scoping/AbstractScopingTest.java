@@ -32,7 +32,6 @@ import java.util.Set;
 import java.util.function.Supplier;
 import java.util.regex.Pattern;
 
-import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
@@ -55,6 +54,7 @@ import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.IScopeProvider;
 import org.eclipse.xtext.util.Triple;
 import org.eclipse.xtext.xbase.lib.Pair;
+import org.junit.jupiter.api.Assertions;
 
 import com.avaloq.tools.ddk.caching.Regexps;
 import com.avaloq.tools.ddk.xtext.linking.AbstractFragmentProvider;

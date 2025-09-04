@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.test.core;
 
-import org.eclipse.core.runtime.Assert;
+import org.junit.jupiter.api.Assertions;
 
 
 /**

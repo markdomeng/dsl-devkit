@@ -10,10 +10,10 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.test.ui.swtbot.util;
 
-import org.eclipse.core.runtime.Assert;
 import org.eclipse.swtbot.swt.finder.finders.UIThreadRunnable;
 import org.eclipse.swtbot.swt.finder.results.BoolResult;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarButton;
+import org.junit.jupiter.api.Assertions;
 
 
 /**
