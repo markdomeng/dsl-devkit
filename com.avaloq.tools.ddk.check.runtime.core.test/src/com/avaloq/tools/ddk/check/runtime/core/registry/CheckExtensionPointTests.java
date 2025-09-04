@@ -10,6 +10,10 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.check.runtime.core.registry;
 
+import org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.Assertions.assertNull;
+import org.junit.jupiter.api.Assertions.fail;
+
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -21,13 +25,11 @@ import org.junit.jupiter.api.Test;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
-import junit.framework.TestCase;
-
 
 /**
  * Provides some test cases for the Check extension point.
  */
-public class CheckExtensionPointTests extends TestCase {
+public class CheckExtensionPointTests {
 
   private static final String DUMMY_EXTENSION_ID = "com.avaloq.tools.ddk.check.runtime.core.test";
   private static final String CHECK_EXTENSION_ID = "com.avaloq.tools.ddk.check.runtime.core";

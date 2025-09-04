@@ -11,6 +11,9 @@
 package com.avaloq.tools.ddk.check.core.test;
 
 import static com.google.common.collect.Sets.newHashSet;
+import org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.Assertions.fail;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,8 +22,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
@@ -54,14 +57,12 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Provider;
 
-import junit.framework.TestCase;
-
 
 /**
  * An abstract test class for tests on Check models. Allows creating a project and adding files.
  */
 @SuppressWarnings({"PMD.SignatureDeclareThrowsException", "restriction"})
-public abstract class AbstractCheckTestCase extends TestCase {
+public abstract class AbstractCheckTestCase {
   private static final int TWO_KILO_BYTES = 2048;
   protected static final Logger LOGGER = LogManager.getLogger(AbstractCheckTestCase.class);
   private static final PluginTestProjectManager PROJECT_MANAGER = new PluginTestProjectManager(CheckActivator.getInstance().getInjector(CheckConstants.GRAMMAR));

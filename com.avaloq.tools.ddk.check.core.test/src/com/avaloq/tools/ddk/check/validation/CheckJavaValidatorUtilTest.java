@@ -10,6 +10,8 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.check.validation;
 
+import org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.XtextRunner;
@@ -19,8 +21,6 @@ import org.junit.runner.RunWith;
 import com.avaloq.tools.ddk.check.CheckUiInjectorProvider;
 import com.google.inject.Inject;
 
-import junit.framework.TestCase;
-
 
 /**
  * Tests for com.avaloq.tools.ddk.check.validation.CheckJavaValidatorUtil.
@@ -28,7 +28,7 @@ import junit.framework.TestCase;
 
 @InjectWith(CheckUiInjectorProvider.class)
 @RunWith(XtextRunner.class)
-public class CheckJavaValidatorUtilTest extends TestCase {
+public class CheckJavaValidatorUtilTest {
 
   // assertion messages.
   private static final String STARTS_WITH_LOWER_CASE = "starts with lower case";

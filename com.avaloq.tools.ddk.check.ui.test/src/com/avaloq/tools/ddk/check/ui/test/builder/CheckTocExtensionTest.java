@@ -10,7 +10,10 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.check.ui.test.builder;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Assertions.assertFalse;
+import org.junit.jupiter.api.Assertions.assertNotSame;
+import org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IWorkspace;
@@ -23,8 +26,8 @@ import org.eclipse.pde.internal.core.plugin.WorkspacePluginModel;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.XtextRunner;
 import org.eclipse.xtext.testing.util.ParseHelper;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.check.check.CheckCatalog;
@@ -42,7 +45,7 @@ import com.google.inject.Inject;
 @SuppressWarnings({"restriction", "PMD.SignatureDeclareThrowsException"})
 @InjectWith(CheckWizardUiTestInjectorProvider.class)
 @RunWith(XtextRunner.class)
-public class CheckTocExtensionTest extends TestCase {
+public class CheckTocExtensionTest {
 
   @Inject
   private ParseHelper<CheckCatalog> parser;
@@ -69,7 +72,7 @@ public class CheckTocExtensionTest extends TestCase {
 
   /**
    * Tests if the toc extension is correctly created.
-   * 
+   *
    * @throws CoreException
    *           the core exception
    */
@@ -84,7 +87,7 @@ public class CheckTocExtensionTest extends TestCase {
 
   /**
    * Tests if isExtensionUpdateRequired returns true if only an erroneous extension exists for the check catalog.
-   * 
+   *
    * @throws CoreException
    *           the core exception
    */
@@ -98,7 +101,7 @@ public class CheckTocExtensionTest extends TestCase {
 
   /**
    * Creates an erroneous toc extension.
-   * 
+   *
    * @return the plugin extension
    * @throws CoreException
    *           the core exception
@@ -116,7 +119,7 @@ public class CheckTocExtensionTest extends TestCase {
 
   /**
    * Tests if an update of a toc extension is correctly done.
-   * 
+   *
    * @throws CoreException
    *           the core exception
    */
@@ -130,7 +133,7 @@ public class CheckTocExtensionTest extends TestCase {
 
   /**
    * Tests if isExtensionUpdateRequires returns false if a correct extension already exists.
-   * 
+   *
    * @throws CoreException
    *           the core exception
    */

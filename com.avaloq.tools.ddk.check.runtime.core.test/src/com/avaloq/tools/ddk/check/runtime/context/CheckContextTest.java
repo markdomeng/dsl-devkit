@@ -11,16 +11,13 @@
 package com.avaloq.tools.ddk.check.runtime.context;
 
 import org.eclipse.emf.ecore.EObject;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import junit.framework.TestCase;
 
 
 /**
  * Provides some tests of the reflective {@link AbstractCheckContext} framework.
  */
-public class CheckContextTest extends TestCase {
+public class CheckContextTest {
 
   public static final String ENABLED_ISSUE_CODE = "Enabled.Issue.Code";
   public static final String DISABLED_ISSUE_CODE = "Disabled.Issue.Code";

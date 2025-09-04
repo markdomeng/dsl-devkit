@@ -14,7 +14,6 @@ import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.XtextRunner;
 import org.eclipse.xtext.testing.util.ParseHelper;
 import org.eclipse.xtext.testing.validation.ValidationTestHelper;
-import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.checkcfg.CheckCfgUiInjectorProvider;
@@ -23,15 +22,13 @@ import com.avaloq.tools.ddk.checkcfg.checkcfg.CheckcfgPackage;
 import com.avaloq.tools.ddk.checkcfg.util.CheckCfgModelUtil;
 import com.google.inject.Inject;
 
-import junit.framework.TestCase;
-
 
 /**
  * Performs validations on Check Configuration models.
  */
 @InjectWith(CheckCfgUiInjectorProvider.class)
 @RunWith(XtextRunner.class)
-public class CheckCfgValidationTest extends TestCase {
+public class CheckCfgValidationTest {
 
   @Inject
   private ValidationTestHelper helper;
