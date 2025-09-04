@@ -21,7 +21,7 @@ import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
 import org.eclipse.xtext.testing.util.ParseHelper
-import org.junit.Ignore
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.runner.RunWith
 
@@ -73,8 +73,8 @@ class BasicModelTest {
   }
 
   /* Tests that Checks documented with ML_COMMENTs have an inferred description field. */
+  @Disabled("Fails because DocumentedImplCustom uses the null resource description provider to get the document provider")
   @Test
-  @Ignore("Fails because DocumentedImplCustom uses the null resource description provider to get the document provider")
   def void testInferingOfDescription() {
     val check = util.getFirstInstanceOf(parser.parse(modelUtil.modelWithCheck), typeof(Check))
     assertEquals("No documentation.", check.description)
