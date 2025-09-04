@@ -101,8 +101,8 @@ public abstract class AbstractOutlineTest extends AbstractXtextEditorTest {
     if (object instanceof EClass) {
       key = ((EClass) object).getInstanceClass();
     }
-    Assert.assertTrue("Outline must contain element '" + object.toString() + "'.", getOutlineMap().containsKey(key));
-    Assert.assertFalse("Outline must contain element '" + object.toString() + "'.", getOutlineMap().get(key).isEmpty());
+    Assertions.assertTrue("Outline must contain element '" + object.toString() + "'.", getOutlineMap().containsKey(key));
+    Assertions.assertFalse("Outline must contain element '" + object.toString() + "'.", getOutlineMap().get(key).isEmpty());
   }
 
   /**
@@ -128,7 +128,7 @@ public abstract class AbstractOutlineTest extends AbstractXtextEditorTest {
   protected IOutlineNode assertHasOutlineNode(final String nodeName, final String nodeType) {
     IOutlineTreeProvider provider = getXtextTestUtil().get(IOutlineTreeProvider.class);
     IOutlineNode field = findNode(provider.createRoot(getDocument()), nodeName, nodeType);
-    Assert.assertNotNull("Outline must contain element '" + nodeName + "'.", field);
+    Assertions.assertNotNull("Outline must contain element '" + nodeName + "'.", field);
     return field;
   }
 
@@ -145,7 +145,7 @@ public abstract class AbstractOutlineTest extends AbstractXtextEditorTest {
   protected void assertHasOutlineNode(final String nodeName, final String nodeType, final String parentName) {
     IOutlineNode field = assertHasOutlineNode(nodeName, nodeType);
     IOutlineNode parent = field.getParent();
-    Assert.assertEquals("The element '" + nodeName + "' doesn't belong to the '" + parentName + "' group.", parentName, parent.getText().toString());
+    Assertions.assertEquals("The element '" + nodeName + "' doesn't belong to the '" + parentName + "' group.", parentName, parent.getText().toString());
   }
 
   /**
@@ -201,9 +201,9 @@ public abstract class AbstractOutlineTest extends AbstractXtextEditorTest {
       }));
     }
     try {
-      Assert.assertNotNull(NLS.bind("At least one outline node represents an object of type \"{0}\"", clazz.getName()), Iterables.find(result, predicate));
+      Assertions.assertNotNull(NLS.bind("At least one outline node represents an object of type \"{0}\"", clazz.getName()), Iterables.find(result, predicate));
     } catch (NoSuchElementException e) {
-      Assert.fail(NLS.bind("Could not find an object of type \"{0}\" in outline", clazz.getName()));
+      Assertions.fail(NLS.bind("Could not find an object of type \"{0}\" in outline", clazz.getName()));
     }
   }
 
@@ -218,7 +218,7 @@ public abstract class AbstractOutlineTest extends AbstractXtextEditorTest {
     outlineMapKeySet.removeAll(Arrays.asList(classes));
     // assert that only EStructuralFeatures remain
     for (Object object : outlineMapKeySet) {
-      Assert.assertTrue("All remaining objects in outlineMap must be of type EStructuralFeature. Found: " + object, object instanceof EStructuralFeature);
+      Assertions.assertTrue("All remaining objects in outlineMap must be of type EStructuralFeature. Found: " + object, object instanceof EStructuralFeature);
     }
   }
 

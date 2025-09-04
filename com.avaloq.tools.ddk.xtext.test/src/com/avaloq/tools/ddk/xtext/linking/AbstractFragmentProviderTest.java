@@ -55,12 +55,12 @@ public class AbstractFragmentProviderTest {
   void testEscape() {
     StringBuilder builder = new StringBuilder();
     fragmentProvider.appendEscaped("foo/bar#\\", builder);
-    Assert.assertEquals("Fragment not properly scaped", builder.toString(), "foo\\/bar#\\\\");
+    Assertions.assertEquals("Fragment not properly scaped", builder.toString(), "foo\\/bar#\\\\");
   }
 
   @Test
   void testUnescape() {
-    Assert.assertEquals("Fragment not properly unscaped", "foo//bar##\\", fragmentProvider.unescape("foo\\/\\/bar##\\\\"));
+    Assertions.assertEquals("Fragment not properly unscaped", "foo//bar##\\", fragmentProvider.unescape("foo\\/\\/bar##\\\\"));
   }
 
   @org.junit.jupiter.api.Test
@@ -68,7 +68,7 @@ public class AbstractFragmentProviderTest {
     for (String text : SPECIAL_ESCAPE_CASES) {
       StringBuilder builder = new StringBuilder();
       fragmentProvider.appendEscaped(text, builder);
-      Assert.assertEquals("Escaped Characters must be equal", text, fragmentProvider.unescape(builder.toString()));
+      Assertions.assertEquals("Escaped Characters must be equal", text, fragmentProvider.unescape(builder.toString()));
     }
   }
 

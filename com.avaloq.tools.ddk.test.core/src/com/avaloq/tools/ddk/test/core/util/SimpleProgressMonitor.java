@@ -169,7 +169,7 @@ public class SimpleProgressMonitor implements IProgressMonitor {
       final long timeStarted = System.currentTimeMillis();
       while (!isTerminated()) {
         long remainingWaitTime = TIMEOUT + timeStarted - System.currentTimeMillis();
-        Assert.assertFalse("Progress monitor did not get done signal", remainingWaitTime <= 0);
+        Assertions.assertFalse("Progress monitor did not get done signal", remainingWaitTime <= 0);
         try {
           this.wait(remainingWaitTime);
         } catch (InterruptedException e) /* CHECKSTYLE:OFF */ {

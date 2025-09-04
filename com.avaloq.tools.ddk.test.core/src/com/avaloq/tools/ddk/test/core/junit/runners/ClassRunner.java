@@ -186,7 +186,7 @@ public class ClassRunner extends BlockJUnit4ClassRunner {
     ensureInitialized();
     final boolean ignored = method.getAnnotation(Disabled.class) != null;
     if (!ignored) {
-      Assert.assertEquals("Method " + method.getName() + " not equal", expectedMethods.get(currentMethodIndex++), method); //$NON-NLS-1$//$NON-NLS-2$
+      Assertions.assertEquals("Method " + method.getName() + " not equal", expectedMethods.get(currentMethodIndex++), method); //$NON-NLS-1$//$NON-NLS-2$
     }
     if (ignored || testRuns == 1 && testRetries == 0 && method.getAnnotation(Retry.class) == null) {
       super.runChild(method, notifier);

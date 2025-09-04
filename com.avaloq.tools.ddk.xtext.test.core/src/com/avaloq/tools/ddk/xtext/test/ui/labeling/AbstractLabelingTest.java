@@ -106,8 +106,8 @@ public abstract class AbstractLabelingTest extends AbstractXtextTest {
    *          the expected label
    */
   protected void assertHasLabel(final Object element, final String label) {
-    Assert.assertTrue("Element '" + element.toString() + "' must exist.", getLabelMap().containsKey(element));
-    Assert.assertTrue("Element '" + element.toString() + "' must have label '" + label + "'. LabelMap contains: "
+    Assertions.assertTrue("Element '" + element.toString() + "' must exist.", getLabelMap().containsKey(element));
+    Assertions.assertTrue("Element '" + element.toString() + "' must have label '" + label + "'. LabelMap contains: "
         + getLabelMap().get(element), getLabelMap().get(element).contains(label));
   }
 

@@ -95,7 +95,7 @@ class CheckQuickfixTest extends AbstractCheckQuickfixTest {
     assertHasQuickFix(Diagnostic::LINKING_DIAGNOSTIC, quickfixLabel);
     assertQuickFixSuccessful(Diagnostic::LINKING_DIAGNOSTIC, quickfixLabel);
     val afterIssues = getXtextTestUtil().getIssues(getDocument());
-    Assert.assertTrue(afterIssues.size < beforeIssues.size);
+    Assertions.assertTrue(afterIssues.size < beforeIssues.size);
   }
 
   /**

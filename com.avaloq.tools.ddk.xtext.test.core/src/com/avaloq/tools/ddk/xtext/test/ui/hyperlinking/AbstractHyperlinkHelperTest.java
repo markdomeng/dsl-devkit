@@ -53,7 +53,7 @@ public abstract class AbstractHyperlinkHelperTest extends AbstractXtextEditorTes
    *          the position at which to look for a hyperlink
    */
   protected void assertOffsetHasHyperlink(final int offset) {
-    Assert.assertEquals(OFFSET_MUST_BE_EQUAL, 1, getOffsetHyperlinks(offset).size());
+    Assertions.assertEquals(OFFSET_MUST_BE_EQUAL, 1, getOffsetHyperlinks(offset).size());
   }
 
   /**
@@ -63,7 +63,7 @@ public abstract class AbstractHyperlinkHelperTest extends AbstractXtextEditorTes
    *          the position at which to look for hyperlinks
    */
   protected void assertOffsetHasNoHyperlink(final int offset) {
-    Assert.assertEquals(OFFSET_MUST_BE_EQUAL, 0, getOffsetHyperlinks(offset).size());
+    Assertions.assertEquals(OFFSET_MUST_BE_EQUAL, 0, getOffsetHyperlinks(offset).size());
   }
 
   /**
@@ -95,7 +95,7 @@ public abstract class AbstractHyperlinkHelperTest extends AbstractXtextEditorTes
    *          number of expected hyperlinks
    */
   protected void assertHasHyperlinks(final int tag, final int numberOfHyperlinks) {
-    Assert.assertEquals(NUMBER_OF_HYPERLINKS_MUST_BE_EQUAL, numberOfHyperlinks, getHyperlinks(tag).size());
+    Assertions.assertEquals(NUMBER_OF_HYPERLINKS_MUST_BE_EQUAL, numberOfHyperlinks, getHyperlinks(tag).size());
   }
 
   /**
@@ -113,7 +113,7 @@ public abstract class AbstractHyperlinkHelperTest extends AbstractXtextEditorTes
         actualTargets.add(((XtextHyperlink) hyperlink).getURI());
       }
     }
-    MatcherAssert.assertThat("The target must have items", actualTargets, CoreMatchers.hasItem(target));
+    MatcherAssertions.assertThat("The target must have items", actualTargets, CoreMatchers.hasItem(target));
   }
 
   /**
@@ -127,7 +127,7 @@ public abstract class AbstractHyperlinkHelperTest extends AbstractXtextEditorTes
    *          number of expected hyperlinks
    */
   protected void assertHasHyperlinks(final XtextResource resource, final int tag, final int numberOfHyperlinks) {
-    Assert.assertEquals(NUMBER_OF_HYPERLINKS_MUST_BE_EQUAL, numberOfHyperlinks, getHyperlinks(resource, tag).size());
+    Assertions.assertEquals(NUMBER_OF_HYPERLINKS_MUST_BE_EQUAL, numberOfHyperlinks, getHyperlinks(resource, tag).size());
   }
 
   /**

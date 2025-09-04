@@ -36,7 +36,7 @@ public class WaitForTree extends WaitForObjectCondition<TreeItem> {
    */
   public WaitForTree(final Tree parent) {
     super(WidgetMatcherFactory.widgetOfType(TreeItem.class));
-    Assert.isNotNull(parent, "parent");
+    Assertions.isNotNull(parent, "parent");
     this.parent = parent;
   }
 

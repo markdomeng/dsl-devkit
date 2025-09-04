@@ -51,7 +51,7 @@ public class BugAig931Test extends AbstractCheckContentAssistBugTest implements 
           }
         }));
     for (String string : expected) {
-      Assert.assertTrue(NLS.bind("Expected {0} but found {1}", Arrays.toString(expected), actual), actual.contains(string));
+      Assertions.assertTrue(NLS.bind("Expected {0} but found {1}", Arrays.toString(expected), actual), actual.contains(string));
     }
   }
 

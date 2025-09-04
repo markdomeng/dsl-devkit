@@ -240,7 +240,7 @@ public abstract class AbstractScopingTest extends AbstractXtextMarkerBasedTest {
    *          for given scope, must not be {@code null}
    */
   protected void assertScopedObjects(final EObject context, final EReference reference, final EObject... expectedObjects) {
-    Assert.isNotNull(expectedObjects, PARAMETER_EXPECTED_OBJECTS);
+    Assertions.isNotNull(expectedObjects, PARAMETER_EXPECTED_OBJECTS);
     assertScopedObjects(context, reference, Lists.newArrayList(expectedObjects));
   }
 
@@ -258,8 +258,8 @@ public abstract class AbstractScopingTest extends AbstractXtextMarkerBasedTest {
    */
   @SuppressWarnings("unchecked")
   protected void assertScopedObjects(final EObject context, final EReference reference, final Collection<? extends EObject> firstExpectedObjectCollection, final Collection<? extends EObject>... furtherExpectedObjectCollections) {
-    Assert.isNotNull(firstExpectedObjectCollection, "firstExpectedObjectCollection");
-    Assert.isNotNull(furtherExpectedObjectCollections, "furtherExpectedObjectCollections");
+    Assertions.isNotNull(firstExpectedObjectCollection, "firstExpectedObjectCollection");
+    Assertions.isNotNull(furtherExpectedObjectCollections, "furtherExpectedObjectCollections");
     Collection<EObject> consolidatedList = Lists.newArrayList(firstExpectedObjectCollection);
     for (Collection<? extends EObject> expectedObjects : furtherExpectedObjectCollections) {
       consolidatedList.addAll(expectedObjects);
@@ -281,10 +281,10 @@ public abstract class AbstractScopingTest extends AbstractXtextMarkerBasedTest {
    *          the objects expected in the scope, must not be {@code null}
    */
   protected void assertScopedObjects(final EObject context, final EReference reference, final Collection<? extends EObject> expectedObjects) {
-    Assert.isNotNull(context, PARAMETER_CONTEXT);
-    Assert.isNotNull(reference, PARAMETER_REFERENCE);
-    Assert.isNotNull(expectedObjects, PARAMETER_EXPECTED_OBJECTS);
-    Assert.isTrue(context.eClass().getEAllReferences().contains(reference), String.format("Contract for argument '%s' failed: Parameter is not within specified range (Expected: %s, Actual: %s).", PARAMETER_CONTEXT, "The context object must contain the given reference.", "Reference not contained by the context object!"));
+    Assertions.isNotNull(context, PARAMETER_CONTEXT);
+    Assertions.isNotNull(reference, PARAMETER_REFERENCE);
+    Assertions.isNotNull(expectedObjects, PARAMETER_EXPECTED_OBJECTS);
+    Assertions.isTrue(context.eClass().getEAllReferences().contains(reference), String.format("Contract for argument '%s' failed: Parameter is not within specified range (Expected: %s, Actual: %s).", PARAMETER_CONTEXT, "The context object must contain the given reference.", "Reference not contained by the context object!"));
     Set<URI> expectedUriSet = Sets.newHashSet();
     for (EObject object : expectedObjects) {
       expectedUriSet.add(EcoreUtil.getURI(object));

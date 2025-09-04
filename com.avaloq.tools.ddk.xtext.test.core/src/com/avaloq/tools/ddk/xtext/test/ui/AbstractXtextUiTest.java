@@ -88,7 +88,7 @@ public abstract class AbstractXtextUiTest extends AbstractXtextTest {
    * @return {@link IEditorPart} created
    */
   private IEditorPart openEditor(final org.eclipse.emf.common.util.URI uri, final boolean activate) {
-    UiAssert.isNotUiThread();
+    UiAssertions.isNotUiThread();
     final IEditorPart editorPart = UIThreadRunnable.syncExec(getBot().getDisplay(), new Result<IEditorPart>() {
       @Override
       public IEditorPart run() {

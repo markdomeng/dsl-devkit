@@ -101,9 +101,9 @@ public class ShortFragmentProviderTest extends AbstractTest {
     resource.getContents().add(root);
 
     String fragment = fragmentProvider.getFragment(parent, fragmentFallback);
-    Assert.assertEquals(FRAGMENT_MUST_BE_EQUAL, "/0*" + (reps + 1), fragment);
+    Assertions.assertEquals(FRAGMENT_MUST_BE_EQUAL, "/0*" + (reps + 1), fragment);
 
-    Assert.assertEquals(FRAGMENT_MUST_BE_EQUAL, parent, fragmentProvider.getEObject(resource, fragment, fragmentFallback));
+    Assertions.assertEquals(FRAGMENT_MUST_BE_EQUAL, parent, fragmentProvider.getEObject(resource, fragment, fragmentFallback));
   }
 
   @org.junit.jupiter.api.Test
@@ -125,9 +125,9 @@ public class ShortFragmentProviderTest extends AbstractTest {
     resource.getContents().add(root);
 
     String fragment = fragmentProvider.getFragment(parent, fragmentFallback);
-    Assert.assertEquals(FRAGMENT_MUST_BE_EQUAL, "/0*" + (reps + 1) + "/1", fragment);
+    Assertions.assertEquals(FRAGMENT_MUST_BE_EQUAL, "/0*" + (reps + 1) + "/1", fragment);
 
-    Assert.assertEquals(FRAGMENT_MUST_BE_EQUAL, parent, fragmentProvider.getEObject(resource, fragment, fragmentFallback));
+    Assertions.assertEquals(FRAGMENT_MUST_BE_EQUAL, parent, fragmentProvider.getEObject(resource, fragment, fragmentFallback));
   }
 
   @Override

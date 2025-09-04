@@ -124,7 +124,7 @@ public class JobChangeListener extends JobChangeAdapter {
    * @return {@code true} if such a job was found, {@code false} otherwise
    */
   public synchronized boolean hasJob(final String name) {
-    Assert.isNotNull(name, "name");
+    Assertions.isNotNull(name, "name");
     if (jobNames.contains(name)) {
       return true;
     }

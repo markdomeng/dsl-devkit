@@ -112,9 +112,9 @@ public abstract class AbstractContentAssistUiTest extends AbstractXtextEditorTes
   protected void assertContentAssist(final List<String> contentassistProposals, final int offset) {
     evaluateCompletionProposals(offset);
     Arrays.sort(getCompletionProposals(), new TemplatesFirstCompletionProposalComparator());
-    Assert.assertEquals("Same length", contentassistProposals.size(), getCompletionProposals().length);
+    Assertions.assertEquals("Same length", contentassistProposals.size(), getCompletionProposals().length);
     for (int i = 0; i < contentassistProposals.size(); i++) {
-      Assert.assertEquals("Same displayed string", contentassistProposals.get(i), getCompletionProposals()[i].getDisplayString());
+      Assertions.assertEquals("Same displayed string", contentassistProposals.get(i), getCompletionProposals()[i].getDisplayString());
     }
   }
 
@@ -152,7 +152,7 @@ public abstract class AbstractContentAssistUiTest extends AbstractXtextEditorTes
   @SuppressWarnings("PMD.UseObjectForClearerAPI")
   protected void assertTemplateProposalExistsAndSuccessful(final String sourceFileName, final String sourceContent, final String contentassistProposal, final String expectedContent, final int offset) {
     if (sourceContent == null) {
-      Assert.assertNotNull(String.format("There must be an existing test source with the file name '%s'.", sourceFileName), getTestSource(sourceFileName));
+      Assertions.assertNotNull(String.format("There must be an existing test source with the file name '%s'.", sourceFileName), getTestSource(sourceFileName));
     } else {
       createTestSource(sourceFileName, sourceContent);
     }
@@ -169,10 +169,10 @@ public abstract class AbstractContentAssistUiTest extends AbstractXtextEditorTes
       }
     }
 
-    Assert.assertNotNull(String.format("Template proposal '%s' must be found.", contentassistProposal), templateProposal);
+    Assertions.assertNotNull(String.format("Template proposal '%s' must be found.", contentassistProposal), templateProposal);
     String actualContent = applyTemplateProposal(templateProposal, offset);
 
-    Assert.assertEquals("Editor content must match expected result.", expectedContent.replaceAll(CR_LF, LF), actualContent.replaceAll(CR_LF, LF));
+    Assertions.assertEquals("Editor content must match expected result.", expectedContent.replaceAll(CR_LF, LF), actualContent.replaceAll(CR_LF, LF));
     closeEditor(getEditor(), false);
   }
 
@@ -190,7 +190,7 @@ public abstract class AbstractContentAssistUiTest extends AbstractXtextEditorTes
     UiThreadDispatcher.dispatchAndWait(new Runnable() {
       @Override
       public void run() {
-        Assert.assertNotNull(EDITOR_HAS_NO_VIEWER, getViewer());
+        Assertions.assertNotNull(EDITOR_HAS_NO_VIEWER, getViewer());
         templateProposal.apply(getViewer(), ' ', 0, offset);
       }
     });
@@ -211,7 +211,7 @@ public abstract class AbstractContentAssistUiTest extends AbstractXtextEditorTes
     evaluateCompletionProposals(offset);
     final List<String> result = getCompletionProposalDisplayStrings(getCompletionProposals());
     for (final String s : proposals) {
-      Assert.assertTrue(Messages.bind("Expected proposal \"{0}\" but found \"{1}\"", s, result), result.contains(s));
+      Assertions.assertTrue(Messages.bind("Expected proposal \"{0}\" but found \"{1}\"", s, result), result.contains(s));
     }
   }
 

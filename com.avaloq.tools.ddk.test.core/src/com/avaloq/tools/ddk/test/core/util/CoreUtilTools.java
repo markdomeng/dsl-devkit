@@ -77,7 +77,7 @@ public final class CoreUtilTools {
 
     }
     String string = stringBuilder.toString();
-    Assert.isNotNull(string, "string"); //$NON-NLS-1$
+    Assertions.isNotNull(string, "string"); //$NON-NLS-1$
     return string.toUpperCase(Locale.ENGLISH);
   }
 

@@ -47,7 +47,7 @@ public final class SwtBotWizardUtil {
     final Tree tree = bot.widget(WidgetMatcherFactory.widgetOfType(Tree.class), comp);
     PlatformUI.getWorkbench().getDisplay().syncExec(() -> {
       SWTBotTree botTree = new SWTBotTree(tree);
-      Assert.assertTrue("folder was not found", selectItem(botTree, folderName));
+      Assertions.assertTrue("folder was not found", selectItem(botTree, folderName));
     });
   }
 

@@ -83,7 +83,7 @@ public abstract class AbstractFoldingTest extends AbstractXtextEditorTest {
       // CHECKSTYLE:ON
       message.append("Unmatched Expected Positions:").append(unmatchedExpectedPositions).append('\n');
       message.append("Unmatched Actual Positions:").append(unmatchedActualPositions);
-      Assert.assertTrue(message.toString(), unmatchedExpectedPositions.isEmpty());
+      Assertions.assertTrue(message.toString(), unmatchedExpectedPositions.isEmpty());
     }
   }
 
@@ -96,7 +96,7 @@ public abstract class AbstractFoldingTest extends AbstractXtextEditorTest {
     Collection<FoldedPosition> foldingRegions = getXtextTestUtil().get(IFoldingRegionProvider.class).getFoldingRegions(getDocument());
     for (DefaultFoldedPosition foldedPosition : Iterables.filter(foldingRegions, DefaultFoldedPosition.class)) {
       try {
-        Assert.assertFalse("Illegal significant region for FoldedPosition " + foldedPosition, foldedPosition.computeCaptionOffset(getDocument()) < 0);
+        Assertions.assertFalse("Illegal significant region for FoldedPosition " + foldedPosition, foldedPosition.computeCaptionOffset(getDocument()) < 0);
         /* If the above assertion fails that is probably due to an ITextRegion.EMPTY_REGION being provided for the object's significant text region. */
       } catch (BadLocationException e) {
         fail("Bad location for FoldedPosition: " + e.getMessage());

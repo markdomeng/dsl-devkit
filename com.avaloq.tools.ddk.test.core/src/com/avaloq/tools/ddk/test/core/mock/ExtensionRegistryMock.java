@@ -172,7 +172,7 @@ public final class ExtensionRegistryMock {
     if (registrySpy != null) {
       try {
         String extensionPointId = configurationElements.keySet().iterator().next();
-        Assert.fail("Extension point " + extensionPointId + " still has mocked configuration elements."); //$NON-NLS-1$ //$NON-NLS-2$
+        Assertions.fail("Extension point " + extensionPointId + " still has mocked configuration elements."); //$NON-NLS-1$ //$NON-NLS-2$
       } catch (NoSuchElementException e) { // shouldn't happen
         throw new IllegalStateException("The extension registry mock is in an unexpected state.", e); //$NON-NLS-1$
       }

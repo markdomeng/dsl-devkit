@@ -193,6 +193,6 @@ abstract class AbstractResourceDescriptionManagerTest extends AbstractXtextTest 
    */
   def assertDeltaAffectedResources(Collection<Delta> deltas, Collection<URI> candidates, Collection<URI> expectedUris) {
     val result = getResourceDescriptionManager().getAffectedResources(deltas, candidates, getResourceDescriptions());
-    Assert.assertEquals("Affected URIs must be correct.", HashMultiset.create(expectedUris), HashMultiset.create(result));
+    Assertions.assertEquals("Affected URIs must be correct.", HashMultiset.create(expectedUris), HashMultiset.create(result));
   }
 }

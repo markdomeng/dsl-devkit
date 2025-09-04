@@ -153,7 +153,7 @@ public abstract class AbstractHoverTest extends AbstractXtextTest {
    */
   protected void assertHover(final ENamedElement element, final String firstLine) {
     assertElementExistInHoverMap(element);
-    Assert.assertTrue("Element '" + element.toString() + "' must have first line of hover '" + firstLine + "'. " + "\n\nHoverMap contains:\n"
+    Assertions.assertTrue("Element '" + element.toString() + "' must have first line of hover '" + firstLine + "'. " + "\n\nHoverMap contains:\n"
         + getHoverMap().get(element), hasTextOnFirstLine(getHoverMap().get(element), firstLine));
   }
 
@@ -167,7 +167,7 @@ public abstract class AbstractHoverTest extends AbstractXtextTest {
    */
   protected void assertHoverDoesNotContainText(final ENamedElement element, final String text) {
     assertElementExistInHoverMap(element);
-    Assert.assertFalse("Element '" + element.toString() + "' first line of hover must not have '" + text + "'. " + "\n\nHoverMap contains:\n"
+    Assertions.assertFalse("Element '" + element.toString() + "' first line of hover must not have '" + text + "'. " + "\n\nHoverMap contains:\n"
         + getHoverMap().get(element), hasTextOnFirstLine(getHoverMap().get(element), text));
   }
 
@@ -178,7 +178,7 @@ public abstract class AbstractHoverTest extends AbstractXtextTest {
    *          element of the model with hover, must not be {@code null}
    */
   private void assertElementExistInHoverMap(final ENamedElement element) {
-    Assert.assertTrue("Element '" + element.toString() + "' must exist.", getHoverMap().containsKey(element));
+    Assertions.assertTrue("Element '" + element.toString() + "' must exist.", getHoverMap().containsKey(element));
   }
 
   /**

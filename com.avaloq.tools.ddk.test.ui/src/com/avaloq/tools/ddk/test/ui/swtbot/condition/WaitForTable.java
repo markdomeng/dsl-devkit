@@ -36,7 +36,7 @@ public class WaitForTable extends WaitForObjectCondition<TableItem> {
    */
   public WaitForTable(final Table parent) {
     super(WidgetMatcherFactory.widgetOfType(TableItem.class));
-    Assert.isNotNull(parent, "parent");
+    Assertions.isNotNull(parent, "parent");
     this.parent = parent;
   }
 

@@ -89,7 +89,7 @@ public abstract class AbstractQuickFixTest extends AbstractXtextEditorTest {
    *          the code of the expected issue, may be {@code null}
    */
   protected void assertHasIssue(final String issueCode) {
-    Assert.assertFalse("Issue " + issueCode + " is empty", issuesWith(issueCode).isEmpty());
+    Assertions.assertFalse("Issue " + issueCode + " is empty", issuesWith(issueCode).isEmpty());
   }
 
   /**
@@ -99,7 +99,7 @@ public abstract class AbstractQuickFixTest extends AbstractXtextEditorTest {
    *          the code of the issue for which a quickfix is expected to exist, may be {@code null}
    */
   protected void assertHasQuickFix(final String issueCode) {
-    Assert.assertFalse("No resolutions found for issue " + issueCode, resolutionsFor(issueCode).isEmpty());
+    Assertions.assertFalse("No resolutions found for issue " + issueCode, resolutionsFor(issueCode).isEmpty());
   }
 
   /**
@@ -111,7 +111,7 @@ public abstract class AbstractQuickFixTest extends AbstractXtextEditorTest {
    *          the label of the quickfix, may be {@code null}
    */
   protected void assertHasQuickFix(final String issueCode, final String quickfixLabel) {
-    Assert.assertFalse("No resolutions found for issue " + issueCode, resolutionsFor(issueCode, quickfixLabel).isEmpty());
+    Assertions.assertFalse("No resolutions found for issue " + issueCode, resolutionsFor(issueCode, quickfixLabel).isEmpty());
   }
 
   /**
@@ -125,7 +125,7 @@ public abstract class AbstractQuickFixTest extends AbstractXtextEditorTest {
    *          the number of expected quickfix proposal, must not be {@code null}
    */
   protected void assertHasQuickFix(final String issueCode, final String quickfixLabel, final int numberOfQuickfixProposal) {
-    Assert.assertEquals("Number of resolutions found for issue " + issueCode
+    Assertions.assertEquals("Number of resolutions found for issue " + issueCode
         + " does not match the expected number of quickfix proposal", resolutionsFor(issueCode, quickfixLabel).size(), numberOfQuickfixProposal);
   }
 
@@ -159,7 +159,7 @@ public abstract class AbstractQuickFixTest extends AbstractXtextEditorTest {
     createTestSource(sourceFileName, sourceFileContent);
     openEditor(sourceFileName);
     try {
-      Assert.assertTrue("No resolutions expected for issue " + issueCode + " on source " + sourceFileName, resolutionsFor(issueCode, quickfixLabel).isEmpty());
+      Assertions.assertTrue("No resolutions expected for issue " + issueCode + " on source " + sourceFileName, resolutionsFor(issueCode, quickfixLabel).isEmpty());
     } finally {
       closeEditor(getEditor(), false);
     }
@@ -193,7 +193,7 @@ public abstract class AbstractQuickFixTest extends AbstractXtextEditorTest {
       });
     }
     waitForValidation();
-    Assert.assertTrue("Resolutions for issue " + issueCode + " with quickfix " + quickfixLabel
+    Assertions.assertTrue("Resolutions for issue " + issueCode + " with quickfix " + quickfixLabel
         + "are not empty", resolutionsFor(issueCode, quickfixLabel).isEmpty());
   }
 
@@ -234,7 +234,7 @@ public abstract class AbstractQuickFixTest extends AbstractXtextEditorTest {
    * Assert that the test source has no syntax error.
    */
   protected void assertNoSyntaxError() {
-    Assert.assertFalse("The source has syntax errors", Iterables.any(getTestSource().getXtextResource().getErrors(), Predicates.instanceOf(XtextSyntaxDiagnostic.class)));
+    Assertions.assertFalse("The source has syntax errors", Iterables.any(getTestSource().getXtextResource().getErrors(), Predicates.instanceOf(XtextSyntaxDiagnostic.class)));
   }
 
   /**
@@ -353,7 +353,7 @@ public abstract class AbstractQuickFixTest extends AbstractXtextEditorTest {
   private void assertQuickFixExistsAndSuccessful(final String issueCode, final String quickfixLabel, final String expectedContent, final boolean ignoreFormatting) {
     // Assert amount of quickfixes
     int resolutionCount = resolutionsFor(issueCode, quickfixLabel).size();
-    Assert.assertEquals(String.format("There must be exactly one quickfix with label '%s' for issue '%s', but found '%d'.", quickfixLabel, issueCode, resolutionCount), resolutionCount, 1);
+    Assertions.assertEquals(String.format("There must be exactly one quickfix with label '%s' for issue '%s', but found '%d'.", quickfixLabel, issueCode, resolutionCount), resolutionCount, 1);
     // Apply quickfix
     UiThreadDispatcher.dispatchAndWait(new Runnable() {
       @Override
@@ -365,7 +365,7 @@ public abstract class AbstractQuickFixTest extends AbstractXtextEditorTest {
       }
     });
     waitForValidation();
-    Assert.assertTrue("Resolutions for issue " + issueCode + " with quickfix " + quickfixLabel
+    Assertions.assertTrue("Resolutions for issue " + issueCode + " with quickfix " + quickfixLabel
         + "are not empty", resolutionsFor(issueCode, quickfixLabel).isEmpty());
     String actualContent = getDocument().get();
     assertQuickFixProducesExpectedOutput(expectedContent, actualContent, ignoreFormatting);
@@ -386,7 +386,7 @@ public abstract class AbstractQuickFixTest extends AbstractXtextEditorTest {
     String expected = expectedContent.replaceAll(CR_LF, LF);
     String actual = actualContent.replaceAll(CR_LF, LF);
     if (ignoreFormatting) {
-      MatcherAssert.assertThat(message, actual, IsEqualCompressingWhiteSpace.equalToCompressingWhiteSpace(expected));
+      MatcherAssertions.assertThat(message, actual, IsEqualCompressingWhiteSpace.equalToCompressingWhiteSpace(expected));
     } else {
       assertEquals(message, expected, actual);
     }

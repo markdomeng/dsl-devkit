@@ -98,7 +98,7 @@ public abstract class AbstractXtextMarkerBasedTest extends AbstractXtextTest {
   protected void beforeEachTest() {
     localMarkerIdCounter = 0;
     super.beforeEachTest();
-    Assert.assertFalse(INVALID_TEST_CONFIGURATION, getMarkerTagsInfo().isInvalidTestClass());
+    Assertions.assertFalse(INVALID_TEST_CONFIGURATION, getMarkerTagsInfo().isInvalidTestClass());
   }
 
   // --------------------------------------------------------------------------
@@ -269,7 +269,7 @@ public abstract class AbstractXtextMarkerBasedTest extends AbstractXtextTest {
    * @return Mark text to be inserted in the source file, never {@code null}
    */
   protected String mark(final int id) {
-    Assert.assertFalse("Tag with " + id + " used to mark more than one location.", usedTags.contains(id)); //$NON-NLS-1$ //$NON-NLS-2$
+    Assertions.assertFalse("Tag with " + id + " used to mark more than one location.", usedTags.contains(id)); //$NON-NLS-1$ //$NON-NLS-2$
     usedTags.add(id);
     if (id < 1) {
       getMarkerTagsInfo().setTestClassInvalid();

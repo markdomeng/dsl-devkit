@@ -32,11 +32,11 @@ public class CheckContextTest {
   @Test
   void testIssuesEnabledDisabled() {
     ICheckContext checkContext = new DummyCheckContext();
-    Assert.assertTrue("Check an issue code in annotations but enabled is still enabled", checkContext.isCheckValid(DUMMY_CONTEXT, ENABLED_ISSUE_CODE));
-    Assert.assertTrue("Check an issue code not in any annotations is still enabled", checkContext.isCheckValid(DUMMY_CONTEXT, NOT_MENTIONED_ISSUE_CODE));
-    Assert.assertFalse("Check an issue code in annotations is disabled", checkContext.isCheckValid(DUMMY_CONTEXT, DISABLED_ISSUE_CODE));
-    Assert.assertFalse("Check disabling has priority over enabling", checkContext.isCheckValid(DUMMY_CONTEXT, DISABLED_AND_ENABLED_ISSUE_CODE));
-    Assert.assertFalse("Check disabling has priority over enabling, using different order", checkContext.isCheckValid(DUMMY_CONTEXT, ENABLED_AND_DISABLED_ISSUE_CODE));
+    Assertions.assertTrue("Check an issue code in annotations but enabled is still enabled", checkContext.isCheckValid(DUMMY_CONTEXT, ENABLED_ISSUE_CODE));
+    Assertions.assertTrue("Check an issue code not in any annotations is still enabled", checkContext.isCheckValid(DUMMY_CONTEXT, NOT_MENTIONED_ISSUE_CODE));
+    Assertions.assertFalse("Check an issue code in annotations is disabled", checkContext.isCheckValid(DUMMY_CONTEXT, DISABLED_ISSUE_CODE));
+    Assertions.assertFalse("Check disabling has priority over enabling", checkContext.isCheckValid(DUMMY_CONTEXT, DISABLED_AND_ENABLED_ISSUE_CODE));
+    Assertions.assertFalse("Check disabling has priority over enabling, using different order", checkContext.isCheckValid(DUMMY_CONTEXT, ENABLED_AND_DISABLED_ISSUE_CODE));
 
   }
 }

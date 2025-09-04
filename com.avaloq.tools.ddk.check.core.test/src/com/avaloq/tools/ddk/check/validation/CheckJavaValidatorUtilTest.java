@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.check.validation;
 
-import org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.xtext.testing.InjectWith;

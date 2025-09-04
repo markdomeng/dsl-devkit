@@ -37,7 +37,7 @@ import org.junit.runners.model.Statement;
  *   &#064;org.junit.Test
  *   &#064;com.avaloq.tools.ddk.test.core.Issue(value = &quot;ISSUE-42&quot;, fixed = false)
  *   public void testMethod() {
- *     org.junit.Assert.fail();
+ *     org.junit.Assertions.fail();
  *   }
  * }
  * </pre>

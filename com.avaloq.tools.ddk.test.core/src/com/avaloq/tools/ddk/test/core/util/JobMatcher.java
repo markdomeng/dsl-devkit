@@ -213,7 +213,7 @@ public class JobMatcher extends JobChangeAdapter {
    *          the expected number of jobs
    */
   public final void assertNumberOfNewJobs(final int expected) {
-    Assert.assertEquals("Wrong number of jobs were scheduled", expected, newJobs.size());
+    Assertions.assertEquals("Wrong number of jobs were scheduled", expected, newJobs.size());
   }
 
   /**
@@ -226,13 +226,13 @@ public class JobMatcher extends JobChangeAdapter {
   public final void assertNewJobsFinished() {
     try {
       List<Job> expectedJobs = Lists.newArrayList(newJobs);
-      Assert.assertFalse("No matching new jobs were scheduled: " + finder, expectedJobs.isEmpty());
+      Assertions.assertFalse("No matching new jobs were scheduled: " + finder, expectedJobs.isEmpty());
       expectedJobs.removeAll(finishedJobs);
       while (!expectedJobs.isEmpty()) {
         try {
           Job job = getNextJob();
           if (job == null) {
-            Assert.fail("Expected new jobs did not finish after " + waitTimeout + " milliseconds: " + expectedJobs);
+            Assertions.fail("Expected new jobs did not finish after " + waitTimeout + " milliseconds: " + expectedJobs);
           }
           expectedJobs.remove(job);
         } catch (InterruptedException e) {
@@ -260,7 +260,7 @@ public class JobMatcher extends JobChangeAdapter {
         try {
           Job job = getNextJob();
           if (job == null) {
-            Assert.fail("Existing jobs did not finish after " + waitTimeout + " milliseconds: " + expectedJobs);
+            Assertions.fail("Existing jobs did not finish after " + waitTimeout + " milliseconds: " + expectedJobs);
           }
           expectedJobs.remove(job);
         } catch (InterruptedException e) {

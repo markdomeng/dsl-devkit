@@ -183,11 +183,11 @@ public class AcfContentAssistProcessorTestBuilder extends ContentAssistProcessor
             ContentAssistContext.Factory factory = get(ContentAssistContext.Factory.class);
             ContentAssistContext[] contexts = factory.create(sourceViewer, currentModelToParse.length(), xtextResource);
             for (ContentAssistContext context : contexts) {
-              Assert.assertTrue("matchString = '" + matchString + "', actual: '" + context.getPrefix() + "'", "".equals(context.getPrefix())
+              Assertions.assertTrue("matchString = '" + matchString + "', actual: '" + context.getPrefix() + "'", "".equals(context.getPrefix())
                   || matchString.equals(context.getPrefix()));
             }
           } else {
-            Assert.fail("No content assistant for content type " + contentType);
+            Assertions.fail("No content assistant for content type " + contentType);
           }
         } catch (BadLocationException e) {
           return e;

@@ -121,7 +121,7 @@ public class ResourceNameTemplateVariableResolverTest {
     final String[] actualResolvedValues = Iterables.toArray(resolver.resolveValues(variable, mockContext), String.class);
 
     // ASSERT
-    Assert.assertArrayEquals("Resolved values", expectedResolvedValues, actualResolvedValues); //$NON-NLS-1$
+    Assertions.assertArrayEquals("Resolved values", expectedResolvedValues, actualResolvedValues); //$NON-NLS-1$
   }
 
 }
