@@ -10,11 +10,11 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.test.ui.test.swtbot;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEclipseEditor;
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.test.ui.swtbot.SwtWorkbenchBot;
 
@@ -29,7 +29,7 @@ public class DeChKeyboardLayoutTest {
    * Tests com.avaloq.test.swtbot.DE_CH.
    */
   @Test
-  public void testDeChKeyboardLayout() {
+  void testDeChKeyboardLayout() {
     SWTBotPreferences.KEYBOARD_LAYOUT = "com.avaloq.test.swtbot.DE_CH";
     SWTBotPreferences.KEYBOARD_STRATEGY = "org.eclipse.swtbot.swt.finder.keyboard.MockKeyboardStrategy";
     SwtWorkbenchBot bot = new SwtWorkbenchBot();

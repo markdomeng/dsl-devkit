@@ -23,7 +23,7 @@ import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
 import org.eclipse.xtext.testing.validation.ValidationTestHelper
 import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import org.junit.runner.RunWith
 
 @InjectWith(typeof(TestLanguageUiInjectorProvider))

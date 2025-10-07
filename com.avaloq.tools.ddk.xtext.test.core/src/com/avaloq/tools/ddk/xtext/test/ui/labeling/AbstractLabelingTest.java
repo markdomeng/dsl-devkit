@@ -25,10 +25,10 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.xtext.util.Pair;
 import org.eclipse.xtext.util.Tuples;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 import com.avaloq.tools.ddk.xtext.test.AbstractXtextTest;
+import org.junit.jupiter.api.Test;
 
 
 /**
@@ -49,8 +49,8 @@ public abstract class AbstractLabelingTest extends AbstractXtextTest {
   /**
    * Tests that the expected elements and their labels are exactly identical to all elements of the default test resource.
    */
-  @Test
-  public void testLabels() {
+  @org.junit.jupiter.api.Test
+  void testLabels() {
     if (getExpectedElementLabels() == null) {
       return; // TODO: remove this check once all tests have been refactored
     }
@@ -106,8 +106,8 @@ public abstract class AbstractLabelingTest extends AbstractXtextTest {
    *          the expected label
    */
   protected void assertHasLabel(final Object element, final String label) {
-    Assert.assertTrue("Element '" + element.toString() + "' must exist.", getLabelMap().containsKey(element));
-    Assert.assertTrue("Element '" + element.toString() + "' must have label '" + label + "'. LabelMap contains: "
+    Assertions.assertTrue("Element '" + element.toString() + "' must exist.", getLabelMap().containsKey(element));
+    Assertions.assertTrue("Element '" + element.toString() + "' must have label '" + label + "'. LabelMap contains: "
         + getLabelMap().get(element), getLabelMap().get(element).contains(label));
   }
 

@@ -10,8 +10,8 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.xtext.format.builder;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -21,7 +21,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.xtext.resource.IResourceDescription.Delta;
 import org.eclipse.xtext.resource.IResourceServiceProvider;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatcher;
 
 import com.avaloq.tools.ddk.xtext.test.AbstractXtextTest;
@@ -66,8 +66,8 @@ public class FormatBuilderParticipantTest extends AbstractXtextTest {
   /**
    * Tests whether a {@link Delta} resource has a correct extension to be used by org.eclipse.xtext.builder.BuilderParticipant.
    */
-  @Test
-  public void hasCorrectExtensionTest() {
+  @org.junit.jupiter.api.Test
+  void hasCorrectExtensionTest() {
     IResourceServiceProvider resourceServiceProvider = mock(IResourceServiceProvider.class);
     when(resourceServiceProvider.canHandle(argThat(new IsUri()))).thenReturn(true, false);
     assertTrue("Check if the delta resource has correct extension", participant.hasCorrectExtension(delta, resourceServiceProvider));
@@ -78,7 +78,7 @@ public class FormatBuilderParticipantTest extends AbstractXtextTest {
    * Tests whether a {@link Delta} resource comes form the right (SRC) directory to be used by org.eclipse.xtext.builder.BuilderParticipant.
    */
   @Test
-  public void isSourceOriginatedTest() {
+  void isSourceOriginatedTest() {
     when(uriCorrect.segments()).thenReturn(CORRECT_URI_SEGMENTS);
     assertTrue("Check if the delta resource has correct URI and comes from SRC directory", participant.isSourceOriginated(delta));
     when(uriCorrect.segments()).thenReturn(BIN_URI_SEGMENTS);

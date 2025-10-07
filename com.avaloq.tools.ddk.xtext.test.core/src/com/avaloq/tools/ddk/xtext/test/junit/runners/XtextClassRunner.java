@@ -20,13 +20,13 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.eclipse.xtext.testing.XtextRunner;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.internal.AssumptionViolatedException;
 import org.junit.internal.runners.model.EachTestNotifier;
 import org.junit.internal.runners.statements.RunAfters;
 import org.junit.internal.runners.statements.RunBefores;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.Description;
 import org.junit.runner.manipulation.Filter;
 import org.junit.runner.manipulation.NoTestsRemainException;
@@ -61,7 +61,7 @@ import com.google.common.collect.Sets;
  * <p>
  * <h1>Test Methods</h1> Considered are all those methods of the test class that are annotated with one (or more) of the following test annotations:
  * <ul>
- * <li>{@link Test}
+ * <li>{@link org.junit.jupiter.api.Test}
  * <li>{@link UnitTest}
  * <li>{@link ModuleTest}
  * <li>{@link IntegrationTest}
@@ -102,7 +102,7 @@ public class XtextClassRunner extends XtextRunner {
   /** Class-wide logger. */
   private static final Logger LOGGER = LogManager.getLogger(XtextClassRunner.class);
   @SuppressWarnings("unchecked")
-  private static final List<Class<? extends Annotation>> TEST_ANNOTATIONS = Lists.newArrayList(Test.class, UnitTest.class, ModuleTest.class, IntegrationTest.class, SystemTest.class, PerformanceTest.class, BugTest.class);
+  private static final List<Class<? extends Annotation>> TEST_ANNOTATIONS = Lists.newArrayList(org.junit.jupiter.api.Test.class, UnitTest.class, ModuleTest.class, IntegrationTest.class, SystemTest.class, PerformanceTest.class, BugTest.class);
   private List<FrameworkMethod> expectedMethods;
   private int currentMethodIndex;
   private final int testRuns;
@@ -141,7 +141,7 @@ public class XtextClassRunner extends XtextRunner {
         expectedMethods = ImmutableList.copyOf(Iterables.filter(testMethods, new Predicate<FrameworkMethod>() {
           @Override
           public boolean apply(final FrameworkMethod input) {
-            return input.getAnnotation(Ignore.class) == null;
+            return input.getAnnotation(Disabled.class) == null;
           }
         }));
         currentMethodIndex = 0;
@@ -185,9 +185,9 @@ public class XtextClassRunner extends XtextRunner {
   @Override
   protected void runChild(final FrameworkMethod method, final RunNotifier notifier) {
     ensureInitialized();
-    final boolean ignored = method.getAnnotation(Ignore.class) != null;
+    final boolean ignored = method.getAnnotation(Disabled.class) != null;
     if (!ignored) {
-      Assert.assertEquals("Method " + method.getName() + " not equal", expectedMethods.get(currentMethodIndex++), method); //$NON-NLS-1$//$NON-NLS-2$
+      Assertions.assertEquals("Method " + method.getName() + " not equal", expectedMethods.get(currentMethodIndex++), method); //$NON-NLS-1$//$NON-NLS-2$
     }
     if (ignored || testRuns == 1 && testRetries == 0 && method.getAnnotation(Retry.class) == null) {
       super.runChild(method, notifier);

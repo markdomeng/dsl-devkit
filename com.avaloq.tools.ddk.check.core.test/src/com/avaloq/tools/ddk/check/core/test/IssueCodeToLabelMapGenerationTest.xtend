@@ -15,7 +15,7 @@ import com.avaloq.tools.ddk.check.CheckInjectorProvider
 import java.io.ByteArrayInputStream
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import org.junit.runner.RunWith
 import java.util.List
 import org.eclipse.xtext.xbase.testing.JavaSource

@@ -14,11 +14,11 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.core.runtime.jobs.JobChangeAdapter;
+import org.junit.jupiter.api.Assertions;
 
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
@@ -124,7 +124,7 @@ public class JobChangeListener extends JobChangeAdapter {
    * @return {@code true} if such a job was found, {@code false} otherwise
    */
   public synchronized boolean hasJob(final String name) {
-    Assert.isNotNull(name, "name");
+    Assertions.isNotNull(name, "name");
     if (jobNames.contains(name)) {
       return true;
     }

@@ -16,7 +16,7 @@ import com.avaloq.tools.ddk.checkcfg.checkcfg.CheckcfgPackage
 import com.avaloq.tools.ddk.checkcfg.util.CheckCfgTestUtil
 import com.avaloq.tools.ddk.xtext.test.scoping.AbstractScopingTest
 
-import static org.junit.Assert.assertArrayEquals
+import static org.junit.jupiter.api.Assertions.assertArrayEquals
 
 final class CheckCfgScopeProviderTest extends AbstractScopingTest {
 

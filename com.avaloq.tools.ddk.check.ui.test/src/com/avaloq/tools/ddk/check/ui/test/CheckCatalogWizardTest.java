@@ -11,8 +11,8 @@
 package com.avaloq.tools.ddk.check.ui.test;
 
 import static com.avaloq.tools.ddk.test.ui.swtbot.util.SwtBotWizardUtil.selectProjectFolder;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
@@ -33,9 +33,9 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.ui.util.PluginProjectFactory;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.check.ui.test.internal.CheckWizardUiTestInjectorProvider;
@@ -116,7 +116,7 @@ public class CheckCatalogWizardTest {
    * Initializes this test class pre-loading grammar access instances, which might involve bundle activation and class loading.
    * </p>
    */
-  @Before
+  @BeforeEach
   public void setUp() {
     wizard = new SwtWizardBot();
     project = createProject();
@@ -137,7 +137,7 @@ public class CheckCatalogWizardTest {
    * Test if the package field contains the selected package.
    */
   @Test
-  public void testPackageSelected() {
+  void testPackageSelected() {
     selectProjectFolder(wizard, VALID_PACKAGE_NAME);
     initializeWizardBot();
     // because the selected item is a package initially, this package is shown in the field.
@@ -148,7 +148,7 @@ public class CheckCatalogWizardTest {
    * Test if catalog wizard is enabled if a project folder is selected.
    */
   @Test
-  public void testCheckCatalogWizardIsEnabled() {
+  void testCheckCatalogWizardIsEnabled() {
     selectProjectFolder(wizard, VALID_PACKAGE_NAME);
     // open the check catalog wizard after having selected the project source folder.
     // that way, the wizard page should be enabled.
@@ -164,7 +164,7 @@ public class CheckCatalogWizardTest {
    * Test if the package field is empty, if the selected item is no package.
    */
   @Test
-  public void testInitiallyNoPackageSelected() {
+  void testInitiallyNoPackageSelected() {
     selectProjectFolder(wizard, SRC_FOLDER);
     initializeWizardBot();
 
@@ -176,7 +176,7 @@ public class CheckCatalogWizardTest {
    * Test if the next and finish button are disabled if the package name is invalid.
    */
   @Test
-  public void testPackageNameInvalid() {
+  void testPackageNameInvalid() {
     selectProjectFolder(wizard, VALID_PACKAGE_NAME);
     // open the check catalog wizard after having selected the project source folder.
     initializeWizardBot();
@@ -192,7 +192,7 @@ public class CheckCatalogWizardTest {
    * Test if the finish button is enabled if the package name is valid.
    */
   @Test
-  public void testPackageNameValid() {
+  void testPackageNameValid() {
     selectProjectFolder(wizard, VALID_PACKAGE_NAME);
     // open the check catalog wizard after having selected the project source folder.
     initializeWizardBot();
@@ -205,7 +205,7 @@ public class CheckCatalogWizardTest {
    * Test if the next and finish button are disabled if the catalog name is invalid.
    */
   @Test
-  public void testCatalogNameInvalid() {
+  void testCatalogNameInvalid() {
     selectProjectFolder(wizard, VALID_PACKAGE_NAME);
     // open the check catalog wizard after having selected the project source folder.
     initializeWizardBot();
@@ -219,7 +219,7 @@ public class CheckCatalogWizardTest {
    * Tests that discouraged catalog names are accepted.
    */
   @Test
-  public void testCatalogNameDiscouraged() {
+  void testCatalogNameDiscouraged() {
     selectProjectFolder(wizard, VALID_PACKAGE_NAME);
     initializeWizardBot();
 
@@ -232,7 +232,7 @@ public class CheckCatalogWizardTest {
    * Tests valid catalog names.
    */
   @Test
-  public void testCatalogName() {
+  void testCatalogName() {
     selectProjectFolder(wizard, VALID_PACKAGE_NAME);
     initializeWizardBot();
 
@@ -258,7 +258,7 @@ public class CheckCatalogWizardTest {
    * @throws CoreException
    *           if project doesn't exist.
    */
-  @After
+  @AfterEach
   public void tearDown() throws CoreException {
     wizard.closeWizard();
     project.delete(true, new NullProgressMonitor());

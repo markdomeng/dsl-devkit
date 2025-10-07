@@ -19,7 +19,7 @@ import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.SaveOptions;
 import org.eclipse.xtext.serializer.ISerializer;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import com.avaloq.tools.ddk.xtext.test.AbstractXtextTest;
 
@@ -54,13 +54,13 @@ public abstract class AbstractFormatterTest extends AbstractXtextTest {
   protected void assertFormattedPTC(final String expected, final String model) throws IOException {
     EObject m = getModel(model);
     String res = getSerializer().serialize(m, SaveOptions.newBuilder().format().getOptions());
-    Assert.assertEquals("Serialization not equal", expected, res);
+    Assertions.assertEquals("Serialization not equal", expected, res);
   }
 
   protected void assertPreserved(final String model) throws IOException {
     EObject m = getModel(model);
     String res = getSerializer().serialize(m, SaveOptions.newBuilder().getOptions());
-    Assert.assertEquals("Preserved node model", model, res);
+    Assertions.assertEquals("Preserved node model", model, res);
   }
 
   // test formatting based on the NodeModel
@@ -68,7 +68,7 @@ public abstract class AbstractFormatterTest extends AbstractXtextTest {
     ICompositeNode node = NodeModelUtils.getNode(getModel(model)).getRootNode();
     IFormattedRegion r = getXtextTestUtil().get(INodeModelFormatter.class).format(node, offset, length);
     String actual = model.substring(0, r.getOffset()) + r.getFormattedText() + model.substring(r.getLength() + r.getOffset());
-    Assert.assertEquals("Formatting based on the NodeModel", expected, actual);
+    Assertions.assertEquals("Formatting based on the NodeModel", expected, actual);
   }
 
 }

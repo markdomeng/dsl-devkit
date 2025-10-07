@@ -13,7 +13,7 @@ import org.eclipse.xtext.testing.InjectWith
 import org.junit.runner.RunWith
 import org.eclipse.xtext.testing.XtextRunner
 import com.avaloq.tools.ddk.check.CheckUiInjectorProvider
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import com.google.inject.Inject
 import org.eclipse.xtext.testing.util.ParseHelper
 import com.avaloq.tools.ddk.check.check.CheckCatalog

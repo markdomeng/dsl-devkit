@@ -11,7 +11,7 @@
 package com.avaloq.tools.ddk.test.ui.swtbot;
 
 import static org.eclipse.swtbot.swt.finder.waits.Conditions.widgetIsEnabled;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.AssertionFailedException;
 import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.osgi.util.NLS;
@@ -48,6 +47,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.WorkbenchException;
+import org.junit.jupiter.api.Assertions;
 
 import com.avaloq.tools.ddk.test.core.util.Reflect;
 import com.avaloq.tools.ddk.test.ui.swtbot.condition.WaitForTable;
@@ -141,7 +141,7 @@ public final class CoreSwtbotTools {
    *          the {@link SwtWorkbenchBot} for which to check the focus, must not be {@code null}
    */
   public static void enforceWorkbenchFocusPolicy(final SwtWorkbenchBot bot) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
     if (bot.getFocusedWidget() == null) {
       if (WorkbenchFocusPolicy.WAIT == getWorkbenchFocusPolicy()) {
         bot.waitUntilFocused();
@@ -167,7 +167,7 @@ public final class CoreSwtbotTools {
    *          to work with, must not be {@code null}
    */
   public static void initializeWorkbench(final SwtWorkbenchBot bot) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
     // Move mouse outside client area (to prevent problems with context menus)
     PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
       @Override
@@ -196,7 +196,7 @@ public final class CoreSwtbotTools {
    *          if {@code true}, append the name of the calling method to the prefix
    */
   public static void captureScreenshot(final SWTBot bot, final String prefix, final boolean useCaller) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
     if (prefix == null && !useCaller) {
       throw new IllegalArgumentException();
     }
@@ -221,8 +221,8 @@ public final class CoreSwtbotTools {
    * @return {@code true} if a window was found, {@code false} otherwise
    */
   public static boolean checkOpenWindow(final SWTWorkbenchBot bot, final String windowName) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
-    Assert.isNotNull(windowName, "windowName");
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(windowName, "windowName");
     try {
       final SWTBotShell shell = bot.shell(windowName);
       shell.isActive();
@@ -241,8 +241,8 @@ public final class CoreSwtbotTools {
    *          the new perspective to open, must not be {@code null}
    */
   public static void switchPerspective(final SWTWorkbenchBot bot, final String perspective) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
-    Assert.isNotNull(perspective, "perspective");
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(perspective, "perspective");
     // Change the perspective via the Open Perspective dialog
     bot.menu("Window").menu("Open Perspective").menu("Other...").click();
     final SWTBotShell shell = bot.shell("Open Perspective");
@@ -291,8 +291,8 @@ public final class CoreSwtbotTools {
    *          to look for items in, must not be {@code null}
    */
   public static void waitForTreeItem(final SWTWorkbenchBot bot, final SWTBotTree tree) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
-    Assert.isNotNull(tree, ARGUMENT_TREE);
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(tree, ARGUMENT_TREE);
     bot.waitUntilWidgetAppears(new WaitForTree(tree.widget));
   }
 
@@ -305,8 +305,8 @@ public final class CoreSwtbotTools {
    *          the {@link SWTBotTable}, must not be {@code null}
    */
   public static void waitForTableItem(final SWTWorkbenchBot bot, final SWTBotTable table) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
-    Assert.isNotNull(table, ARGUMENT_TABLE);
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(table, ARGUMENT_TABLE);
     bot.waitUntilWidgetAppears(new WaitForTable(table.widget));
   }
 
@@ -320,8 +320,8 @@ public final class CoreSwtbotTools {
    * @return list of tree items, never {@code null}
    */
   public static List<SWTBotTreeItem> treeItems(final SWTWorkbenchBot bot, final SWTBotTree tree) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
-    Assert.isNotNull(tree, ARGUMENT_TREE);
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(tree, ARGUMENT_TREE);
     waitForTreeItem(bot, tree);
     return new ArrayList<SWTBotTreeItem>(Arrays.asList(tree.getAllItems()));
   }
@@ -336,8 +336,8 @@ public final class CoreSwtbotTools {
    * @return list of table items, never {@code null}
    */
   public static List<SWTBotTableItem> tableItems(final SWTWorkbenchBot bot, final SWTBotTable table) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
-    Assert.isNotNull(table, ARGUMENT_TABLE);
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(table, ARGUMENT_TABLE);
     waitForTableItem(bot, table);
     List<SWTBotTableItem> items = null;
     for (int i = 0; i < table.rowCount(); i++) {
@@ -354,7 +354,7 @@ public final class CoreSwtbotTools {
    * @return clipboard text content, or {@code null} if no text data is available
    */
   public static String getClipboardContent(final SWTWorkbenchBot bot) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
     return UIThreadRunnable.syncExec(new Result<String>() {
       @Override
       public String run() {
@@ -374,8 +374,8 @@ public final class CoreSwtbotTools {
    * @return {@code true} if expanded, {@code false} otherwise
    */
   public static boolean waitForItem(final SWTWorkbenchBot bot, final SWTBotTreeItem item) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
-    Assert.isNotNull(item, ARGUMENT_ITEM);
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(item, ARGUMENT_ITEM);
     item.select();
     safeBlockingExpand(bot, item);
     if (item.getItems().length == 0) {
@@ -394,8 +394,8 @@ public final class CoreSwtbotTools {
    *          the name of the view, must not be {@code null}
    */
   public static void openView(final SWTWorkbenchBot bot, final String view) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
-    Assert.isNotNull(view, ARGUMENT_VIEW);
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(view, ARGUMENT_VIEW);
     openView(bot, "Avaloq", view);
   }
 
@@ -406,7 +406,7 @@ public final class CoreSwtbotTools {
    *          the view id, must not be {@code null}
    */
   public static void openView(final String id) {
-    Assert.isNotNull(id, "id");
+    Assertions.isNotNull(id, "id");
     PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
 
       @Override
@@ -431,9 +431,9 @@ public final class CoreSwtbotTools {
    *          the name of the view, must not be {@code null}
    */
   public static void openView(final SWTWorkbenchBot bot, final String category, final String view) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
-    Assert.isNotNull(category, "category");
-    Assert.isNotNull(view, ARGUMENT_VIEW);
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(category, "category");
+    Assertions.isNotNull(view, ARGUMENT_VIEW);
     bot.menu("Window").menu("Show View").menu("Other...").click();
     bot.shell("Show View").activate();
     final SWTBotTree tree = bot.tree();
@@ -469,9 +469,9 @@ public final class CoreSwtbotTools {
    * @return the {@link SWTBotTreeItem}, never {@code null}
    */
   public static SWTBotTreeItem findTreeItem(final SWTWorkbenchBot bot, final SWTBotTree tree, final String item) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
-    Assert.isNotNull(tree, "tree");
-    Assert.isNotNull(item, ARGUMENT_ITEM);
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(tree, "tree");
+    Assertions.isNotNull(item, ARGUMENT_ITEM);
     int itemCount = 0;
     boolean itemFound = false;
     SWTBotTreeItem botTreeItem = null;
@@ -508,8 +508,8 @@ public final class CoreSwtbotTools {
    *          the name of the desired page (e.g. 'Database'), must not be {@code null}
    */
   public static void openAvaloqPreferencesSection(final SWTWorkbenchBot bot, final String section) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
-    Assert.isNotNull(section, "section");
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(section, "section");
     bot.menu("Window").menu("Preferences").click();
     final SWTBotShell shell = bot.shell("Preferences");
     shell.activate();
@@ -531,8 +531,8 @@ public final class CoreSwtbotTools {
    * @return the full name of the item as string, never {@code null}
    */
   public static String getCcomboItemText(final SWTBotCCombo ccombo, final String prefix) {
-    Assert.isNotNull(ccombo, "ccombo");
-    Assert.isNotNull(prefix, "prefix");
+    Assertions.isNotNull(ccombo, "ccombo");
+    Assertions.isNotNull(prefix, "prefix");
     for (String ccomboItem : ccombo.items()) {
       if (ccomboItem.startsWith(prefix)) {
         return ccomboItem;
@@ -550,8 +550,8 @@ public final class CoreSwtbotTools {
    *          node to wait for, must not be {@code null}
    */
   public static void safeBlockingCollapse(final SWTWorkbenchBot bot, final SWTBotTreeItem node) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
-    Assert.isNotNull(node, ARGUMENT_NODE);
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(node, ARGUMENT_NODE);
     if (node.isExpanded()) {
       node.collapse();
       try {
@@ -584,8 +584,8 @@ public final class CoreSwtbotTools {
    *          node to wait for, must not be {@code null}
    */
   public static void safeBlockingExpand(final SWTWorkbenchBot bot, final SWTBotTreeItem node) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
-    Assert.isNotNull(node, ARGUMENT_NODE);
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(node, ARGUMENT_NODE);
     if (!node.isExpanded()) {
       node.expand();
       try {
@@ -621,8 +621,8 @@ public final class CoreSwtbotTools {
    * @return the last tree item that was expanded, or {@code null} if no item was found
    */
   public static SWTBotTreeItem expandNode(final SWTBotTree bot, final String... nodes) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
-    Assert.isNotNull(nodes, ARGUMENT_NODES);
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(nodes, ARGUMENT_NODES);
     assertArgumentIsNotEmpty(nodes, ARGUMENT_NODES);
     new SWTBot().waitUntil(widgetIsEnabled(bot));
     SWTBotTreeItem item = bot.getTreeItem(nodes[0]);
@@ -650,8 +650,8 @@ public final class CoreSwtbotTools {
    * @return the last tree node that was expanded, never {@code null}
    */
   public static SWTBotTreeItem expandNode(final SWTBotTreeItem bot, final String... nodes) {
-    Assert.isNotNull(bot, ARGUMENT_BOT);
-    Assert.isNotNull(nodes, ARGUMENT_NODES);
+    Assertions.isNotNull(bot, ARGUMENT_BOT);
+    Assertions.isNotNull(nodes, ARGUMENT_NODES);
     assertArgumentIsNotEmpty(nodes, ARGUMENT_NODES);
     SWTBotTreeItem item = bot;
     for (String node : nodes) {
@@ -677,7 +677,7 @@ public final class CoreSwtbotTools {
    *           one array element is <code>null</code>.
    */
   private static void assertArgumentIsNotEmpty(final Object[] array, final String name) {
-    Assert.isNotNull(array, name);
+    Assertions.isNotNull(array, name);
     if (array.length == 0) {
       throw new IllegalArgumentException("Contract for argument '" + name + "' failed: Array parameter must not be empty."); //$NON-NLS-1$
     } else {

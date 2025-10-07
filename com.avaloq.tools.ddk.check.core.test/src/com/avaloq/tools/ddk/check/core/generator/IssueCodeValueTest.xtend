@@ -16,7 +16,7 @@ import org.junit.runner.RunWith
 import com.avaloq.tools.ddk.check.CheckInjectorProvider
 import org.eclipse.xtext.testing.XtextRunner
 import com.avaloq.tools.ddk.check.core.test.AbstractCheckGenerationTestCase
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import java.util.List
 import org.eclipse.xtext.xbase.testing.JavaSource
 import java.io.ByteArrayInputStream

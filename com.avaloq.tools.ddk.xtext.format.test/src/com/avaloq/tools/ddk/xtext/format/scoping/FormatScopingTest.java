@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.xtext.format.scoping;
 
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.List;
 import java.util.Set;
@@ -27,7 +27,7 @@ import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.ILeafNode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.xtext.format.format.FormatConfiguration;
 import com.avaloq.tools.ddk.xtext.format.format.FormatPackage;
@@ -101,14 +101,14 @@ public class FormatScopingTest extends AbstractScopingTest {
    * Bug AIG-718.
    * Tests that all grammars' rules are scoped.
    */
-  @Test
-  public void allGrammarsScoped() {
+  @org.junit.jupiter.api.Test
+  void allGrammarsScoped() {
     Set<URI> expectedURIs = Sets.newHashSet(EcoreUtil.getURI(grammarC.getRules().get(0)), EcoreUtil.getURI(grammarB.getRules().get(0)), EcoreUtil.getURI(grammarA.getRules().get(0)), EcoreUtil.getURI(grammarA.getRules().get(1)));
     assertScope(formatC, FormatPackage.Literals.GRAMMAR_RULE__TARGET_RULE, expectedURIs);
   }
 
-  @Test
-  public void keywordScoped() {
+  @org.junit.jupiter.api.Test
+  void keywordScoped() {
     AbstractRule parserRuleA = grammarA.getRules().get(0);
     Set<URI> keywordURIs = Sets.newHashSet(Iterables.transform(GrammarUtil.containedKeywords(parserRuleA), TO_URI));
     assertFalse("No keywords found", keywordURIs.isEmpty());
@@ -124,7 +124,7 @@ public class FormatScopingTest extends AbstractScopingTest {
    * Verify assignemnts (=a, =b ...) are scoped.
    */
   @Test
-  public void assignmentScoped() {
+  void assignmentScoped() {
     AbstractRule parserRuleA = grammarA.getRules().get(0);
     Set<URI> assignmentURIs = Sets.newHashSet(Iterables.transform(GrammarUtil.containedAssignments(parserRuleA), TO_URI));
     assertFalse("No assignments found", assignmentURIs.isEmpty());
@@ -136,7 +136,7 @@ public class FormatScopingTest extends AbstractScopingTest {
    * Verify Rule { @Rule : ...}.
    */
   @Test
-  public void ruleCallScoped() {
+  void ruleCallScoped() {
     AbstractRule parserRuleAA = grammarA.getRules().get(1);
     Set<URI> ruleCallURIs = Sets.newHashSet(Iterables.transform(GrammarUtil.containedRuleCalls(parserRuleAA), TO_URI));
     assertScope(formatA.getRules().get(1), FormatPackage.Literals.GRAMMAR_ELEMENT_REFERENCE__RULE_CALL, ruleCallURIs);
@@ -147,13 +147,13 @@ public class FormatScopingTest extends AbstractScopingTest {
    * Verify Rule { rule : ...}.
    */
   @Test
-  public void ruleSelfScoped() {
+  void ruleSelfScoped() {
     AbstractRule parserRuleA = grammarA.getRules().get(0);
     assertScope(formatC.getRules().get(0), FormatPackage.Literals.GRAMMAR_ELEMENT_REFERENCE__SELF, TO_URI.apply(parserRuleA));
   }
 
-  @Test
-  public void groupScoped() {
+  @org.junit.jupiter.api.Test
+  void groupScoped() {
     ParserRule parserRuleA = (ParserRule) grammarA.getRules().get(0);
 
     CompoundElement group1 = findSemanticElementByString("(", CompoundElement.class, parserRuleA); // ('-' b=STRING | ('-'c=ID ('-'d=INT | '-'e=STRING)))?

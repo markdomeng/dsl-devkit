@@ -10,8 +10,8 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.xtext.test.ui.occurrences;
 
-import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.assertSame;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 import java.util.Set;
 
@@ -28,12 +28,12 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.texteditor.IDocumentProvider;
 import org.eclipse.ui.texteditor.ITextEditor;
 import org.eclipse.xtext.ui.editor.occurrences.Messages;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
 
 import com.avaloq.tools.ddk.test.core.util.JobChangeListener;
 import com.avaloq.tools.ddk.xtext.test.ui.AbstractXtextUiTest;
 import com.google.common.collect.Sets;
+import org.junit.jupiter.api.BeforeEach;
 
 
 /**
@@ -157,7 +157,7 @@ public abstract class AbstractOccurrencesTest extends AbstractXtextUiTest {
   /**
    * Sets up the {@link JobChangeListener}.
    */
-  @Before
+  @BeforeEach
   public void setUpJobListener() {
     Job.getJobManager().addJobChangeListener(jobChangeListener);
   }
@@ -165,7 +165,7 @@ public abstract class AbstractOccurrencesTest extends AbstractXtextUiTest {
   /**
    * Tears down the {@link JobChangeListener}.
    */
-  @After
+  @AfterEach
   public void tearDownJobListener() {
     Job.getJobManager().removeJobChangeListener(jobChangeListener);
     jobChangeListener.reset();

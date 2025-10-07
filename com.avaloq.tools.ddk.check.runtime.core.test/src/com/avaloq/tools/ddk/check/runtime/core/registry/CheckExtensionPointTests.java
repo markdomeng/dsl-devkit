@@ -10,24 +10,26 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.check.runtime.core.registry;
 
+import org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.Assertions.assertNull;
+import org.junit.jupiter.api.Assertions.fail;
+
 import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.Platform;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
-
-import junit.framework.TestCase;
 
 
 /**
  * Provides some test cases for the Check extension point.
  */
-public class CheckExtensionPointTests extends TestCase {
+public class CheckExtensionPointTests {
 
   private static final String DUMMY_EXTENSION_ID = "com.avaloq.tools.ddk.check.runtime.core.test";
   private static final String CHECK_EXTENSION_ID = "com.avaloq.tools.ddk.check.runtime.core";
@@ -85,7 +87,7 @@ public class CheckExtensionPointTests extends TestCase {
    * @see Platform#getExtensionRegistry()
    */
   @Test
-  public void testExtensionPointIsRegistered() {
+  void testExtensionPointIsRegistered() {
     try {
       findCheckExtensionPoint(findExtensionPoints());
     } catch (NoSuchElementException e) {
@@ -98,7 +100,7 @@ public class CheckExtensionPointTests extends TestCase {
    * point.
    */
   @Test
-  public void testDummyClientRegistered() {
+  void testDummyClientRegistered() {
     assertNotNull("Test plugin successfully registered to the check extension point", findCheckExtensionPoint(findExtensionPoints()).getExtension(DUMMY_EXTENSION_ID));
   }
 
@@ -106,16 +108,16 @@ public class CheckExtensionPointTests extends TestCase {
    * Tests that a non-existing client is not registered with the extension
    * point registry.
    */
-  @Test
-  public void testInvalidClientNotRegistered() {
+  @org.junit.jupiter.api.Test
+  void testInvalidClientNotRegistered() {
     assertNull("Non-existing client not registered to the check extension point", findCheckExtensionPoint(findExtensionPoints()).getExtension("a.b.c"));
   }
 
   /**
    * Tests that the check extension point has an attribute {@value #TARGET_CLASS_ATTRIBUTE}.
    */
-  @Test
-  public void testTargetClassAttributeFound() {
+  @org.junit.jupiter.api.Test
+  void testTargetClassAttributeFound() {
     IExtensionPoint point = findCheckExtensionPoint(findExtensionPoints());
     assertNotNull("Found a configuration element with attribute \"targetClass\"", findConfigurationElement(point.getConfigurationElements(), TARGET_CLASS_ATTRIBUTE));
   }
@@ -123,8 +125,8 @@ public class CheckExtensionPointTests extends TestCase {
   /**
    * Tests that the check extension point has an attribute {@value #LANGUAGE_ATTRIBUTE}.
    */
-  @Test
-  public void testLanguageAttributeFound() {
+  @org.junit.jupiter.api.Test
+  void testLanguageAttributeFound() {
     IExtensionPoint point = findCheckExtensionPoint(findExtensionPoints());
     assertNotNull("Found a configuration element with attribute \"language\"", findConfigurationElement(point.getConfigurationElements(), LANGUAGE_ATTRIBUTE));
   }

@@ -12,10 +12,10 @@ package com.avaloq.tools.ddk.sample.helloworld.label
 
 import com.google.inject.AbstractModule
 import com.google.inject.Guice
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
-import static org.junit.Assert.assertEquals
-import static org.junit.Assert.assertNotNull
+import static org.junit.jupiter.api.Assertions.assertEquals
+import static org.junit.jupiter.api.Assertions.assertNotNull
 import com.avaloq.tools.ddk.sample.helloworld.validation.LibraryChecksIssueCodes
 import com.avaloq.tools.ddk.check.runtime.label.ICheckRuleLabelProvider
 

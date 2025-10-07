@@ -15,7 +15,7 @@ import java.net.UnknownHostException;
 import java.util.Locale;
 
 import org.apache.commons.lang.RandomStringUtils;
-import org.eclipse.core.runtime.Assert;
+import org.junit.jupiter.api.Assertions;
 
 
 /**
@@ -77,7 +77,7 @@ public final class CoreUtilTools {
 
     }
     String string = stringBuilder.toString();
-    Assert.isNotNull(string, "string"); //$NON-NLS-1$
+    Assertions.isNotNull(string, "string"); //$NON-NLS-1$
     return string.toUpperCase(Locale.ENGLISH);
   }
 

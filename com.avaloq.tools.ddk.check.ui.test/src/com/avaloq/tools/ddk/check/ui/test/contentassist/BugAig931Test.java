@@ -20,8 +20,8 @@ import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.ui.progress.UIJob;
 import org.eclipse.xtext.common.types.access.jdt.IJavaProjectProvider;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Iterables;
@@ -51,7 +51,7 @@ public class BugAig931Test extends AbstractCheckContentAssistBugTest implements 
           }
         }));
     for (String string : expected) {
-      Assert.assertTrue(NLS.bind("Expected {0} but found {1}", Arrays.toString(expected), actual), actual.contains(string));
+      Assertions.assertTrue(NLS.bind("Expected {0} but found {1}", Arrays.toString(expected), actual), actual.contains(string));
     }
   }
 
@@ -62,7 +62,7 @@ public class BugAig931Test extends AbstractCheckContentAssistBugTest implements 
    *           the exception
    */
   @Test
-  public void testBugAig931() throws Exception {
+  void testBugAig931() throws Exception {
     final String partialModel = "package p catalog T for grammar com.avaloq.tools.ddk.check.Check { error \"X\" for ";
     final String[] expectedContextTypeProposals = {"EObject - org.eclipse.emf.ecore", "JvmType - org.eclipse.xtext.common.types"};
     new UIJob("compute completion proposals") {

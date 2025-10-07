@@ -14,8 +14,8 @@ import static com.avaloq.tools.ddk.test.ui.swtbot.SwtWizardBot.BACK;
 import static com.avaloq.tools.ddk.test.ui.swtbot.SwtWizardBot.FINISH;
 import static com.avaloq.tools.ddk.test.ui.swtbot.SwtWizardBot.NEXT;
 import static org.eclipse.swtbot.swt.finder.finders.UIThreadRunnable.syncExec;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swtbot.eclipse.finder.waits.Conditions;

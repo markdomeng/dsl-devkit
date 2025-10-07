@@ -16,7 +16,7 @@ import com.avaloq.tools.ddk.test.checkcfg.TestPropertySpecificationWithExpectedV
 import com.avaloq.tools.ddk.test.checkcfg.TestPropertySpecificationWithOutExpectedValues
 import com.avaloq.tools.ddk.xtext.test.validation.AbstractValidationTest
 import com.google.common.collect.Lists
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 import static com.avaloq.tools.ddk.checkcfg.CheckCfgConstants.PROPERTY_EXECUTABLE_EXTENSION_ATTRIBUTE
 import static com.avaloq.tools.ddk.checkcfg.CheckCfgConstants.PROPERTY_EXTENSION_POINT

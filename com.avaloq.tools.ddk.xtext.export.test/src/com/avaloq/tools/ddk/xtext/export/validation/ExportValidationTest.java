@@ -10,10 +10,9 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.xtext.export.validation;
 
-import org.junit.Test;
-
 import com.avaloq.tools.ddk.xtext.test.export.util.ExportTestUtil;
 import com.avaloq.tools.ddk.xtext.test.validation.AbstractValidationTest;
+import org.junit.jupiter.api.Test;
 
 
 /**
@@ -26,29 +25,29 @@ public class ExportValidationTest extends AbstractValidationTest {
     return ExportTestUtil.getInstance();
   }
 
-  @Test
-  public final void testCheckExtensions() {
+  @org.junit.jupiter.api.Test
+  final void testCheckExtensions() {
     // TODO cannot test as unable to load resource in test environment assertDiagnosticMessage("Extension 'XYZ' not found");
   }
 
-  @Test
-  public final void testCheckInterfaceAndExportUniqueness() {
+  @org.junit.jupiter.api.Test
+  final void testCheckInterfaceAndExportUniqueness() {
     assertDiagnosticMessage("declaration duplicate found: ecore::EClass");
   }
 
   @Test
-  public final void testCheckExportFieldUniqueness() {
+  final void testCheckExportFieldUniqueness() {
     assertDiagnosticMessage("duplicate found: instanceClassName");
   }
 
-  @Test
-  public final void testCheckUserDataNameAsFeature() {
+  @org.junit.jupiter.api.Test
+  final void testCheckUserDataNameAsFeature() {
     assertDiagnosticMessage("instanceClassName is already defined as field");
     // TODO assertDiagnosticMessage("xxx has the same name as an existing feature");
   }
 
   @Test
-  public final void testCheckOverlap() {
+  final void testCheckOverlap() {
     // TODO assertDiagnosticMessage("");
   }
 

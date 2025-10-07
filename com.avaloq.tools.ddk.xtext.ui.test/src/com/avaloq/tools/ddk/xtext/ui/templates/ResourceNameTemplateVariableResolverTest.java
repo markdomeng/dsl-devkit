@@ -17,8 +17,8 @@ import org.eclipse.jface.text.templates.TemplateVariable;
 import org.eclipse.xtext.XtextRuntimeModule;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.templates.XtextTemplateContext;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 
@@ -77,28 +77,28 @@ public class ResourceNameTemplateVariableResolverTest {
   }
 
   @Test
-  public void testResolveValuesWithFileWithoutExtension() throws TemplateException {
+  void testResolveValuesWithFileWithoutExtension() throws TemplateException {
     final String filename = "filenamewithnoextension"; //$NON-NLS-1$
     testResolveValues(FILE, filename, filename);
   }
 
   @Test
-  public void testResolveValuesWithFileWithExtension() throws TemplateException {
+  void testResolveValuesWithFileWithExtension() throws TemplateException {
     testResolveValues(FILE, "filename.with.extension", "filename.with"); //$NON-NLS-1$//$NON-NLS-2$
   }
 
-  @Test
-  public void testResolveValuesWithExtraParams() throws TemplateException {
+  @org.junit.jupiter.api.Test
+  void testResolveValuesWithExtraParams() throws TemplateException {
     testResolveValues(new Object[] {FILE[0], "other", "random", "values"}, FILENAME, FILENAME); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
   }
 
-  @Test
-  public void testResolveValuesWithUnknownParam() throws TemplateException {
+  @org.junit.jupiter.api.Test
+  void testResolveValuesWithUnknownParam() throws TemplateException {
     testResolveValues(new Object[] {"This is not the parameter you are looking for"}, FILENAME); //$NON-NLS-1$
   }
 
   @Test
-  public void testResolveValuesWithWrongTypeOfParam() throws TemplateException {
+  void testResolveValuesWithWrongTypeOfParam() throws TemplateException {
     testResolveValues(new Object[] {42}, FILENAME);
   }
 
@@ -121,7 +121,7 @@ public class ResourceNameTemplateVariableResolverTest {
     final String[] actualResolvedValues = Iterables.toArray(resolver.resolveValues(variable, mockContext), String.class);
 
     // ASSERT
-    Assert.assertArrayEquals("Resolved values", expectedResolvedValues, actualResolvedValues); //$NON-NLS-1$
+    Assertions.assertArrayEquals("Resolved values", expectedResolvedValues, actualResolvedValues); //$NON-NLS-1$
   }
 
 }
