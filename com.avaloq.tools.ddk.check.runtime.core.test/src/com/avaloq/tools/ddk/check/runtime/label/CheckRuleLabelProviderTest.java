@@ -10,9 +10,9 @@
 
 package com.avaloq.tools.ddk.check.runtime.label;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -23,9 +23,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.check.runtime.issue.ICheckValidatorImpl;
 import com.avaloq.tools.ddk.check.runtime.registry.ICheckValidatorRegistry;
@@ -72,7 +72,7 @@ public class CheckRuleLabelProviderTest {
   /**
    * Setup done before each test.
    */
-  @Before
+  @BeforeEach
   public void setUp() {
 
     // Create mocks
@@ -97,7 +97,7 @@ public class CheckRuleLabelProviderTest {
   /**
    * Teardown done after each test.
    */
-  @After
+  @AfterEach
   public void tearDown() {
 
     mockCheckValidatorRegistry = null;
@@ -127,7 +127,7 @@ public class CheckRuleLabelProviderTest {
    * Test the default binding.
    */
   @Test
-  public void testBinding() {
+  void testBinding() {
     // ASSERT
     assertSame("Binding of label provider incorrect.", CheckRuleLabelProvider.class, checkRuleLabelProvider.getClass());
   }
@@ -135,8 +135,8 @@ public class CheckRuleLabelProviderTest {
   /**
    * Test successfully getting a check label.
    */
-  @Test
-  public void testSuccess() {
+  @org.junit.jupiter.api.Test
+  void testSuccess() {
     // ARRANGE
     mockValidatorsWithChecks();
 
@@ -164,8 +164,8 @@ public class CheckRuleLabelProviderTest {
   /**
    * Test trying to get the check label for a null issue code.
    */
-  @Test
-  public void testWithNullID() {
+  @org.junit.jupiter.api.Test
+  void testWithNullID() {
     // ARRANGE
     mockValidatorsWithChecks();
 
@@ -180,7 +180,7 @@ public class CheckRuleLabelProviderTest {
    * Test trying to get a check label when there are no validators.
    */
   @Test
-  public void testWithNoValidators() {
+  void testWithNoValidators() {
     // ARRANGE
     when(mockCheckValidatorRegistry.getValidators()).thenReturn(Collections.emptyList());
 
@@ -194,8 +194,8 @@ public class CheckRuleLabelProviderTest {
   /**
    * Test trying to get a check label when there are no checks registered.
    */
-  @Test
-  public void testWithNoChecks() {
+  @org.junit.jupiter.api.Test
+  void testWithNoChecks() {
     // ARRANGE
     when(mockCheckValidatorRegistry.getValidators()).thenReturn(mockValidators);
     for (ICheckValidatorImpl mockValidator : mockValidators) {
@@ -212,8 +212,8 @@ public class CheckRuleLabelProviderTest {
   /**
    * Test trying to get the check label for an issue code which is not a check issue code.
    */
-  @Test
-  public void testWhenIssueCodeIsNotACheckIssueCode() {
+  @org.junit.jupiter.api.Test
+  void testWhenIssueCodeIsNotACheckIssueCode() {
     // ARRANGE
     final String notACheckIssueCode = "package.name.SomeOtherClass.issue.code";
 
@@ -232,8 +232,8 @@ public class CheckRuleLabelProviderTest {
   /**
    * Test that check labels are cached.
    */
-  @Test
-  public void testCaching() {
+  @org.junit.jupiter.api.Test
+  void testCaching() {
     // ARRANGE
     mockValidatorsWithChecks();
 
@@ -266,8 +266,8 @@ public class CheckRuleLabelProviderTest {
   /**
    * Test that the cache can be invalidated by subclasses.
    */
-  @Test
-  public void testInvalidatingCache() {
+  @org.junit.jupiter.api.Test
+  void testInvalidatingCache() {
     // ARRANGE
     final CheckRuleLabelProviderWithInvalidateCacheExposed checkRuleLabelProviderWithInvalidateCacheExposed = injector.getInstance(CheckRuleLabelProviderWithInvalidateCacheExposed.class);
 
@@ -290,8 +290,8 @@ public class CheckRuleLabelProviderTest {
   /**
    * Test that the class is bound as a singleton.
    */
-  @Test
-  public void testClassIsSingleton() {
+  @org.junit.jupiter.api.Test
+  void testClassIsSingleton() {
     // ACT
     final ICheckRuleLabelProvider otherCheckRuleLabelProvider = injector.getInstance(CheckRuleLabelProvider.class);
 

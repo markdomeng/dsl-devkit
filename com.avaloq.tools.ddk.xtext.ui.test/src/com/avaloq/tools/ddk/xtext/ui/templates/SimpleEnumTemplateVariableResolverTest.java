@@ -11,7 +11,7 @@
 
 package com.avaloq.tools.ddk.xtext.ui.templates;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.mockito.Mockito.mock;
 
 import java.util.List;
@@ -20,7 +20,7 @@ import org.eclipse.jface.text.templates.TemplateException;
 import org.eclipse.jface.text.templates.TemplateVariable;
 import org.eclipse.xtext.XtextRuntimeModule;
 import org.eclipse.xtext.ui.editor.templates.XtextTemplateContext;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.test.core.AfterAll;
@@ -50,18 +50,18 @@ public class SimpleEnumTemplateVariableResolverTest {
     resolver = null;
   }
 
-  @Test(expected = NullPointerException.class)
+  @org.junit.jupiter.api.Test(expected = NullPointerException.class)
   public void testResolveValuesWithNullVariable() {
     resolver.resolveValues(null, mockContext);
   }
 
-  @Test
-  public void testResolveValuesWithOneParam() throws TemplateException {
+  @org.junit.jupiter.api.Test
+  void testResolveValuesWithOneParam() throws TemplateException {
     testResolveValues("Value"); //$NON-NLS-1$
   }
 
-  @Test
-  public void testResolveValuesWithMultipleParams() throws TemplateException {
+  @org.junit.jupiter.api.Test
+  void testResolveValuesWithMultipleParams() throws TemplateException {
     testResolveValues("Value 1", "Value 2", "Value 3"); //$NON-NLS-1$//$NON-NLS-2$//$NON-NLS-3$
   }
 

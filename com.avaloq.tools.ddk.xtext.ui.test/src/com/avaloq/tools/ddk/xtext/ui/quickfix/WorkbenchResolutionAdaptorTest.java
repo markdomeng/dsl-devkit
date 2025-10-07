@@ -11,8 +11,8 @@
 
 package com.avaloq.tools.ddk.xtext.ui.quickfix;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -21,10 +21,10 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolution;
 import org.eclipse.xtext.ui.util.IssueUtil;
 import org.eclipse.xtext.validation.Issue;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import com.avaloq.tools.ddk.xtext.ui.quickfix.WorkbenchMarkerResolutionGenerator.WorkbenchResolutionAdapter;
+import org.junit.jupiter.api.Test;
 
 
 public class WorkbenchResolutionAdaptorTest {
@@ -37,13 +37,13 @@ public class WorkbenchResolutionAdaptorTest {
 
   private final WorkbenchMarkerResolutionGenerator mockWmrg = mock(WorkbenchMarkerResolutionGenerator.class);
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     when(mockWmrg.getIssueUtil()).thenReturn(new IssueUtil());
   }
 
-  @Test
-  public void testGetLabel() {
+  @org.junit.jupiter.api.Test
+  void testGetLabel() {
     IssueResolution mockIssueResolution = mock(IssueResolution.class);
     IMarker mockMarker = mock(IMarker.class);
 
@@ -54,8 +54,8 @@ public class WorkbenchResolutionAdaptorTest {
     assertEquals("Adapter delegates get label to resolution.", TEST_LABEL, adapter.getLabel()); //$NON-NLS-1$
   }
 
-  @Test
-  public void testGetDescription() {
+  @org.junit.jupiter.api.Test
+  void testGetDescription() {
     IssueResolution mockIssueResolution = mock(IssueResolution.class);
     IMarker mockMarker = mock(IMarker.class);
 
@@ -66,8 +66,8 @@ public class WorkbenchResolutionAdaptorTest {
     assertEquals("Adapter delegates get description to resolution.", TEST_DESCRIPTION, adapter.getDescription()); //$NON-NLS-1$
   }
 
-  @Test
-  public void testGetImage() {
+  @org.junit.jupiter.api.Test
+  void testGetImage() {
     IssueResolution mockIssueResolution = mock(IssueResolution.class);
     IMarker mockMarker = mock(IMarker.class);
 
@@ -78,8 +78,8 @@ public class WorkbenchResolutionAdaptorTest {
     assertEquals("Adapter delegates get Image to resolution.", TEST_IMAGE, adapter.getImage()); //$NON-NLS-1$
   }
 
-  @Test
-  public void findOtherMarkers() {
+  @org.junit.jupiter.api.Test
+  void findOtherMarkers() {
     IssueResolution mockIssueResolution = mock(IssueResolution.class);
     IMarker mockResolutionMarker = mock(IMarker.class);
     when(mockResolutionMarker.getAttribute(Issue.CODE_KEY, null)).thenReturn(CODE1);

@@ -10,18 +10,18 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.typesystem;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 import org.eclipse.emf.common.util.EList;
-import org.junit.Test;
 
 import com.avaloq.tools.ddk.typesystem.builtintypemodel.BuiltInTypeModel;
 import com.avaloq.tools.ddk.typesystem.builtintypemodel.InternalType;
 import com.avaloq.tools.ddk.typesystem.typemodel.INamedType;
+import org.junit.jupiter.api.Test;
 
 
 /**
@@ -30,8 +30,8 @@ import com.avaloq.tools.ddk.typesystem.typemodel.INamedType;
 @SuppressWarnings("nls")
 public class BuiltInTypeModelAccessTest {
 
-  @Test
-  public void testLoadModel() {
+  @org.junit.jupiter.api.Test
+  void testLoadModel() {
     BuiltInTypeModelAccess typeModelInstance = BuiltInTypeModelAccess.getInstance();
     BuiltInTypeModel model = typeModelInstance.getModel();
     assertNotNull("Model was created", model);
@@ -49,8 +49,8 @@ public class BuiltInTypeModelAccessTest {
     assertEquals("Actual type name matches", name, t.getName());
   }
 
-  @Test
-  public void testHasInternalTypes() {
+  @org.junit.jupiter.api.Test
+  void testHasInternalTypes() {
     assertPresence(BuiltInTypeModelAccess.ANY_TYPE_NAME);
     assertPresence(BuiltInTypeModelAccess.ERROR_TYPE_NAME);
     assertPresence(BuiltInTypeModelAccess.UNDETERMINED_TYPE_NAME);
@@ -58,14 +58,14 @@ public class BuiltInTypeModelAccessTest {
   }
 
   @Test
-  public void testInvalidInternalTypeNames() {
+  void testInvalidInternalTypeNames() {
     assertNull("Null name returns null", BuiltInTypeModelAccess.getInstance().getInternalType(null));
     assertNull("Empty name returns null", BuiltInTypeModelAccess.getInstance().getInternalType(""));
     assertNull("Non-existant name returns null", BuiltInTypeModelAccess.getInstance().getInternalType("xyz!!"));
   }
 
-  @Test
-  public void testUniqueInternalTypes() {
+  @org.junit.jupiter.api.Test
+  void testUniqueInternalTypes() {
     assertUnique(BuiltInTypeModelAccess.ANY_TYPE_NAME);
     assertUnique(BuiltInTypeModelAccess.ERROR_TYPE_NAME);
     assertUnique(BuiltInTypeModelAccess.UNDETERMINED_TYPE_NAME);

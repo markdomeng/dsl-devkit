@@ -10,8 +10,8 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.check.ui.test.builder;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 import java.util.Set;
@@ -28,7 +28,7 @@ import org.eclipse.pde.internal.core.plugin.WorkspacePluginModel;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.XtextRunner;
 import org.eclipse.xtext.testing.util.ParseHelper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.check.check.CheckCatalog;
@@ -78,8 +78,8 @@ public class CheckMarkerHelpExtensionTest {
    * @throws Exception
    *           the exception
    */
-  @Test
-  public void testCreateExtension() throws Exception {
+  @org.junit.jupiter.api.Test
+  void testCreateExtension() throws Exception {
     IPluginExtension extension = createMarkerHelpExtension(parser.parse(CATALOG_WITH_FIRST_CHECK_LIVE));
 
     // Test if the extension has been created.
@@ -98,8 +98,8 @@ public class CheckMarkerHelpExtensionTest {
    * @throws Exception
    *           the exception
    */
-  @Test
-  public void testAddElement() throws Exception {
+  @org.junit.jupiter.api.Test
+  void testAddElement() throws Exception {
     final CheckCatalog catalogWithOneCheck = parser.parse(CATALOG_WITH_FIRST_CHECK_LIVE);
     IPluginExtension extension = createMarkerHelpExtension(catalogWithOneCheck);
 
@@ -123,8 +123,8 @@ public class CheckMarkerHelpExtensionTest {
    * @throws Exception
    *           the exception
    */
-  @Test
-  public void testRemoveElement() throws Exception {
+  @org.junit.jupiter.api.Test
+  void testRemoveElement() throws Exception {
     final CheckCatalog catalogWithTwoChecks = parser.parse(CATALOG_WITH_TWO_CHECKS);
     IPluginExtension extension = createMarkerHelpExtension(catalogWithTwoChecks);
 
@@ -143,8 +143,8 @@ public class CheckMarkerHelpExtensionTest {
    * @throws Exception
    *           the exception
    */
-  @Test
-  public void testMarkerTypeUpdate() throws Exception {
+  @org.junit.jupiter.api.Test
+  void testMarkerTypeUpdate() throws Exception {
     IPluginExtension extension = createMarkerHelpExtension(parser.parse(CATALOG_WITH_FIRST_CHECK_LIVE));
 
     assertEquals("Before update: Markertype is fast.", MARKERTYPE_FAST, ((IPluginElement) extension.getChildren()[0]).getAttribute(CheckMarkerHelpExtensionHelper.MARKERTYPE_ATTRIBUTE_TAG).getValue());
@@ -164,8 +164,8 @@ public class CheckMarkerHelpExtensionTest {
    * @throws Exception
    *           the exception
    */
-  @Test
-  public void testCheckHasTwoIssueCodes() throws Exception {
+  @org.junit.jupiter.api.Test
+  void testCheckHasTwoIssueCodes() throws Exception {
     IPluginExtension extension = createMarkerHelpExtension(parser.parse(CATALOG_WITH_FIRST_CHECK_LIVE));
 
     CheckCatalog twoIssueCodes = parser.parse(CATALOG_CHECK_HAS_TWO_ISSUECODES);

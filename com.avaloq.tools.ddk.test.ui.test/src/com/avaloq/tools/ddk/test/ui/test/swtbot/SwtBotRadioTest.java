@@ -10,12 +10,12 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.test.ui.test.swtbot;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.test.core.Issue;
 import com.avaloq.tools.ddk.test.core.IssueAwareRule;
@@ -57,8 +57,8 @@ public class SwtBotRadioTest {
   /**
    * Test if the method {@link com.avaloq.tools.ddk.test.ui.swtbot.SwtBotRadio#click()} works correctly.
    */
-  @Test
-  public void testSwtRadioButtonClick() {
+  @org.junit.jupiter.api.Test
+  void testSwtRadioButtonClick() {
     SwtWorkbenchBot bot = new SwtWorkbenchBot();
     bot.resetWorkbench();
     testRadioButtonClick(bot);

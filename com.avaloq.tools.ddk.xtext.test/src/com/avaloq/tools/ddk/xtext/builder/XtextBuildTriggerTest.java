@@ -25,8 +25,8 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.xtext.builder.impl.BuildScheduler;
 import org.eclipse.xtext.builder.impl.IBuildFlag;
 import org.eclipse.xtext.testing.AbstractXtextTests;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 
 import com.avaloq.tools.ddk.xtext.builder.layered.XtextBuildTrigger;
@@ -40,7 +40,7 @@ public class XtextBuildTriggerTest extends AbstractXtextTests {
   private BuildScheduler scheduler;
 
   @Override
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     super.setUp();
     workspace = mock(IWorkspace.class);
@@ -55,7 +55,7 @@ public class XtextBuildTriggerTest extends AbstractXtextTests {
   }
 
   @Test
-  public void testTriggerRespectsAutoBuilding() {
+  void testTriggerRespectsAutoBuilding() {
     XtextBuildTrigger buildTrigger = get(XtextBuildTrigger.class);
 
     // auto-build disabled

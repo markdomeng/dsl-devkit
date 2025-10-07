@@ -10,8 +10,8 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.xtext.test.validation;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.testing.validation.AssertableDiagnostics.Pred;

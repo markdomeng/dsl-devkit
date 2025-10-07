@@ -10,10 +10,9 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.xtext.export.validation;
 
-import org.junit.Test;
-
 import com.avaloq.tools.ddk.xtext.test.export.util.ExportTestUtil;
 import com.avaloq.tools.ddk.xtext.test.validation.AbstractValidationTest;
+import org.junit.jupiter.api.Test;
 
 
 /**
@@ -26,8 +25,8 @@ public class ExportValidationOkTest extends AbstractValidationTest {
     return ExportTestUtil.getInstance();
   }
 
-  @Test
-  public final void testCheckAll() {
+  @org.junit.jupiter.api.Test
+  final void testCheckAll() {
     assertNoDiagnostics();
   }
 

@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.xtext.test.ui.folding;
 
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -23,7 +23,7 @@ import org.eclipse.jface.text.Position;
 import org.eclipse.xtext.ui.editor.folding.DefaultFoldedPosition;
 import org.eclipse.xtext.ui.editor.folding.FoldedPosition;
 import org.eclipse.xtext.ui.editor.folding.IFoldingRegionProvider;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import com.avaloq.tools.ddk.test.core.BugTest;
 import com.avaloq.tools.ddk.xtext.test.ui.AbstractXtextEditorTest;
@@ -83,7 +83,7 @@ public abstract class AbstractFoldingTest extends AbstractXtextEditorTest {
       // CHECKSTYLE:ON
       message.append("Unmatched Expected Positions:").append(unmatchedExpectedPositions).append('\n');
       message.append("Unmatched Actual Positions:").append(unmatchedActualPositions);
-      Assert.assertTrue(message.toString(), unmatchedExpectedPositions.isEmpty());
+      Assertions.assertTrue(message.toString(), unmatchedExpectedPositions.isEmpty());
     }
   }
 
@@ -96,7 +96,7 @@ public abstract class AbstractFoldingTest extends AbstractXtextEditorTest {
     Collection<FoldedPosition> foldingRegions = getXtextTestUtil().get(IFoldingRegionProvider.class).getFoldingRegions(getDocument());
     for (DefaultFoldedPosition foldedPosition : Iterables.filter(foldingRegions, DefaultFoldedPosition.class)) {
       try {
-        Assert.assertFalse("Illegal significant region for FoldedPosition " + foldedPosition, foldedPosition.computeCaptionOffset(getDocument()) < 0);
+        Assertions.assertFalse("Illegal significant region for FoldedPosition " + foldedPosition, foldedPosition.computeCaptionOffset(getDocument()) < 0);
         /* If the above assertion fails that is probably due to an ITextRegion.EMPTY_REGION being provided for the object's significant text region. */
       } catch (BadLocationException e) {
         fail("Bad location for FoldedPosition: " + e.getMessage());

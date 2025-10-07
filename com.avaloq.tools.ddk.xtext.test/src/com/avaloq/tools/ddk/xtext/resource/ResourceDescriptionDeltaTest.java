@@ -10,10 +10,10 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.xtext.resource;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -26,18 +26,18 @@ import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.resource.IReferenceDescription;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.resource.impl.AbstractResourceDescription;
-import org.junit.Test;
 
 import com.google.common.base.Function;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
+import org.junit.jupiter.api.Test;
 
 
 @SuppressWarnings("PMD.JUnitAssertionsShouldIncludeMessage")
 public class ResourceDescriptionDeltaTest {
 
-  @Test
-  public void testGetAddedAndDeletedObjects() {
+  @org.junit.jupiter.api.Test
+  void testGetAddedAndDeletedObjects() {
     ResourceDescriptionDelta delta = new ResourceDescriptionDelta(createDescription("a"), createDescription("a"), null);
     assertDeltaEquals(0, 0, 0, delta);
 
@@ -58,7 +58,7 @@ public class ResourceDescriptionDeltaTest {
   }
 
   @Test
-  public void testGetChangedObjects() {
+  void testGetChangedObjects() {
     ResourceDescriptionDelta delta = new ResourceDescriptionDelta(createDescription("a:a"), createDescription("a:a1"), null);
     assertDeltaEquals(0, 1, 0, delta);
 
@@ -70,19 +70,19 @@ public class ResourceDescriptionDeltaTest {
   }
 
   @Test
-  public void testDeltaForNewResource() {
+  void testDeltaForNewResource() {
     ResourceDescriptionDelta delta = new ResourceDescriptionDelta(null, createDescription("a"), null);
     assertDeltaEquals(1, 0, 0, delta);
   }
 
-  @Test
-  public void testDeltaForDeletedResource() {
+  @org.junit.jupiter.api.Test
+  void testDeltaForDeletedResource() {
     ResourceDescriptionDelta delta = new ResourceDescriptionDelta(createDescription("a"), null, null);
     assertDeltaEquals(0, 0, 1, delta);
   }
 
   @Test
-  public void testOldReconstruction() {
+  void testOldReconstruction() {
     IResourceDescription oldRes = createDescription("a");
 
     ResourceDescriptionDelta delta = new ResourceDescriptionDelta(oldRes, createDescription("a"), null);

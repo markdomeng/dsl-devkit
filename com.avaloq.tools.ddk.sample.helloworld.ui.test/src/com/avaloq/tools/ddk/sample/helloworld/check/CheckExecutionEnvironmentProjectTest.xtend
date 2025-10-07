@@ -16,7 +16,7 @@ import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
 import org.eclipse.xtext.testing.util.ParseHelper
 import org.eclipse.xtext.testing.validation.ValidationTestHelper
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import org.junit.runner.RunWith
 import com.avaloq.tools.ddk.sample.helloworld.ui.internal.HelloworldActivator
 import com.avaloq.tools.ddk.sample.helloworld.helloWorld.Model

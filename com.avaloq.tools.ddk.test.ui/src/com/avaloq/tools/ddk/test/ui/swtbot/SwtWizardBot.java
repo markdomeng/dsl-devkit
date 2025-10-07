@@ -12,7 +12,7 @@ package com.avaloq.tools.ddk.test.ui.swtbot;
 
 import static com.avaloq.tools.ddk.test.ui.swtbot.util.SwtBotWizardUtil.selectItem;
 import static org.eclipse.swtbot.swt.finder.finders.UIThreadRunnable.syncExec;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 

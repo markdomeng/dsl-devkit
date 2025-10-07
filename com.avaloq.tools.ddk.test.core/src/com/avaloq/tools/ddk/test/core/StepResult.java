@@ -51,7 +51,7 @@ public final class StepResult<T> implements IStepData<T> {
   void setValue(final T value) {
     // currently we set the result multiple time until the postconditions succeed. Hence we cannot enforce this anymore.
     // XXX : think about refactoring so that we can check the following assertion again, or decide to remove it for good.
-    // Assert.assertFalse("Step result value must not have been set yet.", valueSet);
+    // Assertions.assertFalse("Step result value must not have been set yet.", valueSet);
     this.value = value;
     valueSet = true;
   }

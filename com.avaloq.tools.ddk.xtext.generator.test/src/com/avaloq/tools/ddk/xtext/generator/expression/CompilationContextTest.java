@@ -10,8 +10,8 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.xtext.generator.expression;
 
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
@@ -21,7 +21,7 @@ import org.eclipse.internal.xtend.xtend.parser.ParseFacade;
 import org.eclipse.xtend.expression.ExecutionContextImpl;
 import org.eclipse.xtend.type.impl.java.JavaBeansMetaModel;
 import org.eclipse.xtend.typesystem.Type;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.xtext.expression.generator.CompilationContext;
 
@@ -29,7 +29,7 @@ import com.avaloq.tools.ddk.xtext.expression.generator.CompilationContext;
 public class CompilationContextTest {
 
   @Test
-  public void isExtension() {
+  void isExtension() {
     ExecutionContextImpl executionContext = new ExecutionContextImpl();
     executionContext.registerMetaModel(new JavaBeansMetaModel());
     ExtensionFile extensionFile = ParseFacade.file(new InputStreamReader(getClass().getResourceAsStream("/com/avaloq/tools/ddk/xtext/generator/expression/TestExtensions.ext"), StandardCharsets.UTF_8), "TestExtensions.ext");
@@ -40,7 +40,7 @@ public class CompilationContextTest {
   }
 
   @Test
-  public void analyze() {
+  void analyze() {
     ExecutionContextImpl executionContext = new ExecutionContextImpl();
     executionContext.registerMetaModel(new JavaBeansMetaModel());
     final CompilationContext context = new CompilationContext(executionContext, null);

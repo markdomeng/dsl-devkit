@@ -10,7 +10,10 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.check.ui.test.builder;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Assertions.assertFalse;
+import org.junit.jupiter.api.Assertions.assertNotSame;
+import org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IWorkspace;
@@ -23,8 +26,8 @@ import org.eclipse.pde.internal.core.plugin.WorkspacePluginModel;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.XtextRunner;
 import org.eclipse.xtext.testing.util.ParseHelper;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.check.check.CheckCatalog;
@@ -42,7 +45,7 @@ import com.google.inject.Inject;
 @SuppressWarnings({"restriction", "PMD.SignatureDeclareThrowsException"})
 @InjectWith(CheckWizardUiTestInjectorProvider.class)
 @RunWith(XtextRunner.class)
-public class CheckTocExtensionTest extends TestCase {
+public class CheckTocExtensionTest {
 
   @Inject
   private ParseHelper<CheckCatalog> parser;
@@ -58,7 +61,7 @@ public class CheckTocExtensionTest extends TestCase {
   private CheckCatalog catalog;
   private IPluginModelBase pluginModel;
 
-  @Before
+  @BeforeEach
   @Override
   public void setUp() throws Exception {
     catalog = parser.parse(CATALOG_WITH_FIRST_CHECK_LIVE);
@@ -69,12 +72,12 @@ public class CheckTocExtensionTest extends TestCase {
 
   /**
    * Tests if the toc extension is correctly created.
-   * 
+   *
    * @throws CoreException
    *           the core exception
    */
-  @Test
-  public void testCreateExtension() throws CoreException {
+  @org.junit.jupiter.api.Test
+  void testCreateExtension() throws CoreException {
     IPluginExtension extension = tocUtil.addExtensionToPluginBase(pluginModel, catalog, ExtensionType.CONTEXTS, null);
     assertEquals("Toc extension has been created", CheckTocExtensionHelper.TOC_EXTENSION_POINT_ID, extension.getPoint());
     assertEquals("Toc extension name is correct", tocUtil.getExtensionPointName(catalog), extension.getName());
@@ -84,12 +87,12 @@ public class CheckTocExtensionTest extends TestCase {
 
   /**
    * Tests if isExtensionUpdateRequired returns true if only an erroneous extension exists for the check catalog.
-   * 
+   *
    * @throws CoreException
    *           the core exception
    */
-  @Test
-  public void testIsExtensionUpdateRequiredTrue() throws CoreException {
+  @org.junit.jupiter.api.Test
+  void testIsExtensionUpdateRequiredTrue() throws CoreException {
     IPluginExtension extension = createErroneousTocExtension();
 
     Iterable<IPluginElement> elements = Iterables.filter(Lists.newArrayList(extension.getChildren()), IPluginElement.class);
@@ -98,7 +101,7 @@ public class CheckTocExtensionTest extends TestCase {
 
   /**
    * Creates an erroneous toc extension.
-   * 
+   *
    * @return the plugin extension
    * @throws CoreException
    *           the core exception
@@ -116,12 +119,12 @@ public class CheckTocExtensionTest extends TestCase {
 
   /**
    * Tests if an update of a toc extension is correctly done.
-   * 
+   *
    * @throws CoreException
    *           the core exception
    */
   @Test
-  public void testUpdateTocExtension() throws CoreException {
+  void testUpdateTocExtension() throws CoreException {
     IPluginExtension extension = createErroneousTocExtension();
     assertNotSame("File location is not as expected", CheckTocExtensionHelper.TOC_FILE_NAME, ((IPluginElement) extension.getChildren()[0]).getAttribute("file").getValue());
     tocUtil.updateExtension(catalog, extension);
@@ -130,12 +133,12 @@ public class CheckTocExtensionTest extends TestCase {
 
   /**
    * Tests if isExtensionUpdateRequires returns false if a correct extension already exists.
-   * 
+   *
    * @throws CoreException
    *           the core exception
    */
   @Test
-  public void testIsExtensionUpdateRequiredFalse() throws CoreException {
+  void testIsExtensionUpdateRequiredFalse() throws CoreException {
     IPluginExtension extension = tocUtil.addExtensionToPluginBase(pluginModel, catalog, ExtensionType.CONTEXTS, null);
     Iterable<IPluginElement> elements = Iterables.filter(Lists.newArrayList(extension.getChildren()), IPluginElement.class);
     assertFalse("No toc extension update is required", tocUtil.isExtensionUpdateRequired(catalog, extension, elements));

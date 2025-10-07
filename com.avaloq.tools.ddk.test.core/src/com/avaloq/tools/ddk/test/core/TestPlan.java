@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Set;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
@@ -73,7 +73,7 @@ final class TestPlan {
    * @return the newly added {@link AbstractStep}, never {@code null}
    */
   public <T extends AbstractStep> T addSetupStep(final T setupStep) {
-    Assert.assertTrue("Must not add a setup step after adding a test step.", getCompoundTestStep().getSteps().isEmpty());
+    Assertions.assertTrue("Must not add a setup step after adding a test step.", getCompoundTestStep().getSteps().isEmpty());
     getCompoundSetupStep().addStep(setupStep);
     return setupStep;
   }

@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.xtext.export.exporting;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.xtext.test.AbstractXtextTest;
 import com.avaloq.tools.ddk.xtext.test.export.util.ExportTestUtil;
@@ -28,7 +28,7 @@ public class ExportExportingTest extends AbstractXtextTest { // AbstractExportin
   }
 
   @Test
-  public final void testExport() {
+  final void testExport() {
     // TODO - what should we test?
   }
 

@@ -10,9 +10,9 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.typesystem;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.Arrays;
 
@@ -23,8 +23,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.typesystem.typemodel.IExpression;
 import com.avaloq.tools.ddk.typesystem.typemodel.INamedElement;
@@ -70,7 +70,7 @@ public class AbstractTypeProviderTest {
     return clazz;
   }
 
-  @Before
+  @BeforeEach
   public void init() {
     EcoreFactory modelFactory = EcoreFactory.eINSTANCE;
     testModelPackage = modelFactory.createEPackage();
@@ -109,13 +109,13 @@ public class AbstractTypeProviderTest {
   }
 
   @Test
-  public void testTypeProviderPlain() {
+  void testTypeProviderPlain() {
     ITypeProvider provider = new PlainTypeProvider();
     testPlainProvider(provider);
   }
 
   @Test
-  public void testTypeProviderCyclicDefault() {
+  void testTypeProviderCyclicDefault() {
     ITypeProvider provider = new CyclicDefaultTypeProvider();
     assertNull("cylic type for expression1 not null", provider.getType(expression1));
     assertNull("cylic type for expression2 not null", provider.getType(expression2));
@@ -125,8 +125,8 @@ public class AbstractTypeProviderTest {
     assertNull("cyclic type for namedElement2 not null", provider.getTypeForNamedElement(namedElement2));
   }
 
-  @Test
-  public void testTypeProviderCyclicOverride() {
+  @org.junit.jupiter.api.Test
+  void testTypeProviderCyclicOverride() {
     ITypeProvider provider = new CyclicOverrideTypeProvider();
     assertEquals("cyclic override type for expression1 not type1", type1, provider.getType(expression1));
     assertEquals("cyclic override type for expression2 not type1", type1, provider.getType(expression2));
@@ -136,8 +136,8 @@ public class AbstractTypeProviderTest {
     assertEquals("cyclic override type for namedElement2 not type3", type3, provider.getTypeForNamedElement(namedElement2));
   }
 
-  @Test
-  public void testTypeProviderCyclicOverrideMixed() {
+  @org.junit.jupiter.api.Test
+  void testTypeProviderCyclicOverrideMixed() {
     ITypeProvider provider = new CyclicOverrideMixedTypeProvider();
     assertEquals("cyclic mixed type for expression1 not type1", type1, provider.getType(expression1));
     assertEquals("cyclic mixed type for expression2 not type1", type1, provider.getType(expression2));
@@ -148,13 +148,13 @@ public class AbstractTypeProviderTest {
   }
 
   @Test
-  public void testDelegatingTypeProvider() {
+  void testDelegatingTypeProvider() {
     delegateProvider = new PlainTypeProvider();
     testPlainProvider(new DelegatingTypeProvider());
   }
 
   @Test
-  public void testDoNothingTypeProvider() {
+  void testDoNothingTypeProvider() {
     // we are mainly testing that the AbstractTypeProvider does not crash when the subclass does nothing
     ITypeProvider provider = new DoNothingTypeProvider();
     assertNull("did something for type of expression1", provider.getType(expression1));

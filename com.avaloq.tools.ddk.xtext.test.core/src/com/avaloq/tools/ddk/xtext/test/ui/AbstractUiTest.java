@@ -114,7 +114,7 @@ public abstract class AbstractUiTest extends AbstractTest {
    * @return the editor part or null
    */
   protected IEditorPart openEditor(final IFile file, final String editorId, final boolean activate) {
-    UiAssert.isNotUiThread();
+    UiAssertions.isNotUiThread();
     IEditorPart editor = UIThreadRunnable.syncExec(getBot().getDisplay(), new Result<IEditorPart>() {
       @Override
       public IEditorPart run() {
@@ -149,7 +149,7 @@ public abstract class AbstractUiTest extends AbstractTest {
    *          true if should save before close, false otherwise
    */
   protected void closeEditor(final IEditorPart editor, final boolean save) {
-    UiAssert.isNotUiThread();
+    UiAssertions.isNotUiThread();
     Object editorJobs = getTestUtil().getEditorJobFamily(editor);
     UIThreadRunnable.syncExec(getBot().getDisplay(), new VoidResult() {
       @Override

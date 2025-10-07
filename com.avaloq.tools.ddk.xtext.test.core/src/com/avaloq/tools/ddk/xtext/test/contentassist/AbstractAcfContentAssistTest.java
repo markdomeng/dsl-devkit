@@ -10,9 +10,9 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.xtext.test.contentassist;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.text.MessageFormat;
 import java.util.Arrays;

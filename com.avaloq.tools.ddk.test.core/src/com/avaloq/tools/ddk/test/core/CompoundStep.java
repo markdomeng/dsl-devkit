@@ -13,9 +13,9 @@ package com.avaloq.tools.ddk.test.core;
 import java.util.List;
 import java.util.ListIterator;
 
-import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-import org.eclipse.core.runtime.Assert;
+import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.Assertions;
 
 import com.google.common.collect.Lists;
 
@@ -130,9 +130,9 @@ public class CompoundStep extends AbstractStep {
    *          the {@link Throwable} of the problem(s) encountered, must not be {@code null}
    */
   private void addUndoProblem(final MultipleTestProblems multipleTestProblems, final AbstractStep step, final Throwable throwable) {
-    Assert.isNotNull(multipleTestProblems, "multipleTestProblems");
-    Assert.isNotNull(step, ARGUMENT_STEP);
-    Assert.isNotNull(throwable, ARGUMENT_THROWABLE);
+    Assertions.isNotNull(multipleTestProblems, "multipleTestProblems");
+    Assertions.isNotNull(step, ARGUMENT_STEP);
+    Assertions.isNotNull(throwable, ARGUMENT_THROWABLE);
     if (throwable instanceof MultipleTestProblems) {
       MultipleTestProblems caughtMultipleTestProblems = (MultipleTestProblems) throwable;
       for (Throwable problem : caughtMultipleTestProblems.getProblems()) {
@@ -157,8 +157,8 @@ public class CompoundStep extends AbstractStep {
    *          the problem occurred, never {@code null}
    */
   private void logError(final AbstractStep step, final Throwable throwable) {
-    Assert.isNotNull(step, ARGUMENT_STEP);
-    Assert.isNotNull(throwable, ARGUMENT_THROWABLE);
+    Assertions.isNotNull(step, ARGUMENT_STEP);
+    Assertions.isNotNull(throwable, ARGUMENT_THROWABLE);
     logger.error("Error in " + step.getName() + ": " + throwable.getLocalizedMessage());
   }
 
@@ -172,7 +172,7 @@ public class CompoundStep extends AbstractStep {
    * @return the newly added {@link AbstractStep}, never {@code null}
    */
   public <T extends AbstractStep> T addStep(final T step) {
-    Assert.isNotNull(step, ARGUMENT_STEP);
+    Assertions.isNotNull(step, ARGUMENT_STEP);
     plannedSteps.add(step);
     return step;
   }
@@ -184,7 +184,7 @@ public class CompoundStep extends AbstractStep {
    *          the steps to add, must not be {@code null}
    */
   public void addSteps(final List<AbstractStep> steps) {
-    Assert.isNotNull(steps, ARGUMENT_STEPS);
+    Assertions.isNotNull(steps, ARGUMENT_STEPS);
     for (final AbstractStep step : steps) {
       if (step != null) {
         addStep(step);

@@ -10,7 +10,7 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.test.core;
 
-import org.eclipse.core.runtime.Assert;
+import org.junit.jupiter.api.Assertions;
 
 
 /**
@@ -34,8 +34,8 @@ public class TestEntityAction {
    *          the entity action, must not be {@code null}
    */
   public TestEntityAction(final ITestEntity testEntity, final TestEntityOperation entityAction) {
-    Assert.isNotNull(testEntity, TEST_ENTITY_ARGUMENT);
-    Assert.isNotNull(entityAction, ENTITY_ACTION_ARGUMENT);
+    Assertions.isNotNull(testEntity, TEST_ENTITY_ARGUMENT);
+    Assertions.isNotNull(entityAction, ENTITY_ACTION_ARGUMENT);
     if (entityAction.equals(TestEntityOperation.DISPOSE)) {
       testEntity.dispose();
     }

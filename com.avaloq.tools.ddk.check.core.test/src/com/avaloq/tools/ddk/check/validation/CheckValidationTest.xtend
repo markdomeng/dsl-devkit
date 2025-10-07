@@ -20,8 +20,8 @@ import org.eclipse.xtext.testing.XtextRunner
 import org.eclipse.xtext.testing.util.ParseHelper
 import org.eclipse.xtext.testing.validation.ValidationTestHelper
 import org.eclipse.xtext.xbase.XbasePackage$Literals
-import org.junit.Ignore
-import org.junit.Test
+import org.junit.jupiter.api.Disabled
+import org.junit.jupiter.api.Test
 import org.junit.runner.RunWith
 import com.avaloq.tools.ddk.check.validation.IssueCodes
 import com.avaloq.tools.ddk.check.check.CheckPackage
@@ -96,8 +96,8 @@ class CheckValidationTest {
   }
 
   /* Tests checkContextTypeIsUnique(Check) */
+  @Disabled("Tests do not work because of scoping issues at run-time")
   @Test
-  @Ignore("Tests do not work because of scoping issues at run-time")
   def void testContextTypeIsUnique() {
     // should fail
     var contexts = Lists::newArrayList("for C c {issue}", "for C d {issue}")

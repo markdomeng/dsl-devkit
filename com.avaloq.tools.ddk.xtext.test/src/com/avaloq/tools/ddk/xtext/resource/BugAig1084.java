@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.util.IResourceScopeCache;
 import org.eclipse.xtext.util.OnChangeEvictingCache;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.google.common.collect.Lists;
 
@@ -31,7 +31,7 @@ public class BugAig1084 {
    * stack-overflow.
    */
   @Test
-  public void recursiveLookUp() {
+  void recursiveLookUp() {
     Resource resource = org.mockito.Mockito.mock(Resource.class);
     EList<Adapter> emptyEList = new BasicEList<Adapter>();
     org.mockito.Mockito.when(resource.eAdapters()).thenReturn(emptyEList);

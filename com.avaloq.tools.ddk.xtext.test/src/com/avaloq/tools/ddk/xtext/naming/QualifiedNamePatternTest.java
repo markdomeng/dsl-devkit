@@ -10,14 +10,14 @@
  *******************************************************************************/
 package com.avaloq.tools.ddk.xtext.naming;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Comparator;
 
 import org.eclipse.xtext.naming.QualifiedName;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
 import com.avaloq.tools.ddk.test.core.BugTest;
@@ -30,7 +30,7 @@ import com.avaloq.tools.ddk.xtext.test.junit.runners.XtextClassRunner;
 public class QualifiedNamePatternTest {
 
   @Test
-  public void testSimpleQualifiedNamePattern() {
+  void testSimpleQualifiedNamePattern() {
     QualifiedNamePattern pattern = QualifiedNamePattern.create("foo*");
     assertEquals(QualifiedName.create("foo"), pattern.lowerInclusive());
     assertEquals(QualifiedName.create("fop"), pattern.upperExclusive());
@@ -39,8 +39,8 @@ public class QualifiedNamePatternTest {
     assertNoMatch(pattern, "foo", "bar");
   }
 
-  @Test
-  public void testQualifiedPrefixNamePattern() {
+  @org.junit.jupiter.api.Test
+  void testQualifiedPrefixNamePattern() {
     QualifiedNamePattern pattern = QualifiedNamePattern.create("foo", "*");
     assertEquals(QualifiedName.create("foo", ""), pattern.lowerInclusive());
     assertEquals(QualifiedName.create("foo!"), pattern.upperExclusive());
@@ -53,8 +53,8 @@ public class QualifiedNamePatternTest {
     assertEquals(QualifiedName.create("foo", "bas"), pattern.upperExclusive());
   }
 
-  @Test
-  public void testRecursiveWildcardPattern() {
+  @org.junit.jupiter.api.Test
+  void testRecursiveWildcardPattern() {
     QualifiedNamePattern pattern = QualifiedNamePattern.create("foo", "**");
     assertEquals(QualifiedName.create("foo", ""), pattern.lowerInclusive());
     assertEquals(QualifiedName.create("foo!"), pattern.upperExclusive());
@@ -63,8 +63,8 @@ public class QualifiedNamePatternTest {
     assertNoMatch(pattern, "foo2", "bar");
   }
 
-  @Test
-  public void testRecursiveWildcardPatternWithPrefix() {
+  @org.junit.jupiter.api.Test
+  void testRecursiveWildcardPatternWithPrefix() {
     QualifiedNamePattern pattern = QualifiedNamePattern.create("foo", "b**");
     assertEquals(QualifiedName.create("foo", "b"), pattern.lowerInclusive());
     assertEquals(QualifiedName.create("foo", "c"), pattern.upperExclusive());
@@ -78,32 +78,32 @@ public class QualifiedNamePatternTest {
     QualifiedNamePattern.create("foo", "bar**baz");
   }
 
-  @Test(expected = IllegalArgumentException.class)
+  @org.junit.jupiter.api.Test(expected = IllegalArgumentException.class)
   public void testRecursiveWildcardPatternError2() {
     QualifiedNamePattern.create("foo", "**", "bar");
   }
 
-  @Test(expected = IllegalArgumentException.class)
+  @org.junit.jupiter.api.Test(expected = IllegalArgumentException.class)
   public void testRecursiveWildcardPatternError3() {
     QualifiedNamePattern.create("foo*bar");
   }
 
-  @Test
-  public void testAllPattern() {
+  @org.junit.jupiter.api.Test
+  void testAllPattern() {
     QualifiedNamePattern pattern = QualifiedNamePattern.create("*");
     assertEquals(QualifiedName.create(""), pattern.lowerInclusive());
     assertEquals(QualifiedName.create("!"), pattern.upperExclusive());
   }
 
-  @Test
-  public void testPatternWithoutWildcard() {
+  @org.junit.jupiter.api.Test
+  void testPatternWithoutWildcard() {
     QualifiedNamePattern pattern = QualifiedNamePattern.create("foo");
     assertEquals(QualifiedName.create("foo"), pattern.lowerInclusive());
     assertEquals(QualifiedName.create("foo!"), pattern.upperExclusive());
   }
 
   @Test
-  public void testRegexpPatterns() {
+  void testRegexpPatterns() {
     QualifiedNamePattern pattern = QualifiedNamePattern.createFromGlobs("*");
     assertEquals(QualifiedName.create(""), pattern.lowerInclusive());
     assertEquals(QualifiedName.create("!"), pattern.upperExclusive());

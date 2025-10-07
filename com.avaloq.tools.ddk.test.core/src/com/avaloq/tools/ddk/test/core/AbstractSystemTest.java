@@ -15,8 +15,8 @@ import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.Rule;
 import org.junit.internal.AssumptionViolatedException;
 import org.junit.rules.TestWatcher;
@@ -127,7 +127,7 @@ public abstract class AbstractSystemTest implements TestStepListener {
    * Setup of the system test.
    * Implementations need to specify the setup steps in this method and also provide the @Before annotation.
    */
-  @Before
+  @BeforeEach
   public void setUp() {
     AbstractTestStep.registerTestStepListener(this);
   }
@@ -209,7 +209,7 @@ public abstract class AbstractSystemTest implements TestStepListener {
    * <em>Note:</em> Undoes all test and setup steps in the correct order, if the test is not marked as a System Test.
    * </p>
    */
-  @After
+  @AfterEach
   public void tearDown() {
     try {
       AbstractTestStep.setCheckPreconditions(true);
