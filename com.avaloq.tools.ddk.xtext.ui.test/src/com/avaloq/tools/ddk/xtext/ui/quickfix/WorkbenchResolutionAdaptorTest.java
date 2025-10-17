@@ -11,8 +11,8 @@
 
 package com.avaloq.tools.ddk.xtext.ui.quickfix;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -21,8 +21,8 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolution;
 import org.eclipse.xtext.ui.util.IssueUtil;
 import org.eclipse.xtext.validation.Issue;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import com.avaloq.tools.ddk.xtext.ui.quickfix.WorkbenchMarkerResolutionGenerator.WorkbenchResolutionAdapter;
 
@@ -37,7 +37,7 @@ public class WorkbenchResolutionAdaptorTest {
 
   private final WorkbenchMarkerResolutionGenerator mockWmrg = mock(WorkbenchMarkerResolutionGenerator.class);
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     when(mockWmrg.getIssueUtil()).thenReturn(new IssueUtil());
   }
@@ -51,7 +51,7 @@ public class WorkbenchResolutionAdaptorTest {
 
     WorkbenchResolutionAdapter adapter = mockWmrg.new WorkbenchResolutionAdapter(mockIssueResolution, mockMarker);
 
-    assertEquals("Adapter delegates get label to resolution.", TEST_LABEL, adapter.getLabel()); //$NON-NLS-1$
+    assertEquals(TEST_LABEL, adapter.getLabel(), "Adapter delegates get label to resolution."); //$NON-NLS-1$
   }
 
   @Test
@@ -63,7 +63,7 @@ public class WorkbenchResolutionAdaptorTest {
 
     WorkbenchResolutionAdapter adapter = mockWmrg.new WorkbenchResolutionAdapter(mockIssueResolution, mockMarker);
 
-    assertEquals("Adapter delegates get description to resolution.", TEST_DESCRIPTION, adapter.getDescription()); //$NON-NLS-1$
+    assertEquals(TEST_DESCRIPTION, adapter.getDescription(), "Adapter delegates get description to resolution."); //$NON-NLS-1$
   }
 
   @Test
@@ -75,7 +75,7 @@ public class WorkbenchResolutionAdaptorTest {
 
     WorkbenchResolutionAdapter adapter = mockWmrg.new WorkbenchResolutionAdapter(mockIssueResolution, mockMarker);
 
-    assertEquals("Adapter delegates get Image to resolution.", TEST_IMAGE, adapter.getImage()); //$NON-NLS-1$
+    assertEquals(TEST_IMAGE, adapter.getImage(), "Adapter delegates get Image to resolution."); //$NON-NLS-1$
   }
 
   @Test
@@ -95,14 +95,14 @@ public class WorkbenchResolutionAdaptorTest {
 
     WorkbenchResolutionAdapter adapter = mockWmrg.new WorkbenchResolutionAdapter(mockIssueResolution, mockResolutionMarker);
 
-    assertArrayEquals("Adapter findOtherMarkers matching on CODE1.", matchingMarkers, adapter.findOtherMarkers(allMarkers)); //$NON-NLS-1$
+    assertArrayEquals(matchingMarkers, adapter.findOtherMarkers(allMarkers), "Adapter findOtherMarkers matching on CODE1."); //$NON-NLS-1$
 
     when(mockResolutionMarker.getAttribute(Issue.CODE_KEY, null)).thenReturn(CODE2);
     matchingMarkers = new IMarker[] {mockMarker2};
 
     adapter = mockWmrg.new WorkbenchResolutionAdapter(mockIssueResolution, mockResolutionMarker);
 
-    assertArrayEquals("Adapter findOtherMarkers matching on CODE2.", matchingMarkers, adapter.findOtherMarkers(allMarkers)); //$NON-NLS-1$
+    assertArrayEquals(matchingMarkers, adapter.findOtherMarkers(allMarkers), "Adapter findOtherMarkers matching on CODE2."); //$NON-NLS-1$
 
   }
 

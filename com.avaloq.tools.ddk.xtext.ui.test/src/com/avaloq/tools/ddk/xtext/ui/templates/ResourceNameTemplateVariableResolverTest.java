@@ -11,25 +11,29 @@
 
 package com.avaloq.tools.ddk.xtext.ui.templates;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.text.templates.TemplateException;
 import org.eclipse.jface.text.templates.TemplateVariable;
 import org.eclipse.xtext.XtextRuntimeModule;
+import org.eclipse.xtext.testing.extensions.InjectionExtension;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.templates.XtextTemplateContext;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 
-import com.avaloq.tools.ddk.test.core.AfterAll;
-import com.avaloq.tools.ddk.test.core.BeforeAll;
-import com.avaloq.tools.ddk.xtext.test.junit.runners.XtextClassRunner;
 import com.google.common.collect.Iterables;
 import com.google.inject.Guice;
 
 
-@RunWith(XtextClassRunner.class)
+@ExtendWith(InjectionExtension.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class ResourceNameTemplateVariableResolverTest {
 
   private static final Object[] FILE = new Object[] {"file"}; //$NON-NLS-1$
@@ -66,14 +70,14 @@ public class ResourceNameTemplateVariableResolverTest {
     resolver = null;
   }
 
-  @Test(expected = NullPointerException.class)
+  @Test
   public void testResolveValuesWithNullVariable() {
-    resolver.resolveValues(null, mockContext);
+    assertThrows(NullPointerException.class, () -> resolver.resolveValues(null, mockContext));
   }
 
-  @Test(expected = NullPointerException.class)
+  @Test
   public void testResolveValuesWithNullContext() {
-    resolver.resolveValues(Mockito.mock(TemplateVariable.class), null);
+    assertThrows(NullPointerException.class, () -> resolver.resolveValues(Mockito.mock(TemplateVariable.class), null));
   }
 
   @Test
@@ -121,7 +125,7 @@ public class ResourceNameTemplateVariableResolverTest {
     final String[] actualResolvedValues = Iterables.toArray(resolver.resolveValues(variable, mockContext), String.class);
 
     // ASSERT
-    Assert.assertArrayEquals("Resolved values", expectedResolvedValues, actualResolvedValues); //$NON-NLS-1$
+    assertArrayEquals(expectedResolvedValues, actualResolvedValues, "Resolved values"); //$NON-NLS-1$
   }
 
 }

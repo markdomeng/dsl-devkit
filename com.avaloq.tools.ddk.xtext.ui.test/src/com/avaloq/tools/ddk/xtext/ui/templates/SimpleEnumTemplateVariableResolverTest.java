@@ -11,7 +11,8 @@
 
 package com.avaloq.tools.ddk.xtext.ui.templates;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
 import java.util.List;
@@ -19,17 +20,19 @@ import java.util.List;
 import org.eclipse.jface.text.templates.TemplateException;
 import org.eclipse.jface.text.templates.TemplateVariable;
 import org.eclipse.xtext.XtextRuntimeModule;
+import org.eclipse.xtext.testing.extensions.InjectionExtension;
 import org.eclipse.xtext.ui.editor.templates.XtextTemplateContext;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-import com.avaloq.tools.ddk.test.core.AfterAll;
-import com.avaloq.tools.ddk.test.core.BeforeAll;
-import com.avaloq.tools.ddk.xtext.test.junit.runners.XtextClassRunner;
 import com.google.inject.Guice;
 
 
-@RunWith(XtextClassRunner.class)
+@ExtendWith(InjectionExtension.class)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class SimpleEnumTemplateVariableResolverTest {
 
   private static XtextTemplateContext mockContext;
@@ -50,9 +53,9 @@ public class SimpleEnumTemplateVariableResolverTest {
     resolver = null;
   }
 
-  @Test(expected = NullPointerException.class)
+  @Test
   public void testResolveValuesWithNullVariable() {
-    resolver.resolveValues(null, mockContext);
+    assertThrows(NullPointerException.class, () -> resolver.resolveValues(null, mockContext));
   }
 
   @Test
@@ -73,7 +76,7 @@ public class SimpleEnumTemplateVariableResolverTest {
     final List<String> resolvedValues = resolver.resolveValues(variable, mockContext);
 
     // ASSERT
-    assertArrayEquals("Resolved values", values, resolvedValues.toArray(new String[resolvedValues.size()])); //$NON-NLS-1$
+    assertArrayEquals(values, resolvedValues.toArray(new String[resolvedValues.size()]), "Resolved values"); //$NON-NLS-1$
   }
 
 }
